@@ -3,4 +3,11 @@
 <main>
     <h1>Does it work ?</h1>
     <p>It does !</p>
+    <button (click)="testHandler()">Test</button>
+
+    <div>
+        <h3 *ngIf="user?.username">{{user?.username}}</h3>
+        <h3 *ngIf="user?._id">{{user?._id}}</h3>
+    </div>
+
 </main>
