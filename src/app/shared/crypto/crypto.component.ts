@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CryptoService } from 'src/app/crypto.service';
+import { CryptoService } from '../crypto.service';
 
-import { ICrypto } from 'src/app/interfaces/crypto.model';
+import { ICrypto } from '../../interfaces/crypto.model';
 
 
 

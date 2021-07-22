@@ -6,6 +6,7 @@ import { CryptoComponent } from './shared/crypto/crypto.component';
 import { WatchlistComponent } from './shared/watchlist/watchlist.component';
 import { LoginComponent } from './shared/login/login.component';
 import { RegisterComponent } from './shared/register/register.component';
+import { InvalidPageComponent } from './core/invalid-page/invalid-page.component';
 
 
 
@@ -38,6 +39,10 @@ const routes: Routes = [
     {
         path: 'register',
         component: RegisterComponent
+    },
+    {
+        path: '**',
+        component: InvalidPageComponent
     }
 ];
 

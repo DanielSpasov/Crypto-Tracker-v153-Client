@@ -8,6 +8,9 @@ import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
 import { CryptoComponent } from './crypto/crypto.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
+import { CoreModule } from '../core/core.module';
+import { CryptoService } from './crypto.service';
+import { UserService } from './user.service';
 
 
 
@@ -22,7 +25,8 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
     ],
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        CoreModule
     ],
     exports: [
         HomeComponent,
@@ -31,6 +35,10 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
         WatchlistComponent,
         LoginComponent,
         RegisterComponent
+    ],
+    providers: [
+        CryptoService,
+        UserService
     ]
 })
 export class SharedModule { }

@@ -1,7 +1,8 @@
 <main>
     <h1>Does it work ?</h1>
 
-    <table>
+    <app-loader *ngIf="!cryptos"></app-loader>
+    <table *ngIf="cryptos">
 
         <tr>
             <th>#</th>
@@ -15,8 +16,10 @@
             <td>{{i.symbol}}</td>
             <td>{{i.name}}</td>
             <td>${{i.price.toFixed(2)}}</td>
-            <td #24h_change>{{i.percent_change_24h}}%</td>
-            <td>{{i.percent_change_7d}}%</td>
+            <td *ngIf="i.percent_change_24h > 0" style="color: limegreen">{{i.percent_change_24h}}%</td>
+            <td *ngIf="i.percent_change_24h < 0" style="color: red">{{i.percent_change_24h}}%</td>
+            <td *ngIf="i.percent_change_7d > 0" style="color: limegreen">{{i.percent_change_7d}}%</td>
+            <td *ngIf="i.percent_change_7d < 0" style="color: red">{{i.percent_change_7d}}%</td>
         </tr>
 
     </table>

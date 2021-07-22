@@ -5,9 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
-import { UserService } from './user.service';
-import { CryptoService } from './crypto.service';
-
 import { AppComponent } from './app.component';
 
 
@@ -23,16 +20,7 @@ import { AppComponent } from './app.component';
     SharedModule,
     AppRoutingModule
   ],
-  providers: [
-    {
-      provide: UserService,
-      useClass: UserService
-    },
-    {
-      provide: CryptoService,
-      useClass: CryptoService
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
