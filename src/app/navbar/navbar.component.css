@@ -1,11 +1,13 @@
 nav {
-    background: rgb(65, 65, 65);
-    position: fixed;
+    position: relative;
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 70vw;
     height: 50px;
     top: 0px;
+    left: 15vw;
+    right: 15vw;
+    border-bottom: 1px solid rgb(209, 209, 209);
 }
 
 nav ul {
@@ -18,15 +20,25 @@ nav ul {
 }
 
 a {
-    color: white;
+    color: black;
+    font-weight: bold;
     text-decoration: none;
+    font-size: 18px;
     padding: 8px;
 }
 
 a:hover {
-    color: rgb(216, 92, 228);
+    color: rgb(41, 133, 255);
 }
 
 .fa-home {
     font-size: 30px;
+}
+
+@media screen and (max-width: 1350px) {
+    nav {
+        left: 0;
+        right: 0;
+        width: 100vw;
+    }
 }

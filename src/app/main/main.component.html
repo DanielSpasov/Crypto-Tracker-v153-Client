@@ -1,0 +1,24 @@
+<main>
+    <h1>Does it work ?</h1>
+
+    <table>
+
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>24h %</th>
+            <th>7d %</th>
+        </tr>
+
+        <tr *ngFor="let i of cryptos">
+            <td>{{i.symbol}}</td>
+            <td>{{i.name}}</td>
+            <td>${{i.price.toFixed(2)}}</td>
+            <td #24h_change>{{i.percent_change_24h}}%</td>
+            <td>{{i.percent_change_7d}}%</td>
+        </tr>
+
+    </table>
+
+</main>

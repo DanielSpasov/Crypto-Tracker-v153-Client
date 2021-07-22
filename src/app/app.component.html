@@ -1,13 +1,6 @@
 <app-navbar></app-navbar>
 
-<main>
-    <h1>Does it work ?</h1>
-    <p>It does !</p>
-    <button (click)="testHandler()">Test</button>
+<app-main>
+    <router-outlet></router-outlet>
+</app-main>
 
-    <div>
-        <h3 *ngIf="user?.username">{{user?.username}}</h3>
-        <h3 *ngIf="user?._id">{{user?._id}}</h3>
-    </div>
-
-</main>

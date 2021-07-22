@@ -1,0 +1,27 @@
+main {
+    position: relative;
+    text-align: center;
+    top: 51px;
+    width: 70vw;
+    left: 15vw;
+    right: 15vw;
+}
+
+main p,
+main h1 {
+    margin: 0px;
+}
+
+table {
+    background-color: rgb(236, 236, 236);
+    width: 100%;
+}
+
+td,
+th {
+    padding: 20px;
+}
+
+tr {
+    text-align: left;
+}

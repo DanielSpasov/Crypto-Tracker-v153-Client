@@ -4,9 +4,10 @@ import { IUser } from './interfaces/user.model';
 
 @Injectable()
 export class UserService {
-  constructor(private http: HttpClient) {}
+    
+    constructor(private http: HttpClient) { }
 
-  getUser() {
-    return this.http.get<IUser>('http://localhost:4153/user/getOne');
-  }
+    getUser() { return this.http.get<IUser>('http://localhost:4153/user/getOne'); }
+    getUsers() { return this.http.get<Array<IUser>>('http://localhost:4153/user/getAll'); }
+
 }
