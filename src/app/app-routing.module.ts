@@ -1,35 +1,43 @@
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './main/main.component';
+
+import { HomeComponent } from './shared/home/home.component';
+import { NewsComponent } from './shared/news/news.component';
+import { CryptoComponent } from './shared/crypto/crypto.component';
+import { WatchlistComponent } from './shared/watchlist/watchlist.component';
+import { LoginComponent } from './shared/login/login.component';
+import { RegisterComponent } from './shared/register/register.component';
+
+
 
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'home'
+        redirectTo: '/home'
     },
     {
         path: 'home',
-        component: MainComponent
+        component: HomeComponent
     },
     {
         path: 'news',
-        component: MainComponent
+        component: NewsComponent
     },
     {
         path: 'crypto',
-        component: MainComponent
+        component: CryptoComponent
     },
     {
         path: 'watchlist',
-        component: MainComponent
+        component: WatchlistComponent
     },
     {
         path: 'login',
-        component: MainComponent
+        component: LoginComponent
     },
     {
         path: 'register',
-        component: MainComponent
+        component: RegisterComponent
     }
 ];
 

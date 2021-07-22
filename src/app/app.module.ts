@@ -1,25 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { UserService } from './user.service';
 import { CryptoService } from './crypto.service';
-import { MainComponent } from './main/main.component';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    MainComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
+    CoreModule,
+    SharedModule,
+    AppRoutingModule
   ],
   providers: [
     {

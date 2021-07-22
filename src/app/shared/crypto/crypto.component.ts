@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { CryptoService } from '../crypto.service';
-import { ICrypto } from '../interfaces/crypto.model';
+
+import { CryptoService } from 'src/app/crypto.service';
+
+import { ICrypto } from 'src/app/interfaces/crypto.model';
 
 
 
 @Component({
-    selector: 'app-main',
-    templateUrl: './main.component.html',
-    styleUrls: ['./main.component.css']
+  selector: 'app-crypto',
+  templateUrl: './crypto.component.html',
+  styleUrls: ['./crypto.component.css']
 })
-export class MainComponent implements OnInit {
+export class CryptoComponent implements OnInit {
 
-    cryptos!: ICrypto[];
+  cryptos!: ICrypto[];
 
     constructor(public cryptoService: CryptoService) { }
 
