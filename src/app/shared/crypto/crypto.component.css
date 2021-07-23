@@ -17,11 +17,44 @@ table {
     width: 100%;
 }
 
-td,
 th {
     padding: 20px;
 }
 
 tr {
     text-align: left;
+}
+
+td {
+    padding: 8px;
+}
+
+td span {
+    color: gray;
+}
+
+td img {
+    height: 25px;
+    padding: 0px 8px;
+}
+
+#image,
+#rank {
+    width: 50px;
+    text-align: center;
+}
+#name {
+    min-width: 200px;
+}
+#price {
+    min-width: 120px;
+}
+#percent_change_24h,
+#percent_change_7d {
+    min-width: 70px;
+}
+
+.fa-sort-up,
+.fa-sort-down {
+    font-size: 20px;
 }

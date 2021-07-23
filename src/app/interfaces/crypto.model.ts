@@ -1,7 +1,12 @@
 export interface ICrypto {
+    'id': number,
+    'cmc_rank': number,
     'symbol': string,
     'name': string,
-    'price': number,
-    'percent_change_24h': number,
-    'percent_change_7d': number,
+    'quote': { 'USD': {
+        'price': number
+        'percent_change_24h': number,
+        'percent_change_7d': number,
+        'market_cap': number,
+    } },
 }

@@ -7,26 +7,20 @@ import { ICrypto } from '../../interfaces/crypto.model';
 
 
 @Component({
-  selector: 'app-crypto',
-  templateUrl: './crypto.component.html',
-  styleUrls: ['./crypto.component.css']
+    selector: 'app-crypto',
+    templateUrl: './crypto.component.html',
+    styleUrls: ['./crypto.component.css']
 })
 export class CryptoComponent implements OnInit {
 
-  cryptos!: ICrypto[];
+    cryptos!: ICrypto[];
 
     constructor(public cryptoService: CryptoService) { }
 
     ngOnInit(): void {
         this.cryptoService
-            .getCryptos(10)
-            .subscribe(data => {
-                let names = []
-                for (let i of data.data) { names.push(i.s) }
-                this.cryptoService
-                    .getCrypto(names.join(','))
-                    .subscribe(data => { this.cryptos = data.data })
-            })
+            .getTop100Cryptos()
+            .subscribe(res => {this.cryptos = res.data; console.log(res.data)})
     }
 
 }
