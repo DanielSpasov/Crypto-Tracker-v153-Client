@@ -5,8 +5,8 @@ nav {
     width: 70vw;
     height: 50px;
     top: 0px;
-    left: 15vw;
-    right: 15vw;
+    padding-left: 15vw;
+    padding-right: 15vw;
     border-bottom: 1px solid rgb(209, 209, 209);
 }
 
@@ -35,10 +35,10 @@ a:hover {
     font-size: 30px;
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1000px) {
     nav {
-        left: 0;
-        right: 0;
         width: 100vw;
+        padding-left: 0vw;
+        padding-right: 0vw;
     }
 }
