@@ -9,7 +9,7 @@ import { NewsComponent } from './news/news.component';
 import { CryptoComponent } from './crypto/crypto.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { CoreModule } from '../core/core.module';
-import { CryptoService } from './crypto.service';
+import { CryptoService } from './crypto/crypto.service';
 import { UserService } from './user.service';
 
 
