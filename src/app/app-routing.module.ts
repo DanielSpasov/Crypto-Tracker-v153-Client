@@ -25,7 +25,7 @@ const routes: Routes = [
         component: NewsComponent
     },
     {
-        path: 'crypto',
+        path: 'cryptocurrencies',
         component: CryptoComponent
     },
     {
