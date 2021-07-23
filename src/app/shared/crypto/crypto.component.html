@@ -1,29 +1,34 @@
 <main>
-    <h1>Does it work ?</h1>
+    <h1>Top 100 Cryptocurrnecies</h1>
+    <button id="refresh-items" (click)="reloadItems()"><i class="fas fa-redo-alt"></i></button>
 
     <app-loader *ngIf="!cryptos"></app-loader>
     <table *ngIf="cryptos">
 
         <tr>
-            <th>#</th>
-            <th></th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>24h %</th>
-            <th>7d %</th>
-            <th>Market Cap</th>
+            <th id="rank">#</th>
+            <th id="image"></th>
+            <th id="name">Name</th>
+            <th id="price">Price</th>
+            <th id="percent_change_24h">24h %</th>
+            <th id="percent_change_7d">7d %</th>
+            <th id="market_cap">Market Cap</th>
         </tr>
 
         <tr *ngFor="let i of cryptos">
             <td id="rank">{{i.cmc_rank}}</td>
+
             <td id="image">
                 <img [src]="['https://s2.coinmarketcap.com/static/img/coins/64x64/', i.id, '.png'].join('')" alt="Logo">
             </td>
+
             <td id="name">
-                <b>{{i.name}} </b>
+                <a [routerLink]="['/cryptocurrencies/', i.symbol].join('')"><b>{{i.name}} </b></a> 
                 <span>{{i.symbol}}</span>
             </td>
+
             <td id="price">${{i.quote.USD.price.toFixed(2)}}</td>
+
             <td id="percent_change_24h" *ngIf="i.quote.USD.percent_change_24h > 0" style="color: limegreen">
                 <i class="fas fa-sort-up"></i>
                 {{i.quote.USD.percent_change_24h.toFixed(2)}}%
@@ -32,6 +37,7 @@
                 <i class="fas fa-sort-down"></i>
                 {{i.quote.USD.percent_change_24h.toFixed(2)}}%
             </td>
+
             <td id="percent_change_7d" *ngIf="i.quote.USD.percent_change_7d > 0" style="color: limegreen">
                 <i class="fas fa-sort-up"></i>
                 {{i.quote.USD.percent_change_7d.toFixed(2)}}%
@@ -40,6 +46,7 @@
                 <i class="fas fa-sort-down"></i>
                 {{i.quote.USD.percent_change_7d.toFixed(2)}}%
             </td>
+
             <td id="market_cap">${{i.quote.USD.market_cap.toFixed(0)}}</td>
         </tr>
 

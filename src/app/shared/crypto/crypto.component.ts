@@ -17,10 +17,13 @@ export class CryptoComponent implements OnInit {
 
     constructor(public cryptoService: CryptoService) { }
 
-    ngOnInit(): void {
+    loadItems(): void {
         this.cryptoService
             .getTop100Cryptos()
-            .subscribe(res => {this.cryptos = res.data; console.log(res.data)})
+            .subscribe(res => this.cryptos = res.data)
     }
+
+    reloadItems(): void { this.cryptos = []; this.loadItems() }
+    ngOnInit(): void { this.loadItems() }
 
 }
