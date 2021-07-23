@@ -2,11 +2,11 @@ nav {
     position: relative;
     display: flex;
     justify-content: space-between;
-    width: 70vw;
+    width: 70%;
     height: 50px;
+    min-width: 350px;
     top: 0px;
-    padding-left: 15vw;
-    padding-right: 15vw;
+    padding: 0% 15% 0% 15%;
     border-bottom: 1px solid rgb(209, 209, 209);
 }
 
@@ -31,14 +31,41 @@ a:hover {
     color: rgb(41, 133, 255);
 }
 
-.fa-home {
-    font-size: 30px;
+#news-icon,
+#crypto-icon,
+#watchlist-icon,
+#profile { display: none }
+
+.fa-newspaper,
+.fa-bitcoin,
+.fa-star,
+.fa-user,
+.fa-home { font-size: 30px }
+
+
+
+@media screen and (max-width: 1300px) {
+    nav {
+        width: 100%;
+        padding: 0%;
+    }
 }
 
-@media screen and (max-width: 1000px) {
-    nav {
-        width: 100vw;
-        padding-left: 0vw;
-        padding-right: 0vw;
+@media screen and (max-width: 850px) {
+    #news-text,
+    #crypto-text,
+    #watchlist-text,
+    #login,
+    #register,
+    #logout { display: none; }
+
+    #news-icon,
+    #crypto-icon,
+    #watchlist-icon,
+    #profile { display: inline }
+
+    ul:nth-child(1) {
+        width: 100%;
+        justify-content: space-evenly;
     }
 }

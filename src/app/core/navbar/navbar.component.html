@@ -1,14 +1,18 @@
 <nav>
     <ul>
         <li><a routerLink="/home"><i class="fas fa-home"></i></a></li>
-        <li><a routerLink="/news">News</a></li>
-        <li><a routerLink="/cryptocurrencies">Cryptocurrencies</a></li>
-        <li><a routerLink="/watchlist">Watchlist</a></li>
+        <li id="news-text"><a routerLink="/news">News</a></li>
+        <li id="news-icon"><a routerLink="/news"><i class="far fa-newspaper"></i></a></li>
+        <li id="crypto-text"><a routerLink="/cryptocurrencies">Cryptocurrencies</a></li>
+        <li id="crypto-icon"><a routerLink="/cryptocurrencies"><i class="fab fa-bitcoin"></i></a></li>
+        <li id="watchlist-text"><a routerLink="/watchlist">Watchlist</a></li>
+        <li id="watchlist-icon"><a routerLink="/watchlist"><i class="fas fa-star"></i></a></li>
+        <li id="profile" *ngIf="isAuth"><a routerLink="#"><i class="fas fa-user"></i></a></li>
     </ul>
 
     <ul>
-        <li *ngIf="!isAuth"><a routerLink="/login">Login</a></li>
-        <li *ngIf="!isAuth"><a routerLink="/register">Register</a></li>
-        <li *ngIf="isAuth"><a routerLink="/logout">Logout</a></li>
+        <li id="login" *ngIf="!isAuth"><a routerLink="/login">Login</a></li>
+        <li id="register" *ngIf="!isAuth"><a routerLink="/register">Register</a></li>
+        <li id="logout" *ngIf="isAuth"><a routerLink="/logout">Logout</a></li>
     </ul>
 </nav>
