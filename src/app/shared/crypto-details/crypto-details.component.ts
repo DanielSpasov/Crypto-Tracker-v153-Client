@@ -32,5 +32,8 @@ export class CryptoDetailsComponent implements OnInit {
     }
 
     switchTags(): void { this.tags = !this.tags }
+    
+    addToWatchlist(crypto: string): void { this.cryptoService.addToWatchlist(crypto).subscribe(data => console.log(data)) }
+    removeFromWatchlist(crypto: string): void { this.cryptoService.removeFromWatchlist(crypto).subscribe(data => console.log(data)) }
 
 }

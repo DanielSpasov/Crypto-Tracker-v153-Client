@@ -24,6 +24,13 @@ header {
     border-radius: 15px;
     color: gray;
 }
+#name button {
+    border: none;
+    height: 40px;
+}
+
+.fa-heart { font-size: 25px }
+.fa-heart:hover { color: red }
 
 #more-tags,
 #less-tags {
