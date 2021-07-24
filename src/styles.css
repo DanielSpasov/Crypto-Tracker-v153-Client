@@ -11,6 +11,15 @@ body {
     margin: 0px;
 }
 
+main {
+    background-color: rgb(236, 236, 236);
+}
+
+main h1 {
+    margin: 0px;
+    padding: 8px;
+}
+
 /* SCROLLBAR */
 
 ::-webkit-scrollbar {
