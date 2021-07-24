@@ -8,7 +8,8 @@
                     alt="Logo">
                 <h2>{{crypto.name}} <span>{{crypto.symbol}}</span></h2>
                 <button *ngIf="true" (click)="addToWatchlist(crypto.symbol)"><i class="far fa-heart"></i></button>
-                <button *ngIf="false" (click)="removeFromWatchlist(crypto.symbol)" style="color: red"><i class="fas fa-heart"></i></button>
+                <button *ngIf="false" (click)="removeFromWatchlist(crypto.symbol)" style="color: red"><i
+                        class="fas fa-heart"></i></button>
             </div>
 
             <div *ngIf="crypto.tags.length">
@@ -17,7 +18,7 @@
                     <span>{{crypto.tags[0]}}</span>
                     <button (click)="switchTags()">Show all tags</button>
                 </div>
-                <div id="more-tags" *ngIf="tags" >
+                <div id="more-tags" *ngIf="tags">
                     <span *ngFor="let tag of crypto.tags">{{tag}}</span>
                     <button (click)="switchTags()">Hide tags</button>
                 </div>
@@ -36,6 +37,26 @@
                     {{crypto.quote.USD.percent_change_24h.toFixed(2)}}%
                 </span>
             </h3>
+        </div>
+
+        <div id="calculator">
+            <div id="currency">
+                <img [src]="['https://s2.coinmarketcap.com/static/img/coins/64x64/', crypto.id, '.png'].join('')"
+                    alt="Logo">
+                <div>
+                    <span>{{crypto.symbol}}</span>
+                    <span>{{crypto.name}}</span>
+                </div>
+                <input #currency id="cryptocurrency" type="text" dir="rtl" (keyup)="getValue(currency.value, 'cryptocurrency')">
+            </div>
+            <div id="usd">
+                <img src="https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/USD.svg" alt="USD">
+                <div>
+                    <span>USD</span>
+                    <span>United States Dollar</span>
+                </div>
+                <input #usd id="usd" type="text" dir="rtl" (keyup)="getValue(usd.value, 'usd')">
+            </div>
         </div>
 
     </header>
@@ -64,7 +85,7 @@
                 <span>Max Supply:</span>
                 <span>{{crypto.max_supply.toLocaleString()}}</span>
             </div>
-            
+
             <div *ngIf="crypto.total_supply">
                 <span>Total Supply:</span>
                 <span>{{crypto.total_supply.toLocaleString()}}</span>
