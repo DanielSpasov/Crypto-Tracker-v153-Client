@@ -15,9 +15,9 @@ export class CryptoComponent implements OnInit {
 
     cryptos!: ICrypto[];
 
-    constructor(public cryptoService: CryptoService) { }
+    constructor(private cryptoService: CryptoService) { }
 
-    loadItems(): void { this.cryptoService.getTop100Cryptos().subscribe(res => this.cryptos = res.data) }
+    loadItems(): void { this.cryptoService.getTop100().subscribe(res => this.cryptos = res.data) }
     reloadItems(): void { this.cryptos = []; this.loadItems() }
     ngOnInit(): void { this.loadItems() }
 

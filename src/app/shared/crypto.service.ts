@@ -8,7 +8,8 @@ export class CryptoService {
 
     constructor(private http: HttpClient) { }
 
-    getTop100Cryptos() { return this.http.get<any>(`http://localhost:4153/crypto/getTop100`) }
+    getOne(crypto: string) { return this.http.get<any>(`http://localhost:4153/crypto/getOne?crypto=${crypto}`) }
+    getTop100() { return this.http.get<any>(`http://localhost:4153/crypto/getTop100`) }
     addToWatchlist(crypto: string) { return this.http.get<any>(`http://localhost:4153/crypto/addToWatchlist?crypto=${crypto}`) }
     removeFromWatchlist(crypto: string) { return this.http.get<any>(`http://localhost:4153/crypto/removeFromWatchlist?crypto=${crypto}`) }
 

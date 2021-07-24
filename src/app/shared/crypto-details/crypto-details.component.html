@@ -1,0 +1,49 @@
+<main *ngIf="crypto">
+
+    <header>
+
+        <div id="name">
+            <div>
+                <img [src]="['https://s2.coinmarketcap.com/static/img/coins/64x64/', crypto.id, '.png'].join('')"
+                    alt="Logo">
+                <h2>{{crypto.name}} <span>{{crypto.symbol}}</span></h2>
+            </div>
+
+            <div *ngIf="crypto.tags.length">
+                <h5>Tags:</h5>
+                <div id="less-tags" *ngIf="!tags">
+                    <span>{{crypto.tags[0]}}</span>
+                    <button (click)="switchTags()">Show all tags</button>
+                </div>
+                <div id="more-tags" *ngIf="tags" >
+                    <span *ngFor="let tag of crypto.tags">{{tag}}</span>
+                    <button (click)="switchTags()">Hide tags</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="pricing">
+            <h5>{{crypto.name}} (<span>{{crypto.symbol}}</span>)</h5>
+            <h3>${{crypto.quote.USD.price.toFixed(2)}}
+                <span *ngIf="crypto.quote.USD.percent_change_24h > 0" style="background: rgb(49, 224, 49)">
+                    <i class="fas fa-sort-up"></i>
+                    {{crypto.quote.USD.percent_change_24h.toFixed(2)}}%
+                </span>
+                <span *ngIf="crypto.quote.USD.percent_change_24h <= 0" style="background: red">
+                    <i class="fas fa-sort-down"></i>
+                    {{crypto.quote.USD.percent_change_24h.toFixed(2)}}%
+                </span>
+            </h3>
+        </div>
+
+    </header>
+
+    <div id="main">
+
+    </div>
+
+</main>
+
+<main *ngIf="!crypto">
+    <app-loader></app-loader>
+</main>

@@ -7,6 +7,7 @@ import { WatchlistComponent } from './shared/watchlist/watchlist.component';
 import { LoginComponent } from './shared/login/login.component';
 import { RegisterComponent } from './shared/register/register.component';
 import { InvalidPageComponent } from './core/invalid-page/invalid-page.component';
+import { CryptoDetailsComponent } from './shared/crypto-details/crypto-details.component';
 
 
 
@@ -27,6 +28,10 @@ const routes: Routes = [
     {
         path: 'cryptocurrencies',
         component: CryptoComponent
+    },
+    {
+        path: 'cryptocurrencies/:crypto',
+        component: CryptoDetailsComponent
     },
     {
         path: 'watchlist',

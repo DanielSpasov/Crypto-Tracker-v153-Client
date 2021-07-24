@@ -1,15 +1,9 @@
 main {
-    background-color: rgb(236, 236, 236);
     position: relative;
     text-align: center;
     min-width: 350px;
     width: 70%;
     padding: 0% 15% 0% 15%;
-}
-
-main h1 {
-    margin: 0px;
-    padding: 8px;
 }
 
 a {

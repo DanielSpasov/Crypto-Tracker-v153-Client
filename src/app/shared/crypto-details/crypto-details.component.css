@@ -1,0 +1,72 @@
+header {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+#name {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+#name div:nth-child(1) {
+    display: flex;
+    align-items: center;
+}
+#name img {
+    height: 50px;
+    padding-right: 10px;
+}
+#name h2 span {
+    background-color: rgb(216, 216, 216);
+    padding: 8px;
+    border-radius: 15px;
+    color: gray;
+}
+
+#more-tags,
+#less-tags {
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+#more-tags span,
+#less-tags span {
+    padding: 6px;
+    margin: 4px;
+    font-size: 12px;
+    background-color: lightgray;
+    border-radius: 5px;
+}
+#more-tags button,
+#less-tags button {
+    padding: 6px;
+    margin: 4px;
+    font-size: 12px;
+    background-color: lightgray;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+}
+#more-tags button:hover,
+#less-tags button:hover { color: rgb(41, 133, 255) }
+
+#pricing {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+}
+#pricing h5,
+#pricing h3 {
+    margin: 0px;
+    padding: 8px;
+}
+#pricing h3 span {
+    border-radius: 10px;
+    padding: 5px;
+    margin: 8px;
+    color: white;
+    font-weight: normal;
+}

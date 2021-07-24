@@ -9,8 +9,9 @@ import { NewsComponent } from './news/news.component';
 import { CryptoComponent } from './crypto/crypto.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { CoreModule } from '../core/core.module';
-import { CryptoService } from './crypto/crypto.service';
+import { CryptoService } from './crypto.service';
 import { UserService } from './user.service';
+import { CryptoDetailsComponent } from './crypto-details/crypto-details.component';
 
 
 
@@ -21,7 +22,8 @@ import { UserService } from './user.service';
         CryptoComponent,
         WatchlistComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        CryptoDetailsComponent
     ],
     imports: [
         CommonModule,
@@ -34,7 +36,8 @@ import { UserService } from './user.service';
         CryptoComponent,
         WatchlistComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        CryptoDetailsComponent
     ],
     providers: [
         CryptoService,
