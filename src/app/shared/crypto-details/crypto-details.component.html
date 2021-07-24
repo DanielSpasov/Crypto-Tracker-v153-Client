@@ -41,7 +41,36 @@
     </header>
 
     <div id="main">
-        
+
+        <div id="market_cap">
+            <h4>Market Cap</h4>
+            <p>$ {{crypto.quote.USD.market_cap.toLocaleString()}}</p>
+        </div>
+
+        <div id="volume">
+            <h4>Volume 24h</h4>
+            <p>$ {{crypto.quote.USD.volume_24h.toLocaleString()}}</p>
+            <div *ngIf="crypto.quote.USD.volume_24h && crypto.quote.USD.market_cap">
+                <span>Volume / Market Cap:</span>
+                <span>{{(crypto.quote.USD.volume_24h / crypto.quote.USD.market_cap).toLocaleString()}}</span>
+            </div>
+        </div>
+
+        <div id="circulating_capacity">
+            <h4>Circulating Capacity</h4>
+            <p>{{crypto.circulating_supply.toLocaleString()}} {{crypto.symbol}}</p>
+
+            <div *ngIf="crypto.max_supply">
+                <span>Max Supply:</span>
+                <span>{{crypto.max_supply.toLocaleString()}}</span>
+            </div>
+            
+            <div *ngIf="crypto.total_supply">
+                <span>Total Supply:</span>
+                <span>{{crypto.total_supply.toLocaleString()}}</span>
+            </div>
+        </div>
+
     </div>
 
     <div id="chart">

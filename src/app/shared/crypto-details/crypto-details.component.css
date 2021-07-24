@@ -24,7 +24,7 @@ header {
     border-radius: 15px;
     color: gray;
 }
-#name button {
+#name div:nth-child(1) button {
     border: none;
     height: 40px;
 }
@@ -77,3 +77,27 @@ header {
     color: white;
     font-weight: normal;
 }
+
+#main {
+    display: flex;
+    justify-content: space-evenly;
+    border-top: 1px solid lightgray;
+}
+
+#main div {
+    border-left: 1px solid lightgray;
+    width: 33%;
+    margin: 10px;
+}
+
+#main div:nth-child(1) { border-left: none }
+
+#volume div,
+#circulating_capacity div {
+    border: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+#volume div span,
+#circulating_capacity div span { color: gray }
