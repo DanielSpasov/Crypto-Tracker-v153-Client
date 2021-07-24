@@ -12,6 +12,7 @@ import { CoreModule } from '../core/core.module';
 import { CryptoService } from './crypto.service';
 import { UserService } from './user.service';
 import { CryptoDetailsComponent } from './crypto-details/crypto-details.component';
+import { CryptoCalculatorComponent } from './crypto-calculator/crypto-calculator.component';
 
 
 
@@ -23,7 +24,8 @@ import { CryptoDetailsComponent } from './crypto-details/crypto-details.componen
         WatchlistComponent,
         LoginComponent,
         RegisterComponent,
-        CryptoDetailsComponent
+        CryptoDetailsComponent,
+        CryptoCalculatorComponent
     ],
     imports: [
         CommonModule,
@@ -37,7 +39,8 @@ import { CryptoDetailsComponent } from './crypto-details/crypto-details.componen
         WatchlistComponent,
         LoginComponent,
         RegisterComponent,
-        CryptoDetailsComponent
+        CryptoDetailsComponent,
+        CryptoCalculatorComponent
     ],
     providers: [
         CryptoService,

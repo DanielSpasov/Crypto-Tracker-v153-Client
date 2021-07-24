@@ -39,25 +39,7 @@
             </h3>
         </div>
 
-        <div id="calculator">
-            <div id="currency">
-                <img [src]="['https://s2.coinmarketcap.com/static/img/coins/64x64/', crypto.id, '.png'].join('')"
-                    alt="Logo">
-                <div>
-                    <span>{{crypto.symbol}}</span>
-                    <span>{{crypto.name}}</span>
-                </div>
-                <input #currency id="cryptocurrency" type="text" dir="rtl" (keyup)="getValue(currency.value, 'cryptocurrency')">
-            </div>
-            <div id="usd">
-                <img src="https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/USD.svg" alt="USD">
-                <div>
-                    <span>USD</span>
-                    <span>United States Dollar</span>
-                </div>
-                <input #usd id="usd" type="text" dir="rtl" (keyup)="getValue(usd.value, 'usd')">
-            </div>
-        </div>
+        <app-crypto-calculator [crypto]="crypto" id="calculator"></app-crypto-calculator>
 
     </header>
 

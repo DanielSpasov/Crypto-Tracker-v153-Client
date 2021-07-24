@@ -36,8 +36,4 @@ export class CryptoDetailsComponent implements OnInit {
     addToWatchlist(crypto: string): void { this.cryptoService.addToWatchlist(crypto).subscribe(data => console.log(data)) }
     removeFromWatchlist(crypto: string): void { this.cryptoService.removeFromWatchlist(crypto).subscribe(data => console.log(data)) }
 
-    getValue(num: string, field: string): void {
-        const type = field === 'usd' ? 'cryptocurrency' : 'usd'
-    } 
-
 }
