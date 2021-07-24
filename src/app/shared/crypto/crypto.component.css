@@ -46,6 +46,15 @@ td img {
     padding: 0px 8px;
 }
 
+td button {
+    height: 30px;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.fa-heart { font-size: 18px;}
+
 .fa-redo-alt {
     color: black;
     font-size: 20px;
@@ -63,7 +72,7 @@ td img {
 
 #image,
 #rank {
-    width: 50px;
+    width: 30px;
     text-align: center;
 }
 #name {

@@ -6,6 +6,7 @@
     <table *ngIf="cryptos">
 
         <tr>
+            <th></th>
             <th id="rank">#</th>
             <th id="image"></th>
             <th id="name">Name</th>
@@ -16,6 +17,10 @@
         </tr>
 
         <tr *ngFor="let i of cryptos">
+
+            <td *ngIf="true"><button (click)="addToWatchlist(i.symbol)"><i class="far fa-heart"></i></button></td>
+            <td *ngIf="false"><button (click)="removeFromWatchlist(i.symbol)"><i class="fas fa-heart"></i></button></td>
+
             <td id="rank">{{i.cmc_rank}}</td>
 
             <td id="image">
@@ -23,7 +28,7 @@
             </td>
 
             <td id="name">
-                <a [routerLink]="['/cryptocurrencies/', i.symbol].join('')"><b>{{i.name}} </b></a> 
+                <a [routerLink]="['/cryptocurrencies/', i.symbol].join('')"><b>{{i.name}} </b></a>
                 <span>{{i.symbol}}</span>
             </td>
 

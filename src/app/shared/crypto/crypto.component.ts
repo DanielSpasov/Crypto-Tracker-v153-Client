@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CryptoService } from './crypto.service';
+import { CryptoService } from '../crypto.service';
 
 import { ICrypto } from '../../interfaces/crypto.model';
 
@@ -17,13 +17,11 @@ export class CryptoComponent implements OnInit {
 
     constructor(public cryptoService: CryptoService) { }
 
-    loadItems(): void {
-        this.cryptoService
-            .getTop100Cryptos()
-            .subscribe(res => this.cryptos = res.data)
-    }
-
+    loadItems(): void { this.cryptoService.getTop100Cryptos().subscribe(res => this.cryptos = res.data) }
     reloadItems(): void { this.cryptos = []; this.loadItems() }
     ngOnInit(): void { this.loadItems() }
+
+    addToWatchlist(crypto: string): void { this.cryptoService.addToWatchlist(crypto).subscribe(data => console.log(data)) }
+    removeFromWatchlist(crypto: string): void { this.cryptoService.removeFromWatchlist(crypto).subscribe(data => console.log(data)) }
 
 }
