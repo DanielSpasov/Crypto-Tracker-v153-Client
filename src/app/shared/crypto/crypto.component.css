@@ -18,12 +18,16 @@ table {
     border-spacing: 0;
 }
 
-th {
-    padding: 20px;
-}
+th { padding: 20px }
+tr { text-align: left }
 
-tr {
-    text-align: left;
+tr:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+tr:hover:nth-child(1) {
+    background-color: transparent;
+    cursor: default;
 }
 
 td {
@@ -31,9 +35,7 @@ td {
     padding: 12px;
 }
 
-td span {
-    color: gray;
-}
+td span { color: gray }
 
 td img {
     height: 25px;
@@ -45,9 +47,11 @@ td button {
     width: 30px;
     border: none;
     cursor: pointer;
+    background: transparent;
 }
 
-.fa-heart { font-size: 18px;}
+.fa-heart { font-size: 18px }
+.fa-heart:hover { color: red }
 
 .fa-redo-alt {
     color: black;

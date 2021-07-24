@@ -27,8 +27,8 @@
                 <img [src]="['https://s2.coinmarketcap.com/static/img/coins/64x64/', i.id, '.png'].join('')" alt="Logo">
             </td>
 
-            <td id="name">
-                <a [routerLink]="['/cryptocurrencies/', i.symbol].join('')"><b>{{i.name}} </b></a>
+            <td id="name" [routerLink]="['/cryptocurrencies/', i.symbol].join('')">
+                <a><b>{{i.name}} </b></a>
                 <span>{{i.symbol}}</span>
             </td>
 
