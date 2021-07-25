@@ -39,7 +39,12 @@
             </h3>
         </div>
 
-        <app-crypto-calculator [crypto]="crypto" id="calculator"></app-crypto-calculator>
+        <div id="toggle_calc">
+            <button *ngIf="!calcIsOpen" (click)="toggleCalc()">Open Calculator</button>
+            <button *ngIf="calcIsOpen" (click)="toggleCalc()">Close Calculator</button>
+
+            <app-crypto-calculator *ngIf="calcIsOpen" [crypto]="crypto" id="calculator"></app-crypto-calculator>
+        </div>
 
     </header>
 

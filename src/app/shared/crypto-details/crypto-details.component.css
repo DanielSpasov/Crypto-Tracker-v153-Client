@@ -60,13 +60,6 @@ header {
 #more-tags button:hover,
 #less-tags button:hover { color: rgb(41, 133, 255) }
 
-#calculator {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 33%;
-}
-
 #pricing {
     display: flex;
     justify-content: center;
@@ -85,6 +78,20 @@ header {
     color: white;
     font-weight: normal;
 }
+
+#toggle_calc { width: 33% }
+#toggle_calc button {
+    background: rgb(41, 133, 255);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    font-family: 'Rubik';
+    font-size: 16px;
+    padding: 20px;
+}
+
+#toggle_calc button:hover { color:black }
 
 #main {
     display: flex;

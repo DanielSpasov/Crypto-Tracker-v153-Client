@@ -17,6 +17,7 @@ export class CryptoDetailsComponent implements OnInit {
     crypto!: ICrypto;
 
     tags!: boolean;
+    calcIsOpen!: boolean;
 
     constructor(private router: Router, private cryptoService: CryptoService) { }
 
@@ -29,9 +30,11 @@ export class CryptoDetailsComponent implements OnInit {
             .subscribe(data => this.crypto = data.data[this.currentCurrencySymbol]);
 
         this.tags = false;
+        this.calcIsOpen = false;
     }
 
     switchTags(): void { this.tags = !this.tags }
+    toggleCalc(): void { this.calcIsOpen = !this.calcIsOpen }
 
     addToWatchlist(crypto: string): void { this.cryptoService.addToWatchlist(crypto).subscribe(data => console.log(data)) }
     removeFromWatchlist(crypto: string): void { this.cryptoService.removeFromWatchlist(crypto).subscribe(data => console.log(data)) }
