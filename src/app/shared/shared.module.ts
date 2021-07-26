@@ -13,6 +13,7 @@ import { CryptoService } from './crypto.service';
 import { UserService } from './user.service';
 import { CryptoDetailsComponent } from './crypto-details/crypto-details.component';
 import { CryptoCalculatorComponent } from './crypto-calculator/crypto-calculator.component';
+import { TopFiveCryptosComponent } from './top-five-cryptos/top-five-cryptos.component';
 
 
 
@@ -25,7 +26,8 @@ import { CryptoCalculatorComponent } from './crypto-calculator/crypto-calculator
         LoginComponent,
         RegisterComponent,
         CryptoDetailsComponent,
-        CryptoCalculatorComponent
+        CryptoCalculatorComponent,
+        TopFiveCryptosComponent
     ],
     imports: [
         CommonModule,
@@ -40,7 +42,8 @@ import { CryptoCalculatorComponent } from './crypto-calculator/crypto-calculator
         LoginComponent,
         RegisterComponent,
         CryptoDetailsComponent,
-        CryptoCalculatorComponent
+        CryptoCalculatorComponent,
+        TopFiveCryptosComponent
     ],
     providers: [
         CryptoService,

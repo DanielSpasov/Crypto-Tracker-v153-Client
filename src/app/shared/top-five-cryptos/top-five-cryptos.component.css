@@ -1,0 +1,28 @@
+h3 {
+    padding: 40px;
+    border-top: 1px solid lightgray;
+}
+
+table {
+    width: 70%;
+    margin: 0% 15% 0% 15%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+th { padding: 16px }
+th button:hover { color: rgb(41, 133, 255) }
+
+a:hover { color: rgb(41, 133, 255) }
+
+tr { text-align: left }
+tr:hover { cursor: pointer }
+tr:hover:nth-child(1) { cursor: default }
+
+td {
+    border-top: 1px solid lightgray;
+    padding: 6px;
+}
+
+td span { color: gray }
+td img { height: 25px }

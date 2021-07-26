@@ -39,16 +39,7 @@ export class CryptoComponent implements OnInit {
     removeFromWatchlist(crypto: string): void { this.cryptoService.removeFromWatchlist(crypto).subscribe(data => console.log(data)) }
 
     sortItems(criteria: string): void {
-        if (criteria === 'name') {
-            if (this.sorting[criteria]) this.cryptos.sort((a, b) => b.name.localeCompare(a.name));
-            if (!this.sorting[criteria]) this.cryptos.sort((a, b) => a.name.localeCompare(b.name));
-        } else if (criteria === 'cmc_rank') {
-            if (this.sorting[criteria]) this.cryptos.sort((a, b) => b.cmc_rank - a.cmc_rank);
-            if (!this.sorting[criteria]) this.cryptos.sort((a, b) => a.cmc_rank - b.cmc_rank);
-        } else {
-            if (this.sorting[criteria]) this.cryptos.sort((a, b) => a.quote.USD[criteria] - b.quote.USD[criteria]);
-            if (!this.sorting[criteria]) this.cryptos.sort((a, b) => b.quote.USD[criteria] - a.quote.USD[criteria]);
-        }
+        this.cryptoService.sortItems(this.cryptos, this.sorting[criteria], criteria)
         this.sorting[criteria] = !this.sorting[criteria]
     }
 }
