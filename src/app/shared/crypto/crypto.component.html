@@ -1,19 +1,19 @@
 <main>
     <h1>Top 100 Cryptocurrnecies</h1>
-    <button id="refresh-items" (click)="reloadItems()"><i class="fas fa-redo-alt"></i></button>
+    <button id="refresh-items" (click)="loadItems()"><i class="fas fa-redo-alt"></i></button>
 
     <app-loader *ngIf="!cryptos"></app-loader>
     <table *ngIf="cryptos">
 
         <tr>
             <th></th>
-            <th id="rank">#</th>
+            <th id="rank"><button (click)="sortItems('cmc_rank')"><i class="fas fa-sort"></i></button>#</th>
             <th id="image"></th>
-            <th id="name">Name</th>
-            <th id="price">Price</th>
-            <th id="percent_change_24h">24h %</th>
-            <th id="percent_change_7d">7d %</th>
-            <th id="market_cap">Market Cap</th>
+            <th id="name"><button (click)="sortItems('name')"><i class="fas fa-sort"></i></button>Name</th>
+            <th id="price"><button (click)="sortItems('price')"><i class="fas fa-sort"></i></button>Price</th>
+            <th id="percent_change_24h"><button (click)="sortItems('percent_change_24h')"><i class="fas fa-sort"></i></button>24h %</th>
+            <th id="percent_change_7d"><button (click)="sortItems('percent_change_7d')"><i class="fas fa-sort"></i></button>7d %</th>
+            <th id="market_cap"><button (click)="sortItems('market_cap')"><i class="fas fa-sort"></i></button>Market Cap</th>
         </tr>
 
         <tr *ngFor="let i of cryptos">

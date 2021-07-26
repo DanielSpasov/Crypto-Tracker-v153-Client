@@ -7,18 +7,15 @@ html {
     font-family: 'Rubik', sans-serif;
 }
 
-body {
-    margin: 0px;
-}
-
-main {
-    background-color: rgb(236, 236, 236);
-}
+body { margin: 0px }
+main { background-color: rgb(236, 236, 236) }
 
 main h1 {
     margin: 0px;
     padding: 8px;
 }
+
+button { font-family: 'Rubik' }
 
 /* SCROLLBAR */
 
@@ -32,6 +29,4 @@ main h1 {
     border-radius: 10px;
 }
 
-::-webkit-scrollbar-corner {
-    background: transparent;
-}
+::-webkit-scrollbar-corner { background: transparent }
