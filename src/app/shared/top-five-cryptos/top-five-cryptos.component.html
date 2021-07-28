@@ -2,7 +2,7 @@
 <h3 *ngIf="cryptos">{{title}}</h3>
 
 <table *ngIf="cryptos">
-    
+
     <tr>
         <th></th>
         <th>Name</th>
@@ -25,21 +25,13 @@
 
         <td>${{i.quote.USD.price.toLocaleString()}}</td>
 
-        <td *ngIf="i.quote.USD.percent_change_24h > 0" style="color: limegreen">
+        <td [ngStyle]="{color: i.quote.USD.percent_change_24h > 0 ? 'limegreen' : 'red'}">
             <i class="fas fa-sort-up"></i>
-            {{i.quote.USD.percent_change_24h.toFixed(2)}}%
-        </td>
-        <td *ngIf="i.quote.USD.percent_change_24h <= 0" style="color: red">
-            <i class="fas fa-sort-down"></i>
             {{i.quote.USD.percent_change_24h.toFixed(2)}}%
         </td>
 
-        <td *ngIf="i.quote.USD.percent_change_7d > 0" style="color: limegreen">
+        <td [ngStyle]="{color: i.quote.USD.percent_change_7d > 0 ? 'limegreen' : 'red'}">
             <i class="fas fa-sort-up"></i>
-            {{i.quote.USD.percent_change_7d.toFixed(2)}}%
-        </td>
-        <td *ngIf="i.quote.USD.percent_change_7d <= 0" style="color: red">
-            <i class="fas fa-sort-down"></i>
             {{i.quote.USD.percent_change_7d.toFixed(2)}}%
         </td>
 
