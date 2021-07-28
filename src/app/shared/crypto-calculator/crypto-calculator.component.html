@@ -1,13 +1,13 @@
-<div id="calculator">
+<form id="calculator" #form="ngForm" >
     <div id="currency">
         <img [src]="['https://s2.coinmarketcap.com/static/img/coins/64x64/', crypto.id, '.png'].join('')" alt="Logo">
         <span>{{crypto.symbol}}</span>
-        <input #currency id="cryptocurrency" type="text" dir="rtl" (keyup)="getValue(currency.value, 'cryptocurrency')">
+        <input type="number" name="cryptocurrency" dir="rtl" [(ngModel)]="value">
     </div>
-    
+
     <div id="usd">
         <img src="https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/USD.svg" alt="USD">
         <span>USD</span>
-        <input #usd id="usd" type="text" dir="rtl" (keyup)="getValue(usd.value, 'usd')">
+        <input type="number" name="currency" dir="rtl" [value]="value * crypto.quote.USD.price" disabled>
     </div>
-</div>
+</form>
