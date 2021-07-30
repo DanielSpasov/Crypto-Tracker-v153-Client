@@ -1,3 +1,34 @@
 <main>
-    <h1>register works!</h1>
+
+    <h1>Create an account</h1>
+
+    <form #registerForm="ngForm" (ngSubmit)="registerSubmit(registerForm)">
+
+        <ul *ngIf="emailInput.touched && emailInput.invalid" class="errors">
+            <li *ngIf="emailInput.errors?.required">Email is Required</li>
+            <li *ngIf="emailInput.errors?.isEmail">Email is Invalid</li>
+        </ul>
+        <input type="email" name="email" id="email" placeholder="Email" autocomplete="email" appIsEmail #emailInput="ngModel"
+            ngModel required email>
+
+        <ul *ngIf="passwordInput.invalid && passwordInput.touched" class="errors">
+            <li *ngIf="passwordInput.errors?.required">Password is Required</li>
+            <li *ngIf="passwordInput.errors?.minlength">Password must be at least 6 characters long</li>
+        </ul>
+        <input type="password" name="password" id="password" placeholder="Password" autocomplete="new-password"
+            #passwordInput="ngModel" ngModel appSameValue required [minlength]="6">
+
+        <ul *ngIf="rePasswordInput.invalid && rePasswordInput.touched" class="errors">
+            <li *ngIf="rePasswordInput.errors?.required">Repeat Password is Required</li>
+            <li *ngIf="rePasswordInput.errors?.minlength">Repeat Password must be at least 6 characters long</li>
+            <li *ngIf="rePasswordInput.errors?.sameValue">Passwords doesn't match</li>
+        </ul>
+        <input type="password" name="rePassword" id="rePassword" placeholder="Repeat Password"
+            autocomplete="new-password" #rePasswordInput="ngModel" ngModel appSameValue required [minlength]="6">
+
+        <input type="text" name="username" id="username" placeholder="Username" ngModel>
+
+        <button>Submit</button>
+    </form>
+
 </main>

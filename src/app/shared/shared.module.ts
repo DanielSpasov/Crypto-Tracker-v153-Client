@@ -7,6 +7,9 @@ import { CoreModule } from '../core/core.module';
 import { CryptoService } from './crypto.service';
 import { UserService } from './user.service';
 
+import { SameValueDirective } from './same-value.directive';
+import { IsEmailDirective } from './is-email.directive';
+
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
@@ -30,7 +33,9 @@ import { FormsModule } from '@angular/forms';
         RegisterComponent,
         CryptoDetailsComponent,
         CryptoCalculatorComponent,
-        TopFiveCryptosComponent
+        TopFiveCryptosComponent,
+        SameValueDirective,
+        IsEmailDirective
     ],
     imports: [
         CommonModule,
