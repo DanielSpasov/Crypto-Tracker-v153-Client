@@ -23,15 +23,16 @@ export class RegisterComponent {
             email: form.controls.email.value,
             password: form.controls.password.value,
             rePassword: form.controls.rePassword.value
-        }
+        };
 
         this.userService
             .register(userData)
             .subscribe(
-                data => console.log(data),
+                data => {
+                    console.log(data);
+                    this.router.navigate(['/login']);
+                },
                 err => console.log(err.error.message)
             )
-        // this.router.navigate(['/login'])
     }
-
 }
