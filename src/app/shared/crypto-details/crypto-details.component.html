@@ -29,7 +29,8 @@
             <h5>{{crypto.name}} (<span>{{crypto.symbol}}</span>)</h5>
             <h3>${{crypto.quote.USD.price.toFixed(2)}}
                 <span [ngStyle]="{background: crypto.quote.USD.percent_change_24h > 0 ? 'rgb(49, 224, 49)' : 'red' }">
-                    <i class="fas fa-sort-up"></i>
+                    <i class="fas fa-sort-up" *ngIf="crypto.quote.USD.percent_change_24h > 0"></i>
+                    <i class="fas fa-sort-down" *ngIf="crypto.quote.USD.percent_change_24h <= 0"></i>
                     {{crypto.quote.USD.percent_change_24h.toFixed(2)}}%
                 </span>
             </h3>

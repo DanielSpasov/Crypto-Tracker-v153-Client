@@ -26,12 +26,14 @@
         <td>${{i.quote.USD.price.toLocaleString()}}</td>
 
         <td [ngStyle]="{color: i.quote.USD.percent_change_24h > 0 ? 'limegreen' : 'red'}">
-            <i class="fas fa-sort-up"></i>
+            <i class="fas fa-sort-up" *ngIf="i.quote.USD.percent_change_24h > 0"></i>
+            <i class="fas fa-sort-down" *ngIf="i.quote.USD.percent_change_24h <= 0"></i>
             {{i.quote.USD.percent_change_24h.toFixed(2)}}%
         </td>
 
         <td [ngStyle]="{color: i.quote.USD.percent_change_7d > 0 ? 'limegreen' : 'red'}">
-            <i class="fas fa-sort-up"></i>
+            <i class="fas fa-sort-up" *ngIf="i.quote.USD.percent_change_7d > 0"></i>
+            <i class="fas fa-sort-down" *ngIf="i.quote.USD.percent_change_7d <= 0"></i>
             {{i.quote.USD.percent_change_7d.toFixed(2)}}%
         </td>
 
