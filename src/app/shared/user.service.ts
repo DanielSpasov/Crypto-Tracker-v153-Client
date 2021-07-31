@@ -11,6 +11,6 @@ export class UserService {
     getUser() { return this.http.get<IUser>('http://localhost:4153/user/getOne'); }
     getUsers() { return this.http.get<Array<IUser>>('http://localhost:4153/user/getAll'); }
 
-    register(userData: object) { return this.http.post<IUser>('http://localhost:4153/user/register', userData) }
+    signUp(userData: object) { return this.http.post<IUser>('http://localhost:4153/user/sign-up', userData) }
 
 }

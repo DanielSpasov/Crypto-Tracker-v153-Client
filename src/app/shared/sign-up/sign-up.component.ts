@@ -5,32 +5,33 @@ import { Router } from "@angular/router"
 import { UserService } from '../user.service';
 
 @Component({
-    selector: 'app-register',
-    templateUrl: './register.component.html',
-    styleUrls: ['./register.component.css']
+    selector: 'app-sign-up',
+    templateUrl: './sign-up.component.html',
+    styleUrls: ['./sign-up.component.css']
 })
-export class RegisterComponent {
+export class SignUpComponent {
 
     constructor(
         private userService: UserService,
         private router: Router
     ) { }
 
-    registerSubmit(form: NgForm): void {
+    signUpSubmit(form: NgForm): void {
         if (form.invalid) return;
 
         let userData = {
             email: form.controls.email.value,
             password: form.controls.password.value,
-            rePassword: form.controls.rePassword.value
+            rePassword: form.controls.rePassword.value,
+            username: form.controls.username.value
         };
 
         this.userService
-            .register(userData)
+            .signUp(userData)
             .subscribe(
                 data => {
                     console.log(data);
-                    this.router.navigate(['/login']);
+                    this.router.navigate(['/']);
                 },
                 err => console.log(err.error.message)
             )

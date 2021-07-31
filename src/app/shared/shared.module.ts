@@ -10,8 +10,8 @@ import { UserService } from './user.service';
 import { SameValueDirective } from './same-value.directive';
 import { IsEmailDirective } from './is-email.directive';
 
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
 import { CryptoComponent } from './crypto/crypto.component';
@@ -29,8 +29,8 @@ import { FormsModule } from '@angular/forms';
         NewsComponent,
         CryptoComponent,
         WatchlistComponent,
-        LoginComponent,
-        RegisterComponent,
+        SignInComponent,
+        SignUpComponent,
         CryptoDetailsComponent,
         CryptoCalculatorComponent,
         TopFiveCryptosComponent,
@@ -48,8 +48,8 @@ import { FormsModule } from '@angular/forms';
         NewsComponent,
         CryptoComponent,
         WatchlistComponent,
-        LoginComponent,
-        RegisterComponent,
+        SignInComponent,
+        SignUpComponent,
         CryptoDetailsComponent,
         CryptoCalculatorComponent,
         TopFiveCryptosComponent

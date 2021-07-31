@@ -2,7 +2,7 @@
 
     <h1>Create an account</h1>
 
-    <form #registerForm="ngForm" (ngSubmit)="registerSubmit(registerForm)">
+    <form #signUpForm="ngForm" (ngSubmit)="signUpSubmit(signUpForm)">
 
         <ul *ngIf="emailInput.touched && emailInput.invalid" class="errors">
             <li *ngIf="emailInput.errors?.required">Email is Required</li>
@@ -28,7 +28,7 @@
 
         <input type="text" name="username" id="username" placeholder="Username" ngModel>
 
-        <button>Submit</button>
+        <button>Sign Up</button>
     </form>
 
 </main>

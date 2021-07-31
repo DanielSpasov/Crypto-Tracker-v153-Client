@@ -55,8 +55,8 @@ a:hover {
     #news-text,
     #crypto-text,
     #watchlist-text,
-    #login,
-    #register,
+    #sign-in,
+    #sign-up,
     #logout { display: none; }
 
     #news-icon,
