@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { CoreModule } from '../core/core.module';
+import { FormsModule } from '@angular/forms';
 
 import { CryptoService } from './crypto.service';
 import { UserService } from './user.service';
@@ -19,7 +20,6 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
 import { CryptoDetailsComponent } from './crypto-details/crypto-details.component';
 import { CryptoCalculatorComponent } from './crypto-calculator/crypto-calculator.component';
 import { TopFiveCryptosComponent } from './top-five-cryptos/top-five-cryptos.component';
-import { FormsModule } from '@angular/forms';
 
 
 
