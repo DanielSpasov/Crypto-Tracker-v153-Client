@@ -1,3 +1,24 @@
 <main>
-    <h1>Sign In!</h1>
+
+    <h1>Sign In</h1>
+
+    <form #signInForm="ngForm" (ngSubmit)="signInSubmit(signInForm)">
+
+        <ul *ngIf="emailInput.touched && emailInput.invalid" class="errors">
+            <li *ngIf="emailInput.errors?.required">Email is Required</li>
+            <li *ngIf="emailInput.errors?.isEmail">Email is Invalid</li>
+        </ul>
+        <input type="email" name="email" id="email" placeholder="Email" autocomplete="email" #emailInput="ngModel"
+            ngModel required email>
+
+        <ul *ngIf="passwordInput.invalid && passwordInput.touched" class="errors">
+            <li *ngIf="passwordInput.errors?.required">Password is Required</li>
+            <li *ngIf="passwordInput.errors?.minlength">Password must be at least 6 characters long</li>
+        </ul>
+        <input type="password" name="password" id="password" placeholder="Password" autocomplete="new-password"
+            #passwordInput="ngModel" ngModel required [minlength]="6">
+
+        <button>Sign In</button>
+    </form>
+
 </main>
