@@ -5,10 +5,10 @@
 html {
     margin-top: 0px;
     font-family: 'Rubik', sans-serif;
+    background-color: rgb(236, 236, 236);
 }
 
 body { margin: 0px }
-main { background-color: rgb(236, 236, 236) }
 
 main h1 {
     margin: 0px;
