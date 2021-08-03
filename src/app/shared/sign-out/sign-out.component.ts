@@ -7,11 +7,6 @@ import { UserService } from '../user.service';
   styleUrls: ['./sign-out.component.css']
 })
 export class SignOutComponent implements OnInit {
-
   constructor(private userService: UserService) { }
-
-  ngOnInit(): void {
-    this.userService.signOut()
-  }
-
+  ngOnInit(): void { this.userService.signOut() }
 }
