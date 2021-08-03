@@ -17,32 +17,21 @@ const routes: Routes = [
         path: '',
         pathMatch: 'full',
         redirectTo: '/home'
-    }, {
-        path: 'home', component: HomeComponent
-    }, {
+    },
+    { path: 'home', component: HomeComponent },
+    {
         path: 'user',
         children: [
-            {
-                path: 'sign-in', component: SignInComponent
-            },
-            {
-                path: 'sign-up', component: SignUpComponent
-            },
-            {
-                path: 'sign-out', component: SignOutComponent
-            }
+            { path: 'sign-in', component: SignInComponent },
+            { path: 'sign-up', component: SignUpComponent },
+            { path: 'sign-out', component: SignOutComponent }
         ]
-    }, {
-        path: 'news', component: NewsComponent
-    }, {
-        path: 'cryptocurrencies', component: CryptoComponent
-    }, {
-        path: 'cryptocurrencies/:crypto', component: CryptoDetailsComponent
-    }, {
-        path: 'watchlist', component: WatchlistComponent
-    }, {
-        path: '**', component: InvalidPageComponent
-    }
+    },
+    { path: 'cryptocurrencies', component: CryptoComponent, },
+    { path: 'cryptocurrencies/:crypto', component: CryptoDetailsComponent },
+    { path: 'news', component: NewsComponent },
+    { path: 'watchlist', component: WatchlistComponent },
+    { path: '**', component: InvalidPageComponent }
 ];
 
 export const AppRoutingModule = RouterModule.forRoot(routes);
