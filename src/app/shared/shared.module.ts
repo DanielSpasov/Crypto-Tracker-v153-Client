@@ -13,6 +13,7 @@ import { IsEmailDirective } from './is-email.directive';
 
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignOutComponent } from './sign-out/sign-out.component';
 import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
 import { CryptoComponent } from './crypto/crypto.component';
@@ -31,6 +32,7 @@ import { TopFiveCryptosComponent } from './top-five-cryptos/top-five-cryptos.com
         WatchlistComponent,
         SignInComponent,
         SignUpComponent,
+        SignOutComponent,
         CryptoDetailsComponent,
         CryptoCalculatorComponent,
         TopFiveCryptosComponent,
@@ -50,6 +52,7 @@ import { TopFiveCryptosComponent } from './top-five-cryptos/top-five-cryptos.com
         WatchlistComponent,
         SignInComponent,
         SignUpComponent,
+        SignOutComponent,
         CryptoDetailsComponent,
         CryptoCalculatorComponent,
         TopFiveCryptosComponent

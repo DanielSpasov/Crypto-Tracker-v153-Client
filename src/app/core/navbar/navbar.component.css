@@ -71,7 +71,7 @@ a:hover { color: rgb(41, 133, 255) }
     #watchlist-text,
     #sign-in,
     #sign-up,
-    #logout { display: none; }
+    #sign-out { display: none; }
 
     #news-icon,
     #crypto-icon,

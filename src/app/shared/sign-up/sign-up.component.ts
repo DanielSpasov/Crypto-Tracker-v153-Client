@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from "@angular/router"
 
 import { UserService } from '../user.service';
+
+
 
 @Component({
     selector: 'app-sign-up',
@@ -11,10 +12,7 @@ import { UserService } from '../user.service';
 })
 export class SignUpComponent {
 
-    constructor(
-        private userService: UserService,
-        private router: Router
-    ) { }
+    constructor(private userService: UserService) { }
 
     signUpSubmit(form: NgForm): void {
         if (form.invalid) return;
@@ -26,14 +24,6 @@ export class SignUpComponent {
             username: form.controls.username.value
         };
 
-        this.userService
-            .signUp(userData)
-            .subscribe(
-                data => {
-                    console.log(data);
-                    this.router.navigate(['/']);
-                },
-                err => console.log(err.error.message)
-            )
+        this.userService.signUp(userData)
     }
 }

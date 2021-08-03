@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { UserService } from '../user.service';
 
@@ -13,10 +12,7 @@ import { UserService } from '../user.service';
 })
 export class SignInComponent {
 
-    constructor(
-        private userService: UserService,
-        private router: Router
-    ) { }
+    constructor(private userService: UserService) { }
 
     signInSubmit(form: NgForm): void {
         if (form.invalid) return;
@@ -26,15 +22,6 @@ export class SignInComponent {
             password: form.controls.password.value
         };
 
-        this.userService
-            .signIn(userData)
-            .subscribe(
-                data => {
-                    let token = data.token;
-                    localStorage.setItem('auth-token', token)
-                    this.router.navigate(['/']);
-                },
-                err => console.log(err.error.message)
-            )
+        this.userService.signIn(userData)
     }
 }
