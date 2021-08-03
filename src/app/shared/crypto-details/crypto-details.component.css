@@ -30,8 +30,10 @@ header {
     height: 40px;
 }
 
-.fa-heart { font-size: 25px }
-.fa-heart:hover { color: red }
+.fa-star {
+    font-size: 25px;
+    color: rgb(255, 196, 0);
+}
 
 #more-tags,
 #less-tags {

@@ -57,8 +57,10 @@ td button {
     background: transparent;
 }
 
-.fa-heart { font-size: 18px }
-.fa-heart:hover { color: red }
+.fa-star {
+    font-size: 18px;
+    color: rgb(255, 196, 0);
+}
 
 .fa-redo-alt {
     color: black;

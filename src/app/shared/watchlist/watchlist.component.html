@@ -3,7 +3,9 @@
     <button id="refresh-items" (click)="loadItems()"><i class="fas fa-redo-alt"></i></button>
 
     <h2 *ngIf="!user">Sign In to see your watchlist</h2>
+    <h2 *ngIf="!watchlistCryptos">You have no cryptocurrencies in your watchlsit</h2>
     <app-loader *ngIf="user && !watchlistCryptos"></app-loader>
+
     <table *ngIf="watchlistCryptos">
 
         <tr>
@@ -12,15 +14,20 @@
             <th id="image"></th>
             <th id="name"><button (click)="sortItems('name')"><i class="fas fa-sort"></i></button>Name</th>
             <th id="price"><button (click)="sortItems('price')"><i class="fas fa-sort"></i></button>Price</th>
-            <th id="percent_change_24h"><button (click)="sortItems('percent_change_24h')"><i class="fas fa-sort"></i></button>24h %</th>
-            <th id="percent_change_7d"><button (click)="sortItems('percent_change_7d')"><i class="fas fa-sort"></i></button>7d %</th>
-            <th id="market_cap"><button (click)="sortItems('market_cap')"><i class="fas fa-sort"></i></button>Market Cap</th>
+            <th id="percent_change_24h"><button (click)="sortItems('percent_change_24h')"><i
+                        class="fas fa-sort"></i></button>24h %</th>
+            <th id="percent_change_7d"><button (click)="sortItems('percent_change_7d')"><i
+                        class="fas fa-sort"></i></button>7d %</th>
+            <th id="market_cap"><button (click)="sortItems('market_cap')"><i class="fas fa-sort"></i></button>Market Cap
+            </th>
         </tr>
 
         <tr *ngFor="let i of watchlistCryptos">
 
-            <td *ngIf="!user.watchlist.includes(i.symbol)"><button (click)="editWatchlist(i.symbol)"><i class="far fa-heart"></i></button></td>
-            <td *ngIf="user.watchlist.includes(i.symbol)"><button (click)="editWatchlist(i.symbol)"><i class="fas fa-heart"></i></button></td>
+            <td *ngIf="!user.watchlist.includes(i.symbol)"><button (click)="editWatchlist(i.symbol)"><i
+                        class="far fa-star"></i></button></td>
+            <td *ngIf="user.watchlist.includes(i.symbol)"><button (click)="editWatchlist(i.symbol)"><i
+                        class="fas fa-star"></i></button></td>
 
             <td id="rank">{{i.cmc_rank}}</td>
 
