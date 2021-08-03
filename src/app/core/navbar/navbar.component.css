@@ -30,6 +30,8 @@ a {
 
 a:hover { color: rgb(41, 133, 255) }
 
+.active { color: rgb(41, 133, 255) }
+
 #sign-up {
     background-color: rgb(41, 133, 255);
     padding: 8px 4px;

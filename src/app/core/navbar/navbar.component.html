@@ -1,13 +1,29 @@
 <nav>
     <ul>
-        <li><a routerLink="/home"><i class="fas fa-home"></i></a></li>
-        <li id="news-text"><a routerLink="/news">News</a></li>
-        <li id="news-icon"><a routerLink="/news"><i class="far fa-newspaper"></i></a></li>
-        <li id="crypto-text"><a routerLink="/cryptocurrencies">Cryptocurrencies</a></li>
-        <li id="crypto-icon"><a routerLink="/cryptocurrencies"><i class="fab fa-bitcoin"></i></a></li>
-        <li id="watchlist-text"><a routerLink="/watchlist">Watchlist</a></li>
-        <li id="watchlist-icon"><a routerLink="/watchlist"><i class="fas fa-star"></i></a></li>
-        <li id="profile" *ngIf="isAuth"><a routerLink="#"><i class="fas fa-user"></i></a></li>
+        <li>
+            <a routerLink="/home" routerLinkActive="active"><i class="fas fa-home"></i></a>
+        </li>
+        <li id="news-text">
+            <a routerLink="/news" routerLinkActive="active">News</a>
+        </li>
+        <li id="news-icon">
+            <a routerLink="/news" routerLinkActive="active"><i class="far fa-newspaper"></i></a>
+        </li>
+        <li id="crypto-text">
+            <a routerLink="/cryptocurrencies" routerLinkActive="active">Cryptocurrencies</a>
+        </li>
+        <li id="crypto-icon">
+            <a routerLink="/cryptocurrencies" routerLinkActive="active"><i class="fab fa-bitcoin"></i></a>
+        </li>
+        <li id="watchlist-text">
+            <a routerLink="/watchlist" routerLinkActive="active">Watchlist</a>
+        </li>
+        <li id="watchlist-icon">
+            <a routerLink="/watchlist" routerLinkActive="active"><i class="fas fa-star"></i></a>
+        </li>
+        <li id="profile" *ngIf="isAuth">
+            <a routerLink="#"><i class="fas fa-user"></i></a>
+        </li>
     </ul>
 
     <ul>
