@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { CryptoService } from '../crypto.service';
+import { UserService } from '../user.service';
 
 import { ICrypto } from '../../interfaces/crypto.model';
+import { IUser } from 'src/app/interfaces/user.model';
 
 
 
@@ -15,8 +17,12 @@ export class CryptoComponent implements OnInit {
 
     cryptos!: ICrypto[];
     sorting!: { [key: string]: boolean };
+    user!: IUser;
 
-    constructor(private cryptoService: CryptoService) { }
+    constructor(
+        private cryptoService: CryptoService,
+        private userService: UserService
+    ) { }
 
     loadItems(): void {
         this.cryptoService
@@ -33,10 +39,19 @@ export class CryptoComponent implements OnInit {
             percent_change_7d: false,
             market_cap: false,
         }
+        this.userService
+            .getUser()
+            .subscribe(data => this.user = data)
     }
 
-    addToWatchlist(crypto: string): void { this.cryptoService.addToWatchlist(crypto).subscribe(data => console.log(data)) }
-    removeFromWatchlist(crypto: string): void { this.cryptoService.removeFromWatchlist(crypto).subscribe(data => console.log(data)) }
+    editWatchlist(crypto: string) {
+        this.cryptoService
+            .editWatchlist(crypto)
+            .subscribe(
+                data => this.user = data,
+                err => console.log(err)
+            )
+    }
 
     sortItems(criteria: string): void {
         this.cryptoService.sortItems(this.cryptos, this.sorting[criteria], criteria)

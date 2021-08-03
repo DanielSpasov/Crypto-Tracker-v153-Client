@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { ICrypto } from 'src/app/interfaces/crypto.model';
+import { IUser } from 'src/app/interfaces/user.model';
 
 import { CryptoService } from '../crypto.service';
+import { UserService } from '../user.service';
 
 
 
@@ -23,7 +26,13 @@ export class CryptoDetailsComponent implements OnInit {
     tags!: boolean;
     calcIsOpen!: boolean;
 
-    constructor(private router: Router, private cryptoService: CryptoService) {
+    user!: IUser;
+
+    constructor(
+        private router: Router,
+        private cryptoService: CryptoService,
+        private userService: UserService
+    ) {
         this.router.routeReuseStrategy.shouldReuseRoute = () => { return false }
     }
 
@@ -45,12 +54,22 @@ export class CryptoDetailsComponent implements OnInit {
 
         this.tags = false;
         this.calcIsOpen = false;
+
+        this.userService
+            .getUser()
+            .subscribe(data => this.user = data)
     }
 
     switchTags(): void { this.tags = !this.tags }
     toggleCalc(): void { this.calcIsOpen = !this.calcIsOpen }
 
-    addToWatchlist(crypto: string): void { this.cryptoService.addToWatchlist(crypto).subscribe(data => console.log(data)) }
-    removeFromWatchlist(crypto: string): void { this.cryptoService.removeFromWatchlist(crypto).subscribe(data => console.log(data)) }
+    editWatchlist(crypto: string) {
+        this.cryptoService
+            .editWatchlist(crypto)
+            .subscribe(
+                data => this.user = data,
+                err => console.log(err)
+            )
+    }
 
 }

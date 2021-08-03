@@ -18,8 +18,8 @@
 
         <tr *ngFor="let i of cryptos">
 
-            <td *ngIf="true"><button (click)="addToWatchlist(i.symbol)"><i class="far fa-heart"></i></button></td>
-            <td *ngIf="false"><button (click)="removeFromWatchlist(i.symbol)"><i class="fas fa-heart"></i></button></td>
+            <td *ngIf="!user.watchlist.includes(i.symbol)"><button (click)="editWatchlist(i.symbol)"><i class="far fa-heart"></i></button></td>
+            <td *ngIf="user.watchlist.includes(i.symbol)"><button (click)="editWatchlist(i.symbol)"><i class="fas fa-heart"></i></button></td>
 
             <td id="rank">{{i.cmc_rank}}</td>
 

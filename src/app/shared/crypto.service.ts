@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 import { ICrypto } from '../interfaces/crypto.model';
+import { IUser } from '../interfaces/user.model';
 
 
 
@@ -11,8 +13,11 @@ export class CryptoService {
 
     getOne(crypto: string) { return this.http.get<any>(`http://localhost:4153/crypto/getOne?crypto=${crypto}`) }
     getTop100() { return this.http.get<any>(`http://localhost:4153/crypto/getTop100`) }
-    addToWatchlist(crypto: string) { return this.http.get<any>(`http://localhost:4153/crypto/addToWatchlist?crypto=${crypto}`) }
-    removeFromWatchlist(crypto: string) { return this.http.get<any>(`http://localhost:4153/crypto/removeFromWatchlist?crypto=${crypto}`) }
+
+    editWatchlist(crypto: string) {
+        let userID = this.readCookie('userID')
+        return this.http.post<IUser>(`http://localhost:4153/crypto/editWatchlist`, { crypto, userID, })
+    }
 
     sortItems(arr: ICrypto[], bool: boolean, criteria: string): ICrypto[] {
         if (criteria === 'name') {
@@ -26,6 +31,14 @@ export class CryptoService {
             if (!bool) arr.sort((a, b) => b.quote.USD[criteria] - a.quote.USD[criteria]);
         }
         return arr
+    }
+
+    readCookie(cookie: string): string {
+        let x = document.cookie.split('; ')
+        for (let y of x) {
+            if (y.split('=')[0] === cookie) return y.split('=')[1]
+        }
+        return cookie
     }
 
 }
