@@ -12,7 +12,8 @@ export class CryptoService {
     constructor(private http: HttpClient) { }
 
     getOne(crypto: string) { return this.http.get<any>(`http://localhost:4153/crypto/getOne?crypto=${crypto}`) }
-    getTop100() { return this.http.get<any>(`http://localhost:4153/crypto/getTop100`) }
+    getTop100() { return this.http.get<any>('http://localhost:4153/crypto/getTop100') }
+    getWatchlistCryptos(userID: string) { return this.http.get<any>(`http://localhost:4153/crypto/getWatchlistCryptos?userID=${userID}`) }
 
     editWatchlist(crypto: string) {
         let userID = this.readCookie('userID')

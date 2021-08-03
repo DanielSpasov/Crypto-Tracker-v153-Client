@@ -1,0 +1,110 @@
+main {
+    position: relative;
+    text-align: center;
+    min-width: 350px;
+    width: 70%;
+    padding: 0% 15% 0% 15%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover { color: rgb(41, 133, 255) }
+
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+th { padding: 20px }
+th button {
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+th button:hover { color: rgb(41, 133, 255) }
+
+tr { text-align: left }
+
+tr:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+tr:hover:nth-child(1) {
+    background-color: transparent;
+    cursor: default;
+}
+
+td {
+    border-top: 1px solid lightgray;
+    padding: 12px;
+}
+
+td span { color: gray }
+
+td img {
+    height: 25px;
+    padding: 0px 8px;
+}
+
+td button {
+    height: 30px;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.fa-heart { font-size: 18px }
+.fa-heart:hover { color: red }
+
+.fa-redo-alt {
+    color: black;
+    font-size: 20px;
+}
+
+#refresh-items {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+}
+
+#refresh-items:hover .fa-redo-alt { color: rgb(41, 133, 255); }
+
+#image,
+#rank {
+    width: 50px;
+    text-align: center;
+}
+#name {
+    min-width: 200px;
+}
+#market_cap,
+#price {
+    min-width: 120px;
+}
+#percent_change_24h,
+#percent_change_7d {
+    min-width: 70px;
+}
+
+.fa-sort-up,
+.fa-sort-down {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1300px) {
+    main {
+        width: 100%;
+        padding: 0%;
+    }
+}
+
+@media screen and (max-width: 1050px) { #market_cap { display: none } }
+@media screen and (max-width: 850px) { #percent_change_7d { display: none } }
+@media screen and (max-width: 750px) { #percent_change_24h { display: none } }
+@media screen and (max-width: 650px) { #price { display: none } }
