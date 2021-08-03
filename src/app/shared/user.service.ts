@@ -42,7 +42,7 @@ export class UserService {
 
     signOut() {
         localStorage.setItem('auth-token', '');
-        document.cookie = `userID=`;
+        document.cookie = `userID=none`;
         this.router.navigate(['/'])
     }
 

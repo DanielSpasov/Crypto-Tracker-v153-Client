@@ -17,7 +17,7 @@ export class CryptoComponent implements OnInit {
 
     cryptos!: ICrypto[];
     sorting!: { [key: string]: boolean };
-    user!: IUser;
+    user: IUser | undefined;
 
     constructor(
         private cryptoService: CryptoService,
@@ -51,6 +51,10 @@ export class CryptoComponent implements OnInit {
                 data => this.user = data,
                 err => console.log(err)
             )
+    }
+
+    editWatchlistAsGuest() {
+        console.log('Sign In to add items to watchlist')
     }
 
     sortItems(criteria: string): void {
