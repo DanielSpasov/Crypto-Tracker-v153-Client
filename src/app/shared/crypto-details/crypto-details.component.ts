@@ -55,6 +55,8 @@ export class CryptoDetailsComponent implements OnInit {
         this.tags = false;
         this.calcIsOpen = false;
 
+        let userID = localStorage.getItem('user-id')
+        if (!userID) return
         this.userService
             .getUser()
             .subscribe(

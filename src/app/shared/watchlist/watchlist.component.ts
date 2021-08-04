@@ -25,7 +25,18 @@ export class WatchlistComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+        
+        this.sorting = {
+            cmc_rank: false,
+            name: false,
+            price: false,
+            percent_change_24h: false,
+            percent_change_7d: false,
+            market_cap: false,
+        };
 
+        let userID = localStorage.getItem('user-id')
+        if(!userID) return
         this.userService
             .getUser()
             .subscribe(
@@ -35,15 +46,6 @@ export class WatchlistComponent implements OnInit {
                 },
                 err => console.log(err.error.message)
             );
-
-        this.sorting = {
-            cmc_rank: false,
-            name: false,
-            price: false,
-            percent_change_24h: false,
-            percent_change_7d: false,
-            market_cap: false,
-        };
     };
 
     loadItems(): void {

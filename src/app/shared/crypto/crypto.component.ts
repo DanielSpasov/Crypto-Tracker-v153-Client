@@ -30,7 +30,9 @@ export class CryptoComponent implements OnInit {
             .subscribe(res => this.cryptos = res.data)
     }
     ngOnInit(): void {
-        this.loadItems()
+
+        this.loadItems();
+
         this.sorting = {
             cmc_rank: false,
             name: false,
@@ -38,14 +40,17 @@ export class CryptoComponent implements OnInit {
             percent_change_24h: false,
             percent_change_7d: false,
             market_cap: false,
-        }
+        };
+
+        let userID = localStorage.getItem('user-id')
+        if(!userID) return
         this.userService
             .getUser()
             .subscribe(
                 data => this.user = data,
                 err => console.log(err.error.message)
-            )
-    }
+            );
+    };
 
     editWatchlist(crypto: string) {
         this.cryptoService
