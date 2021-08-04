@@ -26,14 +26,15 @@ export class WatchlistComponent implements OnInit {
 
     ngOnInit(): void {
 
-        this.loadItems()
-
         this.userService
             .getUser()
             .subscribe(
-                data => this.user = data,
+                data => {
+                    this.user = data;
+                    this.loadItems();
+                },
                 err => console.log(err.error.message)
-            )
+            );
 
         this.sorting = {
             cmc_rank: false,
@@ -42,18 +43,18 @@ export class WatchlistComponent implements OnInit {
             percent_change_24h: false,
             percent_change_7d: false,
             market_cap: false,
-        }
-    }
+        };
+    };
 
     loadItems(): void {
-        let userID = localStorage.getItem('user-id')
+        let userID = localStorage.getItem('user-id');
         this.cryptoService
             .getWatchlistCryptos(userID)
             .subscribe(
                 data => this.watchlistCryptos = data,
                 err => console.log(err.error.message)
-            )
-    }
+            );
+    };
 
     editWatchlist(crypto: string) {
         this.cryptoService
@@ -61,11 +62,11 @@ export class WatchlistComponent implements OnInit {
             .subscribe(
                 data => this.user = data,
                 err => console.log(err)
-            )
-    }
+            );
+    };
 
     sortItems(criteria: string): void {
-        this.cryptoService.sortItems(this.watchlistCryptos, this.sorting[criteria], criteria)
-        this.sorting[criteria] = !this.sorting[criteria]
-    }
+        this.cryptoService.sortItems(this.watchlistCryptos, this.sorting[criteria], criteria);
+        this.sorting[criteria] = !this.sorting[criteria];
+    };
 }
