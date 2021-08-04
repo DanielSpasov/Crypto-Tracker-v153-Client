@@ -4,7 +4,7 @@
     <button id="refresh-items" (click)="loadItems()"><i class="fas fa-redo-alt"></i></button>
 
     <h2 *ngIf="!user">Sign In to see your watchlist</h2>
-    <h2 *ngIf="!watchlistCryptos">You have no cryptocurrencies in your watchlsit</h2>
+    <h2 *ngIf="user && !watchlistCryptos">You have no cryptocurrencies in your watchlsit</h2>
     <app-loader *ngIf="user && !watchlistCryptos"></app-loader>
 
     <table *ngIf="watchlistCryptos">

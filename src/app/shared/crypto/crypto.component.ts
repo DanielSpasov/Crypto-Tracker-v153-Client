@@ -41,7 +41,10 @@ export class CryptoComponent implements OnInit {
         }
         this.userService
             .getUser()
-            .subscribe(data => this.user = data)
+            .subscribe(
+                data => this.user = data,
+                err => console.log(err.error.message)
+            )
     }
 
     editWatchlist(crypto: string) {

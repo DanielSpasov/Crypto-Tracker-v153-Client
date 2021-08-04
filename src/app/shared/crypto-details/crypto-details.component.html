@@ -8,8 +8,9 @@
                 <img [src]="['https://s2.coinmarketcap.com/static/img/coins/64x64/', crypto.id, '.png'].join('')"
                     alt="Logo">
                 <h2>{{crypto.name}} <span>{{crypto.symbol}}</span></h2>
-                <button *ngIf="!user.watchlist.includes(crypto.symbol)" (click)="editWatchlist(crypto.symbol)"><i class="far fa-star"></i></button>
-                <button *ngIf="user.watchlist.includes(crypto.symbol)" (click)="editWatchlist(crypto.symbol)"><i class="fas fa-star"></i></button>
+                <button *ngIf="!user" (click)="editWatchlistAsGuest()"><i class="far fa-star"></i></button>
+                <button *ngIf="user && !user.watchlist.includes(crypto.symbol)" (click)="editWatchlist(crypto.symbol)"><i class="far fa-star"></i></button>
+                <button *ngIf="user && user.watchlist.includes(crypto.symbol)" (click)="editWatchlist(crypto.symbol)"><i class="fas fa-star"></i></button>
             </div>
 
             <div *ngIf="crypto.tags.length">

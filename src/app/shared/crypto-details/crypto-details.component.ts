@@ -57,7 +57,10 @@ export class CryptoDetailsComponent implements OnInit {
 
         this.userService
             .getUser()
-            .subscribe(data => this.user = data)
+            .subscribe(
+                data => this.user = data,
+                err => console.log(err.error.message)
+            )
     }
 
     switchTags(): void { this.tags = !this.tags }
@@ -72,4 +75,7 @@ export class CryptoDetailsComponent implements OnInit {
             )
     }
 
+    editWatchlistAsGuest() {
+        console.log('Sign In to add items to watchlist')
+    }
 }

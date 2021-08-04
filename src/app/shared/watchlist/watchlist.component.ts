@@ -30,7 +30,10 @@ export class WatchlistComponent implements OnInit {
 
         this.userService
             .getUser()
-            .subscribe(data => this.user = data)
+            .subscribe(
+                data => this.user = data,
+                err => console.log(err.error.message)
+            )
 
         this.sorting = {
             cmc_rank: false,
@@ -46,7 +49,10 @@ export class WatchlistComponent implements OnInit {
         let userID = localStorage.getItem('user-id')
         this.cryptoService
             .getWatchlistCryptos(userID)
-            .subscribe(res => this.watchlistCryptos = res)
+            .subscribe(
+                data => this.watchlistCryptos = data,
+                err => console.log(err.error.message)
+            )
     }
 
     editWatchlist(crypto: string) {
