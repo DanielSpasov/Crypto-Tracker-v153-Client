@@ -13,12 +13,12 @@ export class CryptoService {
 
     getOne(crypto: string) { return this.http.get<any>(`http://localhost:4153/crypto/getOne?crypto=${crypto}`) }
     getTop100() { return this.http.get<any>('http://localhost:4153/crypto/getTop100') }
-    getWatchlistCryptos(userID: string) { return this.http.get<any>(`http://localhost:4153/crypto/getWatchlistCryptos?userID=${userID}`) }
+    getWatchlistCryptos(userID: string | null) { return this.http.get<any>(`http://localhost:4153/crypto/getWatchlistCryptos?userID=${userID}`) }
 
     editWatchlist(crypto: string) {
-        let userID = this.readCookie('userID')
+        let userID = localStorage.getItem('user-id')
         return this.http.post<IUser>(`http://localhost:4153/crypto/editWatchlist`, { crypto, userID, })
-    }
+    };
 
     sortItems(arr: ICrypto[], bool: boolean, criteria: string): ICrypto[] {
         if (criteria === 'name') {
@@ -32,14 +32,5 @@ export class CryptoService {
             if (!bool) arr.sort((a, b) => b.quote.USD[criteria] - a.quote.USD[criteria]);
         }
         return arr
-    }
-
-    readCookie(cookie: string): string {
-        let x = document.cookie.split('; ')
-        for (let y of x) {
-            if (y.split('=')[0] === cookie) return y.split('=')[1]
-        }
-        return cookie
-    }
-
+    };
 }

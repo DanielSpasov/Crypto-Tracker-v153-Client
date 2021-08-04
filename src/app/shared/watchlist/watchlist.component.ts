@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { CryptoService } from '../crypto.service';
 
-import { ICrypto } from 'src/app/interfaces/crypto.model';
 import { IUser } from 'src/app/interfaces/user.model';
 import { UserService } from '../user.service';
 
@@ -44,7 +43,7 @@ export class WatchlistComponent implements OnInit {
     }
 
     loadItems(): void {
-        let userID = this.userService.readCookie('userID')
+        let userID = localStorage.getItem('user-id')
         this.cryptoService
             .getWatchlistCryptos(userID)
             .subscribe(res => this.watchlistCryptos = res)

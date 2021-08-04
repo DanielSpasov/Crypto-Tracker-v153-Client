@@ -1,16 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/shared/user.service';
 
 
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 
-  isAuth = false;
+    isAuth!: boolean;
+    isLoaded = false;
 
-  constructor() { }
+    constructor(private userService: UserService) { }
+
+    ngOnInit(): void {
+        this.userService
+            .checkAuth()
+            .subscribe(data => {
+                this.isAuth = Boolean(data);
+                this.isLoaded = true;
+            })
+    }
 
 }
