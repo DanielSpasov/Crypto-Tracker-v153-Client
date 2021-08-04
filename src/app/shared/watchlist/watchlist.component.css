@@ -6,11 +6,13 @@ main {
     padding: 0% 15% 0% 15%;
 }
 
+h2 a { color: rgb(41, 133, 255) }
+h2 a:hover { color: gray }
+
 a {
     text-decoration: none;
     color: black;
 }
-
 a:hover { color: rgb(41, 133, 255) }
 
 table {
@@ -41,14 +43,11 @@ td {
     border-top: 1px solid lightgray;
     padding: 12px;
 }
-
 td span { color: gray }
-
 td img {
     height: 25px;
     padding: 0px 8px;
 }
-
 td button {
     height: 30px;
     width: 30px;
