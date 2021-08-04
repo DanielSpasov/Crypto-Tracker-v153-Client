@@ -14,7 +14,15 @@ export class UserService {
 
     getUser() {
         let userID = localStorage.getItem('user-id');
-        return this.http.get<IUser>(`http://localhost:4153/user/${userID}`);
+        if (userID) {
+            return this.http.get<IUser>(`http://localhost:4153/user/`, {
+                headers: { 'user-id': userID }
+            });
+        } else {
+            return this.http.get<IUser>(`http://localhost:4153/user/`, {
+                headers: { 'user-id': '' }
+            });
+        }
     };
 
     signUp(userData: any) {
