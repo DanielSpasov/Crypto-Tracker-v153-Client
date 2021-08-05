@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 import { ICrypto } from '../interfaces/crypto.model';
 import { IUser } from '../interfaces/user.model';
+import { Observable } from 'rxjs';
+
+const apiUrl = 'http://localhost:4153'
 
 
 
@@ -11,14 +14,17 @@ export class CryptoService {
 
     constructor(private http: HttpClient) { }
 
-    getOne(crypto: string) { return this.http.get<ICrypto>(`http://localhost:4153/crypto/getOne?crypto=${crypto}`) }
-    getTop100() { return this.http.get<ICrypto[]>('http://localhost:4153/crypto/getTop100') }
-    getWatchlistCryptos(userID: string | null) { return this.http.get<ICrypto[]>(`http://localhost:4153/crypto/getWatchlistCryptos?userID=${userID}`) }
-    getCryptos(cryptos: string) { return this.http.get<ICrypto[]>(`http://localhost:4153/crypto/getCryptos?cryptos=${cryptos}`) }
+    getOne(crypto: string): Observable<ICrypto> { return this.http.get<ICrypto>(`${apiUrl}/crypto/getOne?crypto=${crypto}`) }
+
+    getLatest(): Observable<ICrypto[]> { return this.http.get<ICrypto[]>(`${apiUrl}/crypto/getLatest`)}
+    getWatchlist(userID: string | null) { return this.http.get<ICrypto[]>(`${apiUrl}/crypto/getWatchlist?userID=${userID}`) }
+
+    searchLatest(cryptos: string) { return this.http.get<ICrypto[]>(`${apiUrl}/crypto/searchLatest?cryptos=${cryptos}`) }
+    searchWatchlist(cryptos: string, userID: string | null) { return this.http.get<ICrypto[]>(`${apiUrl}/crypto/searchWatchlist?cryptos=${cryptos}&userID=${userID}`) }
 
     editWatchlist(crypto: string) {
         let userID = localStorage.getItem('user-id')
-        return this.http.post<IUser>(`http://localhost:4153/crypto/editWatchlist`, { crypto, userID, })
+        return this.http.post<IUser>(`${apiUrl}/crypto/editWatchlist`, { crypto, userID, })
     };
 
     sortItems(arr: ICrypto[], bool: boolean, criteria: string): ICrypto[] {

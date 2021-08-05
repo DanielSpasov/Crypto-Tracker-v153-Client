@@ -45,7 +45,7 @@ export class CryptoDetailsComponent implements OnInit {
             .subscribe(data => this.crypto = data[this.currentCurrencySymbol]);
 
         this.cryptoService
-            .getTop100()
+            .getLatest()
             .subscribe(data => {
                 this.top_5_by_price = this.cryptoService.sortItems(data, false, 'price').slice(0, 5)
                 this.top_5_by_24h = this.cryptoService.sortItems(data, false, 'percent_change_24h').slice(0, 5)

@@ -29,7 +29,7 @@ export class CryptoComponent implements OnInit {
 
     loadItems(): void {
         this.cryptoService
-            .getTop100()
+            .getLatest()
             .subscribe(data => this.cryptos = data);
     };
 
@@ -39,7 +39,7 @@ export class CryptoComponent implements OnInit {
             this.searchError = '';
         } else {
             this.cryptoService
-                .getCryptos(form.controls.crypto.value)
+                .searchLatest(form.controls.crypto.value)
                 .subscribe(
                     data => {
                         this.cryptos = data;

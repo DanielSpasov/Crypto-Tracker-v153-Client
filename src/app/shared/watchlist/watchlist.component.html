@@ -3,6 +3,11 @@
     <h1>Cryptocurrnecies Watchlist</h1>
     <button id="refresh-items" (click)="loadItems()"><i class="fas fa-redo-alt"></i></button>
 
+    <form #searchForm="ngForm" (ngSubmit)="searchSubmit(searchForm)" class="search-form">
+        <input type="text" name="crypto" id="crypto" placeholder="BTC, DOGE, BNB ..." #search="ngModel" ngModel>
+        <p *ngIf="searchError">{{searchError}}</p>
+    </form>
+
     <h2 *ngIf="user && !watchlistCryptos">You have no cryptocurrencies in your watchlsit</h2>
     <app-loader *ngIf="user && !watchlistCryptos"></app-loader>
 

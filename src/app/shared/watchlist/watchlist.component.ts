@@ -4,6 +4,7 @@ import { CryptoService } from '../crypto.service';
 
 import { IUser } from 'src/app/interfaces/user.model';
 import { UserService } from '../user.service';
+import { NgForm } from '@angular/forms';
 
 
 
@@ -16,6 +17,7 @@ export class WatchlistComponent implements OnInit {
 
     watchlistCryptos!: any;
     sorting!: { [key: string]: boolean };
+    searchError!: string;
 
     user!: IUser;
 
@@ -23,6 +25,26 @@ export class WatchlistComponent implements OnInit {
         private cryptoService: CryptoService,
         private userService: UserService
     ) { }
+
+    
+    searchSubmit(form: NgForm) {
+        if (!form.controls.crypto.value) {
+            this.loadItems()
+            this.searchError = '';
+        } else {
+            let userID = localStorage.getItem('user-id');
+            if(!userID) return;
+            this.cryptoService
+                .searchWatchlist(form.controls.crypto.value, userID)
+                .subscribe(
+                    data => {
+                        this.watchlistCryptos = data;
+                        this.searchError = '';
+                    },
+                    err => this.searchError = err.error.message
+                );
+        };
+    };
 
     ngOnInit(): void {
 
@@ -37,6 +59,7 @@ export class WatchlistComponent implements OnInit {
 
         let userID = localStorage.getItem('user-id')
         if (!userID) return
+
         this.userService
             .getUser()
             .subscribe(
@@ -51,7 +74,7 @@ export class WatchlistComponent implements OnInit {
     loadItems(): void {
         let userID = localStorage.getItem('user-id');
         this.cryptoService
-            .getWatchlistCryptos(userID)
+            .getWatchlist(userID)
             .subscribe(
                 data => this.watchlistCryptos = data,
                 err => {
