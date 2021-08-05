@@ -9,7 +9,7 @@
             <li *ngIf="emailInput.errors?.required">Email is Required</li>
             <li *ngIf="emailInput.errors?.isEmail">Email is Invalid</li>
         </ul>
-        <input type="email" name="email" id="email" placeholder="Email" autocomplete="email" #emailInput="ngModel"
+        <input type="email" name="email" id="email" placeholder="Email" autocomplete="email" appIsEmail #emailInput="ngModel"
             ngModel required email>
 
         <ul *ngIf="passwordInput.invalid && passwordInput.touched" class="errors">
