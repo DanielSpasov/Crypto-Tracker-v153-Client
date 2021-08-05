@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/shared/user.service';
+import { Component } from '@angular/core';
+import { AuthService } from 'src/app/shared/auth.service';
 
 
 
@@ -8,20 +8,10 @@ import { UserService } from 'src/app/shared/user.service';
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
-    isAuth!: boolean;
-    isLoaded = false;
+    isAuth = this.authService.isAuth();
 
-    constructor(private userService: UserService) { }
-
-    ngOnInit(): void {
-        this.userService
-            .checkAuth()
-            .subscribe(data => {
-                this.isAuth = Boolean(data);
-                this.isLoaded = true;
-            })
-    }
+    constructor(private authService: AuthService) { }
 
 }
