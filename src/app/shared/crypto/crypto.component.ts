@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { CryptoService } from '../crypto.service';
 import { UserService } from '../user.service';
@@ -17,18 +17,20 @@ export class CryptoComponent implements OnInit {
 
     cryptos!: ICrypto[];
     sorting!: { [key: string]: boolean };
+
     user: IUser | undefined;
 
     constructor(
         private cryptoService: CryptoService,
         private userService: UserService
-    ) { }
+    ) { };
 
     loadItems(): void {
         this.cryptoService
             .getTop100()
-            .subscribe(res => this.cryptos = res.data)
-    }
+            .subscribe(res => this.cryptos = res.data);
+    };
+
     ngOnInit(): void {
 
         this.loadItems();
@@ -42,8 +44,8 @@ export class CryptoComponent implements OnInit {
             market_cap: false,
         };
 
-        let userID = localStorage.getItem('user-id')
-        if(!userID) return
+        let userID = localStorage.getItem('user-id');
+        if (!userID) return;
         this.userService
             .getUser()
             .subscribe(
@@ -57,16 +59,14 @@ export class CryptoComponent implements OnInit {
             .editWatchlist(crypto)
             .subscribe(
                 data => this.user = data,
-                err => console.log(err)
-            )
-    }
+                err => console.log(err.error.message)
+            );
+    };
 
-    editWatchlistAsGuest() {
-        console.log('Sign In to add items to watchlist')
-    }
+    editWatchlistAsGuest() { console.log('Sign in to add items to your watchlsit'); };
 
     sortItems(criteria: string): void {
-        this.cryptoService.sortItems(this.cryptos, this.sorting[criteria], criteria)
-        this.sorting[criteria] = !this.sorting[criteria]
-    }
+        this.cryptoService.sortItems(this.cryptos, this.sorting[criteria], criteria);
+        this.sorting[criteria] = !this.sorting[criteria];
+    };
 }
