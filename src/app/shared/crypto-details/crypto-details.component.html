@@ -28,7 +28,7 @@
 
         <div id="pricing">
             <h5>{{crypto.name}} (<span>{{crypto.symbol}}</span>)</h5>
-            <h3>${{crypto.quote.USD.price.toFixed(2)}}
+            <h3>${{crypto.quote.USD.price.toLocaleString('en-US', { maximumFractionDigits: 2 })}}
                 <span [ngStyle]="{background: crypto.quote.USD.percent_change_24h > 0 ? 'rgb(49, 224, 49)' : 'red' }">
                     <i class="fas fa-sort-up" *ngIf="crypto.quote.USD.percent_change_24h > 0"></i>
                     <i class="fas fa-sort-down" *ngIf="crypto.quote.USD.percent_change_24h <= 0"></i>
@@ -50,12 +50,12 @@
 
         <div id="market_cap">
             <h4>Market Cap</h4>
-            <p>$ {{crypto.quote.USD.market_cap.toLocaleString()}}</p>
+            <p>$ {{crypto.quote.USD.market_cap.toLocaleString('en-US', { maximumFractionDigits: 0 })}}</p>
         </div>
 
         <div id="volume">
             <h4>Volume 24h</h4>
-            <p>$ {{crypto.quote.USD.volume_24h.toLocaleString()}}</p>
+            <p>$ {{crypto.quote.USD.volume_24h.toLocaleString('en-US', { maximumFractionDigits: 0 })}}</p>
             <div *ngIf="crypto.quote.USD.volume_24h && crypto.quote.USD.market_cap">
                 <span>Volume / Market Cap:</span>
                 <span>{{(crypto.quote.USD.volume_24h / crypto.quote.USD.market_cap).toLocaleString()}}</span>
@@ -64,16 +64,16 @@
 
         <div id="circulating_capacity">
             <h4>Circulating Capacity</h4>
-            <p>{{crypto.circulating_supply.toLocaleString()}} {{crypto.symbol}}</p>
+            <p>{{crypto.circulating_supply.toLocaleString('en-US', { maximumFractionDigits: 0 })}} {{crypto.symbol}}</p>
 
             <div *ngIf="crypto.max_supply">
                 <span>Max Supply:</span>
-                <span>{{crypto.max_supply.toLocaleString()}}</span>
+                <span>{{crypto.max_supply.toLocaleString('en-US', { maximumFractionDigits: 0 })}}</span>
             </div>
 
             <div *ngIf="crypto.total_supply">
                 <span>Total Supply:</span>
-                <span>{{crypto.total_supply.toLocaleString()}}</span>
+                <span>{{crypto.total_supply.toLocaleString('en-US', { maximumFractionDigits: 0 })}}</span>
             </div>
         </div>
 

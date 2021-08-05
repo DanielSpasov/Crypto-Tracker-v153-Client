@@ -23,7 +23,7 @@
             <span>{{i.symbol}}</span>
         </td>
 
-        <td>${{i.quote.USD.price.toLocaleString()}}</td>
+        <td>${{i.quote.USD.price.toLocaleString('en-US', { maximumFractionDigits: 2 })}}</td>
 
         <td [ngStyle]="{color: i.quote.USD.percent_change_24h > 0 ? 'limegreen' : 'red'}">
             <i class="fas fa-sort-up" *ngIf="i.quote.USD.percent_change_24h > 0"></i>
@@ -37,6 +37,6 @@
             {{i.quote.USD.percent_change_7d.toFixed(2)}}%
         </td>
 
-        <td id="market_cap">${{i.quote.USD.market_cap.toLocaleString()}}</td>
+        <td id="market_cap">${{i.quote.USD.market_cap.toLocaleString('en-US', { maximumFractionDigits: 0 })}}</td>
     </tr>
 </table>

@@ -12,16 +12,21 @@
             <th id="image"></th>
             <th id="name"><button (click)="sortItems('name')"><i class="fas fa-sort"></i></button>Name</th>
             <th id="price"><button (click)="sortItems('price')"><i class="fas fa-sort"></i></button>Price</th>
-            <th id="percent_change_24h"><button (click)="sortItems('percent_change_24h')"><i class="fas fa-sort"></i></button>24h %</th>
-            <th id="percent_change_7d"><button (click)="sortItems('percent_change_7d')"><i class="fas fa-sort"></i></button>7d %</th>
-            <th id="market_cap"><button (click)="sortItems('market_cap')"><i class="fas fa-sort"></i></button>Market Cap</th>
+            <th id="percent_change_24h"><button (click)="sortItems('percent_change_24h')"><i
+                        class="fas fa-sort"></i></button>24h %</th>
+            <th id="percent_change_7d"><button (click)="sortItems('percent_change_7d')"><i
+                        class="fas fa-sort"></i></button>7d %</th>
+            <th id="market_cap"><button (click)="sortItems('market_cap')"><i class="fas fa-sort"></i></button>Market Cap
+            </th>
         </tr>
 
         <tr *ngFor="let i of cryptos">
 
             <td *ngIf="!user"><button (click)="editWatchlistAsGuest()"><i class="far fa-star"></i></button></td>
-            <td *ngIf="user && !user.watchlist.includes(i.symbol)"><button (click)="editWatchlist(i.symbol)"><i class="far fa-star"></i></button></td>
-            <td *ngIf="user && user.watchlist.includes(i.symbol)"><button (click)="editWatchlist(i.symbol)"><i class="fas fa-star"></i></button></td>
+            <td *ngIf="user && !user.watchlist.includes(i.symbol)"><button (click)="editWatchlist(i.symbol)"><i
+                        class="far fa-star"></i></button></td>
+            <td *ngIf="user && user.watchlist.includes(i.symbol)"><button (click)="editWatchlist(i.symbol)"><i
+                        class="fas fa-star"></i></button></td>
 
             <td id="rank">{{i.cmc_rank}}</td>
 
@@ -34,7 +39,7 @@
                 <span>{{i.symbol}}</span>
             </td>
 
-            <td id="price">${{i.quote.USD.price.toLocaleString()}}</td>
+            <td id="price">${{i.quote.USD.price.toLocaleString('en-US', { maximumFractionDigits: 2 })}}</td>
 
             <td id="percent_change_24h" [ngStyle]="{color: i.quote.USD.percent_change_24h > 0 ? 'limegreen' : 'red'}">
                 <i class="fas fa-sort-up" *ngIf="i.quote.USD.percent_change_24h > 0"></i>
@@ -48,7 +53,7 @@
                 {{i.quote.USD.percent_change_7d.toFixed(2)}}%
             </td>
 
-            <td id="market_cap">${{i.quote.USD.market_cap.toLocaleString()}}</td>
+            <td id="market_cap">${{i.quote.USD.market_cap.toLocaleString('en-US', { maximumFractionDigits: 0 })}}</td>
         </tr>
 
     </table>
