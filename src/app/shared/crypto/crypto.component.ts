@@ -5,6 +5,7 @@ import { UserService } from '../user.service';
 
 import { ICrypto } from '../../interfaces/crypto.model';
 import { IUser } from 'src/app/interfaces/user.model';
+import { NgForm } from '@angular/forms';
 
 
 
@@ -17,6 +18,7 @@ export class CryptoComponent implements OnInit {
 
     cryptos!: ICrypto[];
     sorting!: { [key: string]: boolean };
+    searchError!: string;
 
     user: IUser | undefined;
 
@@ -30,6 +32,22 @@ export class CryptoComponent implements OnInit {
             .getTop100()
             .subscribe(res => this.cryptos = res.data);
     };
+
+    searchSubmit(form: NgForm) {
+        if (!form.controls.crypto.value) {
+            this.loadItems()
+        } else {
+            this.cryptoService
+                .getCryptos(form.controls.crypto.value)
+                .subscribe(
+                    data => {
+                        this.cryptos = data;
+                        this.searchError = '';
+                    },
+                    err => this.searchError = err.error.message
+                )
+        }
+    }
 
     ngOnInit(): void {
 

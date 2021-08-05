@@ -1,9 +1,16 @@
 <app-navbar></app-navbar>
 <main>
+
     <h1>Cryptocurrnecies</h1>
     <button id="refresh-items" (click)="loadItems()"><i class="fas fa-redo-alt"></i></button>
 
+    <form #searchForm="ngForm" (ngSubmit)="searchSubmit(searchForm)" class="search-form">
+        <input type="text" name="crypto" id="crypto" placeholder="BTC, DOGE, BNB ..." #search="ngModel" ngModel>
+        <p *ngIf="searchError">{{searchError}}</p>
+    </form>
+
     <app-loader *ngIf="!cryptos"></app-loader>
+
     <table *ngIf="cryptos">
 
         <tr>

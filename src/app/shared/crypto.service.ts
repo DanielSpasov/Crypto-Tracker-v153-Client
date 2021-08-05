@@ -14,6 +14,7 @@ export class CryptoService {
     getOne(crypto: string) { return this.http.get<any>(`http://localhost:4153/crypto/getOne?crypto=${crypto}`) }
     getTop100() { return this.http.get<any>('http://localhost:4153/crypto/getTop100') }
     getWatchlistCryptos(userID: string | null) { return this.http.get<any>(`http://localhost:4153/crypto/getWatchlistCryptos?userID=${userID}`) }
+    getCryptos(cryptos: string) { return this.http.get<any>(`http://localhost:4153/crypto/getCryptos?cryptos=${cryptos}`) }
 
     editWatchlist(crypto: string) {
         let userID = localStorage.getItem('user-id')
