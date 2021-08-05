@@ -25,7 +25,7 @@ export class WatchlistComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        
+
         this.sorting = {
             cmc_rank: false,
             name: false,
@@ -36,7 +36,7 @@ export class WatchlistComponent implements OnInit {
         };
 
         let userID = localStorage.getItem('user-id')
-        if(!userID) return
+        if (!userID) return
         this.userService
             .getUser()
             .subscribe(
@@ -54,7 +54,10 @@ export class WatchlistComponent implements OnInit {
             .getWatchlistCryptos(userID)
             .subscribe(
                 data => this.watchlistCryptos = data,
-                err => console.log(err.error.message)
+                err => {
+                    if (err.status === 418) this.watchlistCryptos = undefined;
+                    else console.log(err.error.message)
+                }
             );
     };
 
