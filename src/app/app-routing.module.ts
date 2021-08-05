@@ -10,6 +10,8 @@ import { SignOutComponent } from './shared/sign-out/sign-out.component';
 import { InvalidPageComponent } from './core/invalid-page/invalid-page.component';
 import { CryptoDetailsComponent } from './shared/crypto-details/crypto-details.component';
 
+import { AuthGuard } from './shared/auth.guard';
+
 
 
 const routes: Routes = [
@@ -29,7 +31,7 @@ const routes: Routes = [
     },
     { path: 'cryptocurrencies', component: CryptoComponent, },
     { path: 'cryptocurrencies/:crypto', component: CryptoDetailsComponent },
-    { path: 'news', component: NewsComponent },
+    { path: 'news', component: NewsComponent, canActivate: [AuthGuard] },
     { path: 'watchlist', component: WatchlistComponent },
     { path: '**', component: InvalidPageComponent }
 ];

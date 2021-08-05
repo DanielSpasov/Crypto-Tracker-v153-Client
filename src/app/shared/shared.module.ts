@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 import { CryptoService } from './crypto.service';
 import { UserService } from './user.service';
+import { AuthService } from './auth.service';
 
 import { SameValueDirective } from './same-value.directive';
 import { IsEmailDirective } from './is-email.directive';
@@ -59,7 +60,8 @@ import { TopFiveCryptosComponent } from './top-five-cryptos/top-five-cryptos.com
     ],
     providers: [
         CryptoService,
-        UserService
+        UserService,
+        AuthService
     ]
 })
 export class SharedModule { }
