@@ -26,13 +26,13 @@ const routes: Routes = [
         children: [
             { path: 'sign-in', component: SignInComponent },
             { path: 'sign-up', component: SignUpComponent },
-            { path: 'sign-out', component: SignOutComponent }
+            { path: 'sign-out', component: SignOutComponent, canActivate: [AuthGuard] }
         ]
     },
     { path: 'cryptocurrencies', component: CryptoComponent, },
-    { path: 'cryptocurrencies/:crypto', component: CryptoDetailsComponent },
-    { path: 'news', component: NewsComponent, canActivate: [AuthGuard] },
-    { path: 'watchlist', component: WatchlistComponent },
+    { path: 'cryptocurrencies/:crypto', component: CryptoDetailsComponent, canActivate: [AuthGuard] },
+    { path: 'news', component: NewsComponent },
+    { path: 'watchlist', component: WatchlistComponent, canActivate: [AuthGuard] },
     { path: '**', component: InvalidPageComponent }
 ];
 
