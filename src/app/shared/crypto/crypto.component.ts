@@ -30,12 +30,13 @@ export class CryptoComponent implements OnInit {
     loadItems(): void {
         this.cryptoService
             .getTop100()
-            .subscribe(res => this.cryptos = res.data);
+            .subscribe(data => this.cryptos = data);
     };
 
     searchSubmit(form: NgForm) {
         if (!form.controls.crypto.value) {
             this.loadItems()
+            this.searchError = '';
         } else {
             this.cryptoService
                 .getCryptos(form.controls.crypto.value)
