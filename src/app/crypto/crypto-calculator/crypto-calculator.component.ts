@@ -7,9 +7,6 @@ import { ICrypto } from 'src/app/interfaces/crypto.model';
     styleUrls: ['./crypto-calculator.component.css']
 })
 export class CryptoCalculatorComponent {
-
     @Input() crypto!: ICrypto;
-
     value!: number;
-
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { CryptoService } from '../crypto.service';
-import { UserService } from '../user.service';
+import { UserService } from '../../shared/user.service';
 
 import { ICrypto } from '../../interfaces/crypto.model';
 import { IUser } from 'src/app/interfaces/user.model';
@@ -16,11 +16,12 @@ import { NgForm } from '@angular/forms';
 })
 export class CryptoComponent implements OnInit {
 
+    user: IUser | undefined;
+
     cryptos!: ICrypto[];
     sorting!: { [key: string]: boolean };
-    searchError!: string;
 
-    user: IUser | undefined;
+    searchError!: string;
 
     constructor(
         private cryptoService: CryptoService,
@@ -35,8 +36,9 @@ export class CryptoComponent implements OnInit {
 
     searchSubmit(form: NgForm) {
         if (!form.controls.crypto.value) {
-            this.loadItems()
+            this.loadItems();
             this.searchError = '';
+
         } else {
             this.cryptoService
                 .searchLatest(form.controls.crypto.value)
@@ -45,10 +47,10 @@ export class CryptoComponent implements OnInit {
                         this.cryptos = data;
                         this.searchError = '';
                     },
-                    err => this.searchError = err.error.message
-                )
-        }
-    }
+                    err => { this.searchError = err.error.message }
+                );
+        };
+    };
 
     ngOnInit(): void {
 
@@ -65,6 +67,7 @@ export class CryptoComponent implements OnInit {
 
         let userID = localStorage.getItem('user-id');
         if (!userID) return;
+
         this.userService
             .getUser()
             .subscribe(

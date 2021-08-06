@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
+import { CryptoModule } from './crypto/crypto.module';
 
 
 
@@ -19,6 +20,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     CoreModule,
     SharedModule,
+    CryptoModule,
     JwtModule.forRoot({
       config: {
         allowedDomains: ['http://localhost:4153'],

@@ -5,7 +5,7 @@ import { ICrypto } from 'src/app/interfaces/crypto.model';
 import { IUser } from 'src/app/interfaces/user.model';
 
 import { CryptoService } from '../crypto.service';
-import { UserService } from '../user.service';
+import { UserService } from '../../shared/user.service';
 
 
 
@@ -15,6 +15,8 @@ import { UserService } from '../user.service';
     styleUrls: ['./crypto-details.component.css']
 })
 export class CryptoDetailsComponent implements OnInit {
+
+    user!: IUser;
 
     currentCurrencySymbol!: string;
     crypto!: ICrypto;
@@ -26,15 +28,13 @@ export class CryptoDetailsComponent implements OnInit {
     tags!: boolean;
     calcIsOpen!: boolean;
 
-    user!: IUser;
-
     constructor(
         private router: Router,
         private cryptoService: CryptoService,
         private userService: UserService
     ) {
-        this.router.routeReuseStrategy.shouldReuseRoute = () => { return false }
-    }
+        this.router.routeReuseStrategy.shouldReuseRoute = () => { return false; };
+    };
 
     ngOnInit(): void {
         let currentUrlArray = this.router.url.split('/');
@@ -55,18 +55,19 @@ export class CryptoDetailsComponent implements OnInit {
         this.tags = false;
         this.calcIsOpen = false;
 
-        let userID = localStorage.getItem('user-id')
-        if (!userID) return
+        let userID = localStorage.getItem('user-id');
+        if (!userID) return;
+
         this.userService
             .getUser()
             .subscribe(
                 data => this.user = data,
                 err => console.log(err.error.message)
-            )
-    }
+            );
+    };
 
-    switchTags(): void { this.tags = !this.tags }
-    toggleCalc(): void { this.calcIsOpen = !this.calcIsOpen }
+    switchTags(): void { this.tags = !this.tags; };
+    toggleCalc(): void { this.calcIsOpen = !this.calcIsOpen; };
 
     editWatchlist(crypto: string) {
         this.cryptoService
@@ -74,10 +75,8 @@ export class CryptoDetailsComponent implements OnInit {
             .subscribe(
                 data => this.user = data,
                 err => console.log(err)
-            )
-    }
+            );
+    };
 
-    editWatchlistAsGuest() {
-        console.log('Sign In to add items to watchlist')
-    }
+    editWatchlistAsGuest() { console.log('Sign In to add items to watchlist'); };
 }

@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CoreModule } from '../core/core.module';
 import { FormsModule } from '@angular/forms';
 
-import { CryptoService } from './crypto.service';
+import { CryptoService } from '../crypto/crypto.service';
 import { UserService } from './user.service';
 import { AuthService } from './auth.service';
 
@@ -17,11 +17,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignOutComponent } from './sign-out/sign-out.component';
 import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
-import { CryptoComponent } from './crypto/crypto.component';
-import { WatchlistComponent } from './watchlist/watchlist.component';
-import { CryptoDetailsComponent } from './crypto-details/crypto-details.component';
-import { CryptoCalculatorComponent } from './crypto-calculator/crypto-calculator.component';
-import { TopFiveCryptosComponent } from './top-five-cryptos/top-five-cryptos.component';
 
 
 
@@ -29,14 +24,9 @@ import { TopFiveCryptosComponent } from './top-five-cryptos/top-five-cryptos.com
     declarations: [
         HomeComponent,
         NewsComponent,
-        CryptoComponent,
-        WatchlistComponent,
         SignInComponent,
         SignUpComponent,
         SignOutComponent,
-        CryptoDetailsComponent,
-        CryptoCalculatorComponent,
-        TopFiveCryptosComponent,
         SameValueDirective,
         IsEmailDirective
     ],
@@ -49,17 +39,11 @@ import { TopFiveCryptosComponent } from './top-five-cryptos/top-five-cryptos.com
     exports: [
         HomeComponent,
         NewsComponent,
-        CryptoComponent,
-        WatchlistComponent,
         SignInComponent,
         SignUpComponent,
-        SignOutComponent,
-        CryptoDetailsComponent,
-        CryptoCalculatorComponent,
-        TopFiveCryptosComponent
+        SignOutComponent
     ],
     providers: [
-        CryptoService,
         UserService,
         AuthService
     ]

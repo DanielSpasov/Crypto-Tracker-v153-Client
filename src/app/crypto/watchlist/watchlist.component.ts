@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { CryptoService } from '../crypto.service';
+import { UserService } from '../../shared/user.service';
 
 import { IUser } from 'src/app/interfaces/user.model';
-import { UserService } from '../user.service';
-import { NgForm } from '@angular/forms';
 
 
 
@@ -15,25 +15,29 @@ import { NgForm } from '@angular/forms';
 })
 export class WatchlistComponent implements OnInit {
 
+    user!: IUser;
+
     watchlistCryptos!: any;
     sorting!: { [key: string]: boolean };
-    searchError!: string;
 
-    user!: IUser;
+    searchError!: string;
 
     constructor(
         private cryptoService: CryptoService,
         private userService: UserService
-    ) { }
+    ) { };
 
     
     searchSubmit(form: NgForm) {
         if (!form.controls.crypto.value) {
-            this.loadItems()
+            this.loadItems();
             this.searchError = '';
+
         } else {
+
             let userID = localStorage.getItem('user-id');
             if(!userID) return;
+
             this.cryptoService
                 .searchWatchlist(form.controls.crypto.value, userID)
                 .subscribe(
@@ -57,8 +61,8 @@ export class WatchlistComponent implements OnInit {
             market_cap: false,
         };
 
-        let userID = localStorage.getItem('user-id')
-        if (!userID) return
+        let userID = localStorage.getItem('user-id');
+        if (!userID) return;
 
         this.userService
             .getUser()
