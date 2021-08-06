@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/shared/auth.service';
+
+import { AuthService } from '../../auth/auth.service';
 
 
 

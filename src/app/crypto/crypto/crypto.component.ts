@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { CryptoService } from '../crypto.service';
-import { UserService } from '../../shared/user.service';
+import { UserService } from '../../user/user.service';
 
 import { ICrypto } from '../../interfaces/crypto.model';
 import { IUser } from 'src/app/interfaces/user.model';

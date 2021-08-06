@@ -4,7 +4,7 @@ import { CryptoComponent } from './crypto/crypto.component';
 import { CryptoDetailsComponent } from './crypto-details/crypto-details.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 
-import { AuthGuard } from '../shared/auth.guard';
+import { AuthGuard } from '../auth/auth.guard';
 
 
 

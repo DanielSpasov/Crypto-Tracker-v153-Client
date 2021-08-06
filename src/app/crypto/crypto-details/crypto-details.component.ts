@@ -5,7 +5,7 @@ import { ICrypto } from 'src/app/interfaces/crypto.model';
 import { IUser } from 'src/app/interfaces/user.model';
 
 import { CryptoService } from '../crypto.service';
-import { UserService } from '../../shared/user.service';
+import { UserService } from '../../user/user.service';
 
 
 

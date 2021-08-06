@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { CryptoService } from '../crypto.service';
-import { UserService } from '../../shared/user.service';
+import { UserService } from '../../user/user.service';
 
 import { IUser } from 'src/app/interfaces/user.model';
 
