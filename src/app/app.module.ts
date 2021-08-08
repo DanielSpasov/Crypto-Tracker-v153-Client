@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { CryptoModule } from './crypto/crypto.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { NewsModule } from './news/news.module';
 
 
 
@@ -27,6 +28,7 @@ import { AuthModule } from './auth/auth.module';
     CryptoModule,
     UserModule,
     AuthModule,
+    NewsModule,
     JwtModule.forRoot({
       config: {
         allowedDomains: ['http://localhost:4153'],

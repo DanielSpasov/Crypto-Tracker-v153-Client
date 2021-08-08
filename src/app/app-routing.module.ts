@@ -1,7 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './shared/home/home.component';
-import { NewsComponent } from './shared/news/news.component';
 import { InvalidPageComponent } from './core/invalid-page/invalid-page.component';
 
 
@@ -13,7 +12,6 @@ const routes: Routes = [
         redirectTo: '/home'
     },
     { path: 'home', component: HomeComponent },
-    { path: 'news', component: NewsComponent },
     { path: '**', component: InvalidPageComponent }
 ];
 

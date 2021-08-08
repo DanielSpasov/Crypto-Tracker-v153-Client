@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
-import { CoreModule } from '../core/core.module';
 import { FormsModule } from '@angular/forms';
 
+import { CoreModule } from '../core/core.module';
+
 import { HomeComponent } from './home/home.component';
-import { NewsComponent } from './news/news.component';
 
 
 
 @NgModule({
     declarations: [
-        HomeComponent,
-        NewsComponent
+        HomeComponent
     ],
     imports: [
         CommonModule,
@@ -22,8 +20,7 @@ import { NewsComponent } from './news/news.component';
         FormsModule
     ],
     exports: [
-        HomeComponent,
-        NewsComponent
+        HomeComponent
     ]
 })
 export class SharedModule { }
