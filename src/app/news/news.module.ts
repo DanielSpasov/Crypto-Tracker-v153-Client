@@ -11,6 +11,7 @@ import { NewsService } from './news.service';
 import { CreateArticleComponent } from './create-article/create-article.component';
 import { NewsComponent } from './news/news.component';
 import { NewsArticleComponent } from './news-article/news-article.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -22,6 +23,7 @@ import { NewsArticleComponent } from './news-article/news-article.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     CoreModule,
     AuthModule,
     NewsRoutingModule

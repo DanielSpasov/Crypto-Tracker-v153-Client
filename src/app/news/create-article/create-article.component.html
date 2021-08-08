@@ -1,1 +1,48 @@
-<p>create-article works!</p>
+<app-navbar></app-navbar>
+<main>
+
+    <header>
+
+        <div>
+            <a routerLink="/news"><i class="fas fa-long-arrow-alt-left"></i></a>
+            <a routerLink="/news">News</a>
+        </div>
+
+        <div>
+            <a routerLink="/news/create">Create Article</a>
+            <a routerLink="/news/create"><i class="fas fa-plus"></i></a>
+        </div>
+
+    </header>
+
+    <h1>Create News Article</h1>
+
+    <form #createArticleForm="ngForm" (ngSubmit)="createArticleSubmit(createArticleForm)">
+
+        <ul *ngIf="titleInput.touched && titleInput.invalid" class="errors">
+            <li *ngIf="titleInput.errors?.required">Article Title is Required</li>
+            <li *ngIf="titleInput.errors?.minlength">Article Title must be at least 8 symbols long</li>
+        </ul>
+        <input type="text" name="title" id="title" placeholder="Article Title" #titleInput="ngModel" ngModel required [minlength]="8">
+
+        <ul *ngIf="titleInput.touched && titleInput.invalid" class="errors">
+            <li *ngIf="titleInput.errors?.required">Article Title is Required</li>
+            <li *ngIf="titleInput.errors?.minlength">Article Title must be at least 8 symbols long</li>
+        </ul>
+        <label class="custom-file-upload">
+            <input type="file" name="image" id="image" placeholder="Article Image" #imageInput="ngModel" ngModel required>
+            Article Image
+            -- <span *ngIf="imageInput.value">{{imageInput.value.split('\\')[2]}}</span>
+        </label>
+
+        <ul *ngIf="contentInput.invalid && contentInput.touched" class="errors">
+            <li *ngIf="contentInput.errors?.required">Content is Required</li>
+            <li *ngIf="contentInput.errors?.minlength">Article Content must be at least 30 symbols long</li>
+        </ul>
+        <textarea type="text" name="content" id="content" placeholder="Article Content" #contentInput="ngModel" ngModel
+            required [minlength]="30"></textarea>
+
+        <button>Create Article</button>
+    </form>
+
+</main>
