@@ -56,17 +56,4 @@ export class UserService {
         localStorage.setItem('user-id', '');
         this.router.navigate(['/']);
     };
-
-    checkAuth(): Observable<object> {
-        let token = localStorage.getItem('auth-token')
-        if (token) {
-            return this.http.get(`http://localhost:4153/user/validateToken`, {
-                headers: { 'x-auth-token': token }
-            })
-        } else {
-            return this.http.get(`http://localhost:4153/user/validateToken`, {
-                headers: { 'x-auth-token': '' }
-            })
-        }
-    };
 }
