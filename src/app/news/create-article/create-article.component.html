@@ -26,9 +26,8 @@
         <input type="text" name="title" id="title" placeholder="Article Title" #titleInput="ngModel" ngModel required
             [minlength]="8">
 
-        <ul *ngIf="titleInput.touched && titleInput.invalid" class="errors">
-            <li *ngIf="titleInput.errors?.required">Article Title is Required</li>
-            <li *ngIf="titleInput.errors?.minlength">Article Title must be at least 8 symbols long</li>
+        <ul *ngIf="imageInput.touched && imageInput.invalid" class="errors">
+            <li *ngIf="imageInput.errors?.required">Article Image is Required</li>
         </ul>
         <input type="text" name="image" id="image" placeholder="Article Image" #imageInput="ngModel" ngModel required>
         <!-- <label class="custom-file-upload">
