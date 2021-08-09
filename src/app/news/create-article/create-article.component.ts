@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { NewsService } from '../news.service';
 import { ToastrService } from 'ngx-toastr';
@@ -15,7 +16,8 @@ export class CreateArticleComponent {
 
     constructor(
         private newsService: NewsService,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        private router: Router
     ) { }
 
     createArticleSubmit(form: NgForm): void {
@@ -35,9 +37,13 @@ export class CreateArticleComponent {
                 userID
             )
             .subscribe(
-                data => console.log(data),
+                () => {
+                    this.toastr.success('Article Created');
+                    this.router.navigate(['news']);
+                },
                 err => this.toastr.error(err.error.message)
             );
+            
     };
 
 }

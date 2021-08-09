@@ -17,6 +17,25 @@
     
     <h1>Latest News</h1>
 
-    <p>Main content</p>
+    <app-loader *ngIf="!news"></app-loader>
+    <section *ngIf="news" class="news-articles-container">
+
+        <article *ngFor="let article of news" class="news-article" [routerLink]="['/news', article._id]">
+
+            <h3>{{article.title}}</h3>
+
+            <img src="{{article.image}}" alt="{{article.title}}">
+
+            <p *ngIf="article.content.length <= 75">{{article.content}}</p>
+            <p *ngIf="article.content.length > 75">{{article.content.slice(0, 75).concat('...')}}</p>
+
+            <footer>
+                <p>Author: <span>{{article.creator.username}}</span></p>
+                <p>Posted: <span>{{article.dateCreated.slice(0, 10)}}</span></p>
+            </footer>
+
+        </article>
+        
+    </section>
 
 </main>

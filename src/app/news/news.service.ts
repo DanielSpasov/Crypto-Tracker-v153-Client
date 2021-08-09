@@ -25,4 +25,8 @@ export class NewsService {
         })
     }
 
+    getLatest(): Observable<IArticle[]> {
+        return this.http.get<IArticle[]>(`http://localhost:4153/news/getLatest`)
+    }
+
 }

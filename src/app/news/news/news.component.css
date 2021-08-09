@@ -21,6 +21,33 @@ a:hover { color: rgb(41, 133, 255) }
     padding: 12px;
 }
 
-main {
-    text-align: center;
+.news-articles-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.news-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgb(212, 212, 212);
+    border-radius: 15px;
+    margin: 16px;
+}
+.news-article:hover { background-color: rgb(195, 195, 195) }
+
+.news-article img {
+    width: 100%;
+    height: 300px;
+}
+
+.news-article p { padding: 20px; margin: 0 }
+
+.news-article footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.news-article footer p span { color: gray }
