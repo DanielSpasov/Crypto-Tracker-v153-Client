@@ -36,7 +36,6 @@ a:hover { color: rgb(41, 133, 255) }
     border-radius: 15px;
     margin: 16px;
 }
-.news-article:hover { background-color: rgb(195, 195, 195) }
 
 .news-article img {
     width: 100%;
@@ -50,4 +49,9 @@ a:hover { color: rgb(41, 133, 255) }
     justify-content: space-between;
     width: 100%;
 }
-.news-article footer p span { color: gray }
+.news-article footer p a,
+.news-article footer p span {
+    color: gray;
+    font-size: 16px;
+}
+.news-article footer p a:hover { color: rgb(65, 147, 255) }
