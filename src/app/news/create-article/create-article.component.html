@@ -23,17 +23,19 @@
             <li *ngIf="titleInput.errors?.required">Article Title is Required</li>
             <li *ngIf="titleInput.errors?.minlength">Article Title must be at least 8 symbols long</li>
         </ul>
-        <input type="text" name="title" id="title" placeholder="Article Title" #titleInput="ngModel" ngModel required [minlength]="8">
+        <input type="text" name="title" id="title" placeholder="Article Title" #titleInput="ngModel" ngModel required
+            [minlength]="8">
 
         <ul *ngIf="titleInput.touched && titleInput.invalid" class="errors">
             <li *ngIf="titleInput.errors?.required">Article Title is Required</li>
             <li *ngIf="titleInput.errors?.minlength">Article Title must be at least 8 symbols long</li>
         </ul>
-        <label class="custom-file-upload">
-            <input type="file" name="image" id="image" placeholder="Article Image" #imageInput="ngModel" ngModel required>
+        <input type="text" name="image" id="image" placeholder="Article Image" #imageInput="ngModel" ngModel required>
+        <!-- <label class="custom-file-upload">
+            <input type="file" name="image" id="image" placeholder="Article Image" (change)="imageChange($event)" #imageInput="ngModel" ngModel required>
             Article Image
             -- <span *ngIf="imageInput.value">{{imageInput.value.split('\\')[2]}}</span>
-        </label>
+        </label> -->
 
         <ul *ngIf="contentInput.invalid && contentInput.touched" class="errors">
             <li *ngIf="contentInput.errors?.required">Content is Required</li>

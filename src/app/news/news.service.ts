@@ -13,11 +13,13 @@ export class NewsService {
 
     createArticle(
         title: string,
+        image: string,
         content: string,
         userID: string
     ): Observable<IArticle> {
         return this.http.post<IArticle>(`http://localhost:4153/news/createArticle`, {
             title,
+            image,
             content,
             userID
         })

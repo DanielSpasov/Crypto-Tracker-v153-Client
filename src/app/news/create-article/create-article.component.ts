@@ -20,19 +20,20 @@ export class CreateArticleComponent {
 
         if (form.invalid) return;
 
-        const userID = localStorage.getItem('user-id')
-        if(!userID) return;
+        const userID = localStorage.getItem('user-id');
+        if (!userID) return;
 
         this.newsService
             .createArticle(
                 form.controls.title.value,
+                form.controls.image.value,
                 form.controls.content.value,
                 userID
             )
             .subscribe(
                 data => console.log(data),
                 err => console.log(err)
-            )
-    }
+            );
+    };
 
 }

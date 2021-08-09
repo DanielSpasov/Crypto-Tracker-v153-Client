@@ -1,7 +1,7 @@
 export interface IArticle {
     title: string,
     content: string,
-    image: any,
+    image: string,
     creator: string,
     dateCreated: string,
 }
