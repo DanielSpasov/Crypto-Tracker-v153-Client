@@ -7,33 +7,67 @@
         <input type="text" name="crypto" id="crypto" placeholder="BTC, DOGE, BNB ..." #search="ngModel" ngModel>
     </form>
 
-    <h2 *ngIf="user && !watchlistCryptos">You have no cryptocurrencies in your watchlsit</h2>
-    <app-loader *ngIf="user && !watchlistCryptos"></app-loader>
+    <app-loader *ngIf="!watchlistCryptos"></app-loader>
 
     <table *ngIf="watchlistCryptos">
 
         <tr>
             <th></th>
-            <th id="rank"><button (click)="sortItems('cmc_rank')"><i class="fas fa-sort"></i></button>#</th>
+            <th id="rank">
+                <button (click)="sortItems('cmc_rank')">
+                    <i class="fas fa-sort"></i>
+                </button>
+                #
+            </th>
             <th id="image"></th>
-            <th id="name"><button (click)="sortItems('name')"><i class="fas fa-sort"></i></button>Name</th>
-            <th id="price"><button (click)="sortItems('price')"><i class="fas fa-sort"></i></button>Price</th>
-            <th id="percent_change_24h"><button (click)="sortItems('percent_change_24h')"><i
-                        class="fas fa-sort"></i></button>24h %</th>
-            <th id="percent_change_7d"><button (click)="sortItems('percent_change_7d')"><i
-                        class="fas fa-sort"></i></button>7d %</th>
-            <th id="market_cap"><button (click)="sortItems('market_cap')"><i class="fas fa-sort"></i></button>Market Cap
+            <th id="name">
+                <button (click)="sortItems('name')">
+                    <i class="fas fa-sort"></i>
+                </button>
+                Name
+            </th>
+            <th id="price">
+                <button (click)="sortItems('price')">
+                    <i class="fas fa-sort"></i>
+                </button>
+                Price
+            </th>
+            <th id="percent_change_24h">
+                <button (click)="sortItems('percent_change_24h')">
+                    <i class="fas fa-sort"></i>
+                </button>
+                24h %
+            </th>
+            <th id="percent_change_7d">
+                <button (click)="sortItems('percent_change_7d')">
+                    <i class="fas fa-sort"></i>
+                </button>
+                7d %
+            </th>
+            <th id="market_cap">
+                <button (click)="sortItems('market_cap')">
+                    <i class="fas fa-sort"></i>
+                </button>
+                Market Cap
             </th>
         </tr>
 
         <tr *ngFor="let i of watchlistCryptos">
 
-            <td *ngIf="!user.watchlist.includes(i.symbol)"><button (click)="editWatchlist(i.symbol)"><i
-                        class="far fa-star"></i></button></td>
-            <td *ngIf="user.watchlist.includes(i.symbol)"><button (click)="editWatchlist(i.symbol)"><i
-                        class="fas fa-star"></i></button></td>
+            <td *ngIf="!user.watchlist.includes(i.symbol)">
+                <button (click)="editWatchlist(i.symbol)">
+                    <i class="far fa-star"></i>
+                </button>
+            </td>
+            <td *ngIf="user.watchlist.includes(i.symbol)">
+                <button (click)="editWatchlist(i.symbol)">
+                    <i class="fas fa-star"></i>
+                </button>
+            </td>
 
-            <td id="rank">{{i.cmc_rank}}</td>
+            <td id="rank">
+                {{i.cmc_rank}}
+            </td>
 
             <td id="image">
                 <img [src]="['https://s2.coinmarketcap.com/static/img/coins/64x64/', i.id, '.png'].join('')" alt="Logo">
@@ -44,7 +78,10 @@
                 <span>{{i.symbol}}</span>
             </td>
 
-            <td id="price">${{i.quote.USD.price.toLocaleString()}}</td>
+            <td id="price">
+                $
+                {{i.quote.USD.price.toLocaleString()}}
+            </td>
 
             <td id="percent_change_24h" [ngStyle]="{color: i.quote.USD.percent_change_24h > 0 ? 'limegreen' : 'red'}">
                 <i class="fas fa-sort-up" *ngIf="i.quote.USD.percent_change_24h > 0"></i>
@@ -58,7 +95,10 @@
                 {{i.quote.USD.percent_change_7d.toFixed(2)}}%
             </td>
 
-            <td id="market_cap">${{i.quote.USD.market_cap.toLocaleString()}}</td>
+            <td id="market_cap">
+                $
+                {{i.quote.USD.market_cap.toLocaleString()}}
+            </td>
         </tr>
 
     </table>
