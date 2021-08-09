@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { NewsService } from '../news.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -12,7 +13,10 @@ import { NewsService } from '../news.service';
 })
 export class CreateArticleComponent {
 
-    constructor(private newsService: NewsService) { }
+    constructor(
+        private newsService: NewsService,
+        private toastr: ToastrService
+    ) { }
 
     createArticleSubmit(form: NgForm): void {
 
@@ -32,7 +36,7 @@ export class CreateArticleComponent {
             )
             .subscribe(
                 data => console.log(data),
-                err => console.log(err)
+                err => this.toastr.error(err.error.message)
             );
     };
 

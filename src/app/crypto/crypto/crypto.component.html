@@ -6,7 +6,6 @@
 
     <form #searchForm="ngForm" (ngSubmit)="searchSubmit(searchForm)" class="search-form">
         <input type="text" name="crypto" id="crypto" placeholder="BTC, DOGE, BNB ..." #search="ngModel" ngModel>
-        <p *ngIf="searchError">{{searchError}}</p>
     </form>
 
     <app-loader *ngIf="!cryptos"></app-loader>

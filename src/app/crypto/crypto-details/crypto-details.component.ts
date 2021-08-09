@@ -6,6 +6,7 @@ import { IUser } from 'src/app/interfaces/user.model';
 
 import { CryptoService } from '../crypto.service';
 import { UserService } from '../../user/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -31,7 +32,8 @@ export class CryptoDetailsComponent implements OnInit {
     constructor(
         private router: Router,
         private cryptoService: CryptoService,
-        private userService: UserService
+        private userService: UserService,
+        private toastr: ToastrService
     ) {
         this.router.routeReuseStrategy.shouldReuseRoute = () => { return false; };
     };
@@ -42,15 +44,21 @@ export class CryptoDetailsComponent implements OnInit {
 
         this.cryptoService
             .getOne(this.currentCurrencySymbol)
-            .subscribe(data => this.crypto = data[this.currentCurrencySymbol]);
+            .subscribe(
+                data => this.crypto = data[this.currentCurrencySymbol],
+                err => this.toastr.error(err.error.message)
+            );
 
         this.cryptoService
             .getLatest()
-            .subscribe(data => {
-                this.top_5_by_price = this.cryptoService.sortItems(data, false, 'price').slice(0, 5)
-                this.top_5_by_24h = this.cryptoService.sortItems(data, false, 'percent_change_24h').slice(0, 5)
-                this.top_5_by_7d = this.cryptoService.sortItems(data, false, 'percent_change_7d').slice(0, 5)
-            });
+            .subscribe(
+                data => {
+                    this.top_5_by_price = this.cryptoService.sortItems(data, false, 'price').slice(0, 5)
+                    this.top_5_by_24h = this.cryptoService.sortItems(data, false, 'percent_change_24h').slice(0, 5)
+                    this.top_5_by_7d = this.cryptoService.sortItems(data, false, 'percent_change_7d').slice(0, 5)
+                },
+                err => this.toastr.error(err.error.message)
+            );
 
         this.tags = false;
         this.calcIsOpen = false;
@@ -62,7 +70,7 @@ export class CryptoDetailsComponent implements OnInit {
             .getUser()
             .subscribe(
                 data => this.user = data,
-                err => console.log(err.error.message)
+                err => this.toastr.error(err.error.message)
             );
     };
 
@@ -74,9 +82,9 @@ export class CryptoDetailsComponent implements OnInit {
             .editWatchlist(crypto)
             .subscribe(
                 data => this.user = data,
-                err => console.log(err)
+                err => this.toastr.error(err.error.message)
             );
     };
 
-    editWatchlistAsGuest() { console.log('Sign In to add items to watchlist'); };
+    editWatchlistAsGuest() { this.toastr.error('Sign In to add items to watchlist'); };
 }

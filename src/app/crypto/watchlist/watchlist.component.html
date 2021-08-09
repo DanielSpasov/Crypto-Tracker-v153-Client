@@ -5,7 +5,6 @@
 
     <form #searchForm="ngForm" (ngSubmit)="searchSubmit(searchForm)" class="search-form">
         <input type="text" name="crypto" id="crypto" placeholder="BTC, DOGE, BNB ..." #search="ngModel" ngModel>
-        <p *ngIf="searchError">{{searchError}}</p>
     </form>
 
     <h2 *ngIf="user && !watchlistCryptos">You have no cryptocurrencies in your watchlsit</h2>

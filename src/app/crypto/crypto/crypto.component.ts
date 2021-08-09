@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { CryptoService } from '../crypto.service';
 import { UserService } from '../../user/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 import { ICrypto } from '../../interfaces/crypto.model';
 import { IUser } from 'src/app/interfaces/user.model';
@@ -21,33 +22,31 @@ export class CryptoComponent implements OnInit {
     cryptos!: ICrypto[];
     sorting!: { [key: string]: boolean };
 
-    searchError!: string;
-
     constructor(
         private cryptoService: CryptoService,
-        private userService: UserService
+        private userService: UserService,
+        private toastr: ToastrService
     ) { };
 
     loadItems(): void {
         this.cryptoService
             .getLatest()
-            .subscribe(data => this.cryptos = data);
+            .subscribe(
+                data => this.cryptos = data,
+                err => this.toastr.error(err.error.message)
+            );
     };
 
     searchSubmit(form: NgForm) {
         if (!form.controls.crypto.value) {
             this.loadItems();
-            this.searchError = '';
 
         } else {
             this.cryptoService
                 .searchLatest(form.controls.crypto.value)
                 .subscribe(
-                    data => {
-                        this.cryptos = data;
-                        this.searchError = '';
-                    },
-                    err => { this.searchError = err.error.message }
+                    data => this.cryptos = data,
+                    err => this.toastr.error(err.error.message)
                 );
         };
     };
@@ -65,14 +64,14 @@ export class CryptoComponent implements OnInit {
             market_cap: false,
         };
 
-        let userID = localStorage.getItem('user-id');
+        const userID = localStorage.getItem('user-id');
         if (!userID) return;
 
         this.userService
             .getUser()
             .subscribe(
                 data => this.user = data,
-                err => console.log(err.error.message)
+                err => this.toastr.error(err.error.message)
             );
     };
 
@@ -81,7 +80,7 @@ export class CryptoComponent implements OnInit {
             .editWatchlist(crypto)
             .subscribe(
                 data => this.user = data,
-                err => console.log(err.error.message)
+                err => this.toastr.error(err.error.message)
             );
     };
 

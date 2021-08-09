@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 
 import { CryptoService } from '../crypto.service';
 import { UserService } from '../../user/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 import { IUser } from 'src/app/interfaces/user.model';
 
@@ -20,18 +21,16 @@ export class WatchlistComponent implements OnInit {
     watchlistCryptos!: any;
     sorting!: { [key: string]: boolean };
 
-    searchError!: string;
-
     constructor(
         private cryptoService: CryptoService,
-        private userService: UserService
+        private userService: UserService,
+        private toastr: ToastrService
     ) { };
 
     
     searchSubmit(form: NgForm) {
         if (!form.controls.crypto.value) {
             this.loadItems();
-            this.searchError = '';
 
         } else {
 
@@ -41,11 +40,8 @@ export class WatchlistComponent implements OnInit {
             this.cryptoService
                 .searchWatchlist(form.controls.crypto.value, userID)
                 .subscribe(
-                    data => {
-                        this.watchlistCryptos = data;
-                        this.searchError = '';
-                    },
-                    err => this.searchError = err.error.message
+                    data => this.watchlistCryptos = data,
+                    err => this.toastr.error(err.error.message)
                 );
         };
     };
@@ -61,7 +57,7 @@ export class WatchlistComponent implements OnInit {
             market_cap: false,
         };
 
-        let userID = localStorage.getItem('user-id');
+        const userID = localStorage.getItem('user-id');
         if (!userID) return;
 
         this.userService
@@ -71,7 +67,7 @@ export class WatchlistComponent implements OnInit {
                     this.user = data;
                     this.loadItems();
                 },
-                err => console.log(err.error.message)
+                err => this.toastr.error(err.error.message)
             );
     };
 
@@ -81,10 +77,7 @@ export class WatchlistComponent implements OnInit {
             .getWatchlist(userID)
             .subscribe(
                 data => this.watchlistCryptos = data,
-                err => {
-                    if (err.status === 418) this.watchlistCryptos = undefined;
-                    else console.log(err.error.message)
-                }
+                err => this.toastr.error(err.error.message)
             );
     };
 
@@ -93,7 +86,7 @@ export class WatchlistComponent implements OnInit {
             .editWatchlist(crypto)
             .subscribe(
                 data => this.user = data,
-                err => console.log(err)
+                err => this.toastr.error(err.error.message)
             );
     };
 

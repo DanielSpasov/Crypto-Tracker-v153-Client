@@ -2,19 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs';
-
 import { IUser } from '../interfaces/user.model';
+
+import { ToastrService } from 'ngx-toastr';
 
 
 
 @Injectable()
 export class UserService {
 
-    constructor(private http: HttpClient, private router: Router) { }
+    constructor(
+        private http: HttpClient,
+        private router: Router,
+        private toastr: ToastrService
+    ) { }
 
     getUser() {
-        let userID = localStorage.getItem('user-id');
+        const userID = localStorage.getItem('user-id');
         if (userID) {
             return this.http.get<IUser>(`http://localhost:4153/user/`, {
                 headers: { 'user-id': userID }
@@ -34,7 +38,7 @@ export class UserService {
                     email: userData.email,
                     password: userData.password
                 }),
-                err => console.log(err)
+                err => this.toastr.error(err.error.message)
             );
     };
 
@@ -47,7 +51,7 @@ export class UserService {
                     localStorage.setItem('user-id', data._id);
                     this.router.navigate(['/']);
                 },
-                err => console.log(err)
+                err => this.toastr.error(err.error.message)
             );
     };
 
