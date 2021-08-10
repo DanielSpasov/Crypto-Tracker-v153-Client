@@ -1,6 +1,7 @@
 header {
     display: flex;
     justify-content: space-around;
+    min-width: 360px;
 }
 
 header div {
@@ -29,4 +30,18 @@ a:hover { color: rgb(41, 133, 255) }
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin: 0 15vw 0 15vw;
+    min-width: 360px;
+}
+
+@media screen and (max-width: 1300px) {
+    header { justify-content: space-between }
+    .news-articles-container {
+        margin: 0;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    #home-text,
+    #create-article-text { display: none }
 }

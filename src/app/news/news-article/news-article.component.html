@@ -4,8 +4,8 @@
 
     <img src="{{article.image}}" alt="{{article.title}}">
 
-    <p *ngIf="article.content.length <= 75">{{article.content}}</p>
-    <p *ngIf="article.content.length > 75">{{article.content.slice(0, 75).concat('...')}}</p>
+    <p *ngIf="article.content.length <= 40">{{article.content}}</p>
+    <p *ngIf="article.content.length > 40">{{article.content.slice(0, 40).concat('...')}}</p>
 
     <footer>
         <p>Author: <a [routerLink]="['/profile', article.creator._id]">{{article.creator.username}}</a></p>
