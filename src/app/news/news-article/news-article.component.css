@@ -7,6 +7,7 @@
     box-shadow: 0px 0px 10px 2px gray;
     border-radius: 15px;
     margin: 16px;
+    min-width: 200px;
 }
 .news-article:hover { background-color: rgb(243, 243, 243) }
 
