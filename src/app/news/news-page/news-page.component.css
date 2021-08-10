@@ -8,6 +8,8 @@ header div {
     align-items: center;
 }
 
+main { text-align: center }
+
 a {
     color: black;
     text-decoration: none;
