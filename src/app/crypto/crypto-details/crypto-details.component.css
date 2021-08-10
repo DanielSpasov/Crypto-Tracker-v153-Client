@@ -133,20 +133,14 @@ header {
         flex-direction: column;
         align-items: center;
     }
-
-    #name { width: 100%; padding: 10px 0px }
-    #pricing { width: 100%; padding: 10px 0px }
-    #toggle_calc { width: 100%; padding: 10px 0px }
-
-    #name div:nth-child(2) { text-align: center }
     #main {
         flex-direction: column;
         align-items: center;
     }
+
+    #name { width: 100%; padding: 10px 0px }
+    #pricing { width: 100%; padding: 10px 0px }
+    #toggle_calc { width: 100%; padding: 10px 0px }
+    #name div:nth-child(2) { text-align: center }
     #main div { border: none }
 }
-
-/* @media screen and (max-width: 1050px) { #market_cap { display: none } } */
-/* @media screen and (max-width: 850px) { #percent_change_7d { display: none } } */
-/* @media screen and (max-width: 750px) { #percent_change_24h { display: none } } */
-/* @media screen and (max-width: 650px) { #price { display: none } } */
