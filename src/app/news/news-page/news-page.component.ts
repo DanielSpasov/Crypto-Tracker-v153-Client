@@ -8,10 +8,10 @@ import { NewsService } from '../news.service';
 
 @Component({
     selector: 'app-news',
-    templateUrl: './news.component.html',
-    styleUrls: ['./news.component.css']
+    templateUrl: './news-page.component.html',
+    styleUrls: ['./news-page.component.css']
 })
-export class NewsComponent implements OnInit {
+export class NewsPageComponent implements OnInit {
 
     news!: IArticle[];
 

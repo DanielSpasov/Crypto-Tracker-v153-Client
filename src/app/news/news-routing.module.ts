@@ -1,6 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 
-import { NewsComponent } from './news/news.component';
+import { NewsPageComponent } from './news-page/news-page.component';
 
 import { AuthGuard } from '../auth/auth.guard';
 import { CreateArticleComponent } from './create-article/create-article.component';
@@ -11,7 +11,7 @@ import { NewsArticleComponent } from './news-article/news-article.component';
 const routes: Routes = [
     {
         path: 'news',
-        component: NewsComponent
+        component: NewsPageComponent
     },
     {
         path: 'news/create',
