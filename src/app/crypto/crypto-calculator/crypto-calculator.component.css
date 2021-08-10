@@ -55,3 +55,17 @@
 
 #usd span,
 #currency span { color: gray }
+
+@media screen and (max-width: 1300px) {
+    #calculator {
+        width: 60vw;
+        left: 20vw;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #calculator {
+        width: 90vw;
+        left: 5vw;
+    }
+}

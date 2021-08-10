@@ -27,3 +27,10 @@ td {
 
 td span { color: gray }
 td img { height: 25px }
+
+@media screen and (max-width: 900px) {
+    table {
+        width: 100%;
+        margin: 0;
+    }
+}
