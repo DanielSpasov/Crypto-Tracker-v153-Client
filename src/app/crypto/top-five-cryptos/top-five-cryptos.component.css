@@ -34,3 +34,7 @@ td img { height: 25px }
         margin: 0;
     }
 }
+
+@media screen and (max-width: 550px) {
+    #market_cap { display: none }
+}
