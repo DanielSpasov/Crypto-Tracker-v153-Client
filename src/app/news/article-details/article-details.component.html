@@ -13,6 +13,20 @@
         </div>
         
     </header>
-    
-    <h1>Article Title</h1>
+
+    <app-loader *ngIf="!article"></app-loader>
+    <section *ngIf="article" class="news-articles-container">
+
+        <h1>{{article.title}}</h1>
+
+        <img src="{{article.image}}" alt="{{article.title}}">
+
+        <p>{{article.content}}</p>
+
+        <footer>
+            <span>Author: <a [routerLink]="['/profile', article.creator._id]">{{article.creator.username}}</a></span>
+            <span>Posted: {{article.dateCreated.slice(0, 10)}}</span>
+        </footer>
+
+    </section>
 </main>

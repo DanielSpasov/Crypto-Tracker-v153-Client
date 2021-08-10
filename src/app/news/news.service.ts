@@ -25,8 +25,7 @@ export class NewsService {
         })
     }
 
-    getLatest(): Observable<IArticle[]> {
-        return this.http.get<IArticle[]>(`http://localhost:4153/news/getLatest`)
-    }
+    getLatest(): Observable<IArticle[]> { return this.http.get<IArticle[]>(`http://localhost:4153/news/getLatest`) }
+    getArticle(id: string): Observable<IArticle> { return this.http.get<IArticle>(`http://localhost:4153/news/getArticle?id=${id}`) }
 
 }
