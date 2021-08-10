@@ -127,6 +127,9 @@ td button {
         width: 100%;
         padding: 0%;
     }
+    #rank,
+    #image { padding: 0px }
+    #name { min-width: 0 }
 }
 
 @media screen and (max-width: 1050px) { #market_cap { display: none } }
