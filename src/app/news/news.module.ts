@@ -12,6 +12,7 @@ import { CreateArticleComponent } from './create-article/create-article.componen
 import { NewsPageComponent } from './news-page/news-page.component';
 import { NewsArticleComponent } from './news-article/news-article.component';
 import { FormsModule } from '@angular/forms';
+import { ArticleDetailsComponent } from './article-details/article-details.component';
 
 
 
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     CreateArticleComponent,
     NewsPageComponent,
-    NewsArticleComponent
+    NewsArticleComponent,
+    ArticleDetailsComponent
   ],
   imports: [
     CommonModule,
