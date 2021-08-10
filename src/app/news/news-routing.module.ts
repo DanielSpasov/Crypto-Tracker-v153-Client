@@ -4,7 +4,7 @@ import { NewsPageComponent } from './news-page/news-page.component';
 
 import { AuthGuard } from '../auth/auth.guard';
 import { CreateArticleComponent } from './create-article/create-article.component';
-import { NewsArticleComponent } from './news-article/news-article.component';
+import { ArticleDetailsComponent } from './article-details/article-details.component';
 
 
 
@@ -20,7 +20,7 @@ const routes: Routes = [
     },
     {
         path: 'news/:id',
-        component: NewsArticleComponent,
+        component: ArticleDetailsComponent,
         canActivate: [AuthGuard] 
     },
 ];

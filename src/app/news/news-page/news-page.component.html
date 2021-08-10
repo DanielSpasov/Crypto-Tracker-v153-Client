@@ -2,40 +2,26 @@
 <main>
 
     <header>
-        
+
         <div>
             <a routerLink="/"><i class="fas fa-long-arrow-alt-left"></i></a>
             <a routerLink="/">Home</a>
         </div>
-        
+
         <div>
             <a routerLink="/news/create">Create Article</a>
             <a routerLink="/news/create"><i class="fas fa-plus"></i></a>
         </div>
-        
+
     </header>
-    
+
     <h1>Latest News</h1>
 
     <app-loader *ngIf="!news"></app-loader>
     <section *ngIf="news" class="news-articles-container">
 
-        <article *ngFor="let article of news" class="news-article" [routerLink]="['/news', article._id]">
+        <app-news-article *ngFor="let article of news" [article]="article"></app-news-article>
 
-            <h3>{{article.title}}</h3>
-
-            <img src="{{article.image}}" alt="{{article.title}}">
-
-            <p *ngIf="article.content.length <= 75">{{article.content}}</p>
-            <p *ngIf="article.content.length > 75">{{article.content.slice(0, 75).concat('...')}}</p>
-
-            <footer>
-                <p>Author: <a [routerLink]="['/profile', article.creator._id]">{{article.creator.username}}</a></p>
-                <p>Posted: <span>{{article.dateCreated.slice(0, 10)}}</span></p>
-            </footer>
-
-        </article>
-        
     </section>
 
 </main>

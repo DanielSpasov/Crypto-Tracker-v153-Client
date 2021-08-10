@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { IArticle } from 'src/app/interfaces/article.model';
+
+
 
 @Component({
   selector: 'app-news-article',
   templateUrl: './news-article.component.html',
   styleUrls: ['./news-article.component.css']
 })
-export class NewsArticleComponent implements OnInit {
+export class NewsArticleComponent {
+
+  @Input() article!: IArticle;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
