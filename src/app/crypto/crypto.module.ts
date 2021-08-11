@@ -38,6 +38,9 @@ import { CryptoCalculatorComponent } from './crypto-calculator/crypto-calculator
         CryptoService,
         UserService,
         AuthService
+    ],
+    exports: [
+        TopFiveCryptosComponent
     ]
 })
 export class CryptoModule { }

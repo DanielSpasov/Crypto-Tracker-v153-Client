@@ -1,0 +1,6 @@
+h2 { text-align: center }
+
+.news {
+    display: flex;
+    overflow-y: scroll;
+}

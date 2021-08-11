@@ -1,4 +1,17 @@
 <app-navbar></app-navbar>
 <main>
-    <h1>home works!</h1>
+
+    <app-loader *ngIf="!news"></app-loader>
+    <h2>Latest Cryptocurrency News</h2>
+    <section *ngIf="news" class="news">
+        <app-news-article *ngFor="let article of news" [article]="article"></app-news-article>
+    </section>
+
+    <app-loader *ngIf="!cryptos"></app-loader>
+    <section *ngIf="cryptos" class="cryptos">
+        <app-top-five-cryptos [cryptos]="top_5_by_price" title="Top 5 Cryptocurrencies sorted by price"></app-top-five-cryptos>
+        <app-top-five-cryptos [cryptos]="top_5_by_24h" title="Top 5 Cryptocurrencies sorted by price change over the last 24 hours"></app-top-five-cryptos>
+        <app-top-five-cryptos [cryptos]="top_5_by_7d" title="Top 5 Cryptocurrencies sorted by price change over the last 7 days"></app-top-five-cryptos>
+    </section>
+
 </main>

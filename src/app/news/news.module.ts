@@ -32,6 +32,9 @@ import { ArticleDetailsComponent } from './article-details/article-details.compo
   ],
   providers: [
     NewsService
+  ],
+  exports: [
+    NewsArticleComponent
   ]
 })
 export class NewsModule { }
