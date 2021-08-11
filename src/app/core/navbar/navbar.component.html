@@ -21,8 +21,8 @@
         <li id="watchlist-icon">
             <a routerLink="/watchlist" routerLinkActive="active"><i class="fas fa-star"></i></a>
         </li>
-        <li id="profile" *ngIf="isAuth">
-            <a routerLink="#"><i class="fas fa-user"></i></a>
+        <li id="profile-left" *ngIf="isAuth">
+            <a><i class="fas fa-user"></i></a>
         </li>
     </ul>
 
@@ -30,5 +30,6 @@
         <li id="sign-in" *ngIf="!isAuth"><a routerLink="/user/sign-in">Sign In</a></li>
         <li id="sign-up" *ngIf="!isAuth"><a routerLink="/user/sign-up">Sign Up</a></li>
         <li id="sign-out" *ngIf="isAuth"><a routerLink="/user/sign-out">Sign Out</a></li>
+        <li id="profile-right" *ngIf="isAuth"><a [routerLink]="['/user', userID]"><i class="fas fa-user"></i></a></li>
     </ul>
 </nav>

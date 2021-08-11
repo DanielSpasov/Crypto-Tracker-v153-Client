@@ -12,6 +12,7 @@ import { AuthService } from '../../auth/auth.service';
 export class NavbarComponent {
 
     isAuth = this.authService.isAuth();
+    userID = localStorage.getItem('user-id')
 
     constructor(private authService: AuthService) { }
 
