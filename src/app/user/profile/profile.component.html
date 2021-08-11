@@ -4,15 +4,24 @@
 <main *ngIf="user">
 
     <form #changeUsernameForm="ngForm" (ngSubmit)="changeUsername(changeUsernameForm)">
+
         <h1 *ngIf="!isChangingUsername">{{user.username}}'s Profile</h1>
         <input *ngIf="isChangingUsername" type="text" id="username" name="username" [placeholder]="user.username" ngModel #usernameInput="ngModel">
-        <button *ngIf="isChangingUsername"><i class="far fa-check-circle"></i></button>
-        <button *ngIf="isOwner && !isChangingUsername" (click)="toggelChangeUsername()" type="button">
-            <i class="fas fa-user-edit"></i>
-        </button>
-        <button *ngIf="isOwner && isChangingUsername" (click)="toggelChangeUsername()" type="button">
-            <i class="fas fa-times-circle"></i>
-        </button>
+        
+        <div>
+            <button *ngIf="isChangingUsername">
+                <i class="far fa-check-circle"></i>
+            </button>
+    
+            <button *ngIf="isOwner && !isChangingUsername" (click)="toggelChangeUsername()" type="button">
+                <i class="fas fa-user-edit"></i>
+            </button>
+    
+            <button *ngIf="isOwner && isChangingUsername" (click)="toggelChangeUsername()" type="button">
+                <i class="fas fa-times-circle"></i>
+            </button>
+        </div>
+
     </form>
 
     <div class="profile-image">
