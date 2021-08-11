@@ -59,7 +59,6 @@ export class ProfileComponent implements OnInit {
                 data => {
                     this.toastr.success('Username change successful');
                     this.user = data;
-                    console.log(data)
                 },
                 err => this.toastr.error(err.error.message)
             );
