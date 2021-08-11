@@ -129,18 +129,21 @@ header {
 #circulating_capacity div span { color: gray }
 
 @media screen and (max-width: 900px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
+    header,
     #main {
         flex-direction: column;
         align-items: center;
     }
 
-    #name { width: 100%; padding: 10px 0px }
-    #pricing { width: 100%; padding: 10px 0px }
+    #name,
+    #pricing,
     #toggle_calc { width: 100%; padding: 10px 0px }
+
+    #pricing {
+        flex-direction: row;
+        align-items: center;
+    }
+
     #name div:nth-child(2) { text-align: center }
     #main div { border: none }
 }
