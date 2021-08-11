@@ -5,7 +5,6 @@ import { UserService } from '../user.service';
 
 import { IUser } from 'src/app/interfaces/user.model';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 
 
@@ -19,6 +18,7 @@ export class ProfileComponent implements OnInit {
 
     user!: IUser;
     isOwner!: boolean;
+
     isChangingUsername: boolean = false;
 
     constructor(

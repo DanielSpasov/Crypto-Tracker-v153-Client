@@ -11,6 +11,12 @@ h1 {
     min-width: 0;
 }
 
+.profile-image { text-align: center }
+.profile-image img {
+    width: 50vw;
+    max-width: 500px;
+}
+
 input {
     background-color: rgb(245, 245, 245);
     border: 2px solid lightgray;
