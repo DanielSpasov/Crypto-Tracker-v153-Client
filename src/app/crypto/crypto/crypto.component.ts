@@ -68,7 +68,7 @@ export class CryptoComponent implements OnInit {
         if (!userID) return;
 
         this.userService
-            .getUser()
+            .getUser(userID)
             .subscribe(
                 data => this.user = data,
                 err => this.toastr.error(err.error.message)

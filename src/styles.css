@@ -17,6 +17,7 @@ main h1 {
     min-width: 360px;
 }
 
+input,
 button { font-family: 'Rubik' }
 
 /* SCROLLBAR */

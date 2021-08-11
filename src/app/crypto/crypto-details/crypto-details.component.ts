@@ -63,11 +63,11 @@ export class CryptoDetailsComponent implements OnInit {
         this.tags = false;
         this.calcIsOpen = false;
 
-        let userID = localStorage.getItem('user-id');
+        const userID = localStorage.getItem('user-id');
         if (!userID) return;
 
         this.userService
-            .getUser()
+            .getUser(userID)
             .subscribe(
                 data => this.user = data,
                 err => this.toastr.error(err.error.message)

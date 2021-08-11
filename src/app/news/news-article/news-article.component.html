@@ -8,7 +8,7 @@
     <p *ngIf="article.content.length > 40">{{article.content.slice(0, 40).concat('...')}}</p>
 
     <footer>
-        <p>Author: <a [routerLink]="['/profile', article.creator._id]">{{article.creator.username}}</a></p>
+        <p>Author: <a [routerLink]="['/user', article.creator._id]">{{article.creator.username}}</a></p>
         <p>Posted: <span>{{article.dateCreated.slice(0, 10)}}</span></p>
     </footer>
 

@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+<app-loader *ngIf="!user"></app-loader>
+<main *ngIf="user">
+
+    <form #changeUsernameForm="ngForm" (ngSubmit)="changeUsername(changeUsernameForm)">
+        <h1 *ngIf="!isChangingUsername">{{user.username}}'s Profile</h1>
+        <input *ngIf="isChangingUsername" type="text" id="username" name="username" [placeholder]="user.username" ngModel #usernameInput="ngModel">
+        <button *ngIf="isChangingUsername"><i class="far fa-check-circle"></i></button>
+        <button *ngIf="isOwner && !isChangingUsername" (click)="toggelChangeUsername()" type="button">
+            <i class="fas fa-user-edit"></i>
+        </button>
+        <button *ngIf="isOwner && isChangingUsername" (click)="toggelChangeUsername()" type="button">
+            <i class="fas fa-times-circle"></i>
+        </button>
+    </form>
+    
+    <section class="created-articles">
+
+        <h3 *ngIf="user.createdArticles.length > 0">Articles this user is author of</h3>
+        <h3 *ngIf="user.createdArticles.length == 0">This user haven't created any articles</h3>
+        <ul *ngIf="user.createdArticles.length > 0">
+            <li *ngFor="let article of user.createdArticles">
+                <a [routerLink]="['/news', article._id]">
+                    {{article.title}}
+                </a>
+            </li>
+        </ul>
+
+    </section>
+
+</main>

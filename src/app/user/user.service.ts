@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 
 import { IUser } from '../interfaces/user.model';
 
-import { ToastrService } from 'ngx-toastr';
+import { ActiveToast, ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 
 
 
@@ -17,17 +18,10 @@ export class UserService {
         private toastr: ToastrService
     ) { }
 
-    getUser() {
-        const userID = localStorage.getItem('user-id');
-        if (userID) {
-            return this.http.get<IUser>(`http://localhost:4153/user/`, {
-                headers: { 'user-id': userID }
-            });
-        } else {
-            return this.http.get<IUser>(`http://localhost:4153/user/`, {
-                headers: { 'user-id': '' }
-            });
-        }
+    getUser(userID: string) {
+        return this.http.get<IUser>(`http://localhost:4153/user/`, {
+            headers: { 'user-id': userID }
+        });
     };
 
     signUp(userData: any) {
@@ -64,5 +58,14 @@ export class UserService {
         localStorage.setItem('user-id', '');
         this.toastr.success('You have been Singed Out')
         this.router.navigate(['/']);
+    };
+
+    changeUsername(accountID: string, newUsername: string): Observable<any> {
+        const userID = localStorage.getItem('user-id')
+        return this.http.post(`http://localhost:4153/user/changeUsername`, {
+            accountID: accountID,
+            userID: userID,
+            newUsername,
+        });
     };
 }

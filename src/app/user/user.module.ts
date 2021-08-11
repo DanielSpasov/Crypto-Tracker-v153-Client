@@ -14,6 +14,8 @@ import { SameValueDirective } from './directives/same-value.directive';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignOutComponent } from './sign-out/sign-out.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NewsModule } from '../news/news.module';
 
 
 
@@ -23,7 +25,8 @@ import { SignOutComponent } from './sign-out/sign-out.component';
     SignUpComponent,
     SignOutComponent,
     IsEmailDirective,
-    SameValueDirective
+    SameValueDirective,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

@@ -61,7 +61,7 @@ export class WatchlistComponent implements OnInit {
         if (!userID) return;
 
         this.userService
-            .getUser()
+            .getUser(userID)
             .subscribe(
                 data => {
                     this.user = data;
