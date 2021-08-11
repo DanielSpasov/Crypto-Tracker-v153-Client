@@ -1,10 +1,10 @@
 # CryptoTrackerV153
 
-Web application about cryptocurrencies.
-MEAN stack was used for the creation of the project.
+##### Web application about cryptocurrencies.
+##### MEAN stack was used for the creation of the project.
 
-Font-End - Angular
-Back-End - Express, MongoDB, NodeJS
+> Front-End - Angular
+> Back-End - Express, MongoDB, NodeJS
 
 ## Features
 - Sorting the cryptocurrencies by whatever criteria you want.
