@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { IUser } from '../interfaces/user.model';
 
-import { ActiveToast, ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 
 
@@ -58,7 +58,7 @@ export class UserService {
         this.router.navigate(['/']);
     };
 
-    changeUsername(accountID: string, newUsername: string): Observable<any> {
+    changeUsername(newUsername: string): Observable<any> {
         const userID = localStorage.getItem('user-id')
         // return this.http.post(`http://localhost:4153/user/changeUsername`, {
         //     accountID: accountID,

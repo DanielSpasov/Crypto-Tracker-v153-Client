@@ -54,7 +54,7 @@ export class ProfileComponent implements OnInit {
         if (this.user._id !== userID) return this.toastr.error('You cannot change other people\'s usernames');
 
         this.userService
-            .changeUsername(this.user._id, form.controls.username.value)
+            .changeUsername(form.controls.username.value)
             .subscribe(
                 data => {
                     this.toastr.success('Username change successful');
