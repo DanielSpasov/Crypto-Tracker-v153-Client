@@ -1,0 +1,79 @@
+header {
+    display: flex;
+    justify-content: space-around;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+}
+
+header div button {
+    border: none;
+    background-color: rgb(236, 236, 236);
+    color: black;
+    margin: 8px;
+}
+header div button:hover { color: rgb(41, 133, 255) }
+
+a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+a:hover { color: rgb(41, 133, 255) }
+
+.fa-long-arrow-alt-left,
+.fa-plus {
+    font-size: 35px;
+    padding: 12px;
+    width: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea,
+input {
+    border: 2px solid transparent;
+    padding: 10px;
+    font-size: 14px;
+    margin: 8px;
+    border-radius: 10px;
+    width: 50%;
+    outline: none;
+}
+textarea:hover,
+input:hover { border: 2px solid rgb(150, 195, 253) }
+textarea:focus,
+input:focus { border: 2px solid rgb(41, 133, 255) }
+textarea { resize: vertical }
+
+button {
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(41, 133, 255);
+    color: white;
+    padding: 10px;
+    margin: 8px;
+    font-size: 14px;
+    width: 20%;
+}
+button:hover { color: black }
+
+.errors {
+    list-style-type: none;
+    margin: 0px;
+    padding: 4px;
+}
+
+.errors li {
+    background-color: rgb(255, 83, 83);
+    color: white;
+    border-radius: 10px;
+    margin: 4px;
+    padding: 8px 16px 8px 16px;
+}

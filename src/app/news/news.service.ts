@@ -29,14 +29,25 @@ export class NewsService {
     getArticle(articleID: string): Observable<IArticle> { return this.http.get<IArticle>(`http://localhost:4153/news/${articleID}`) }
 
     deleteArticle(articleID: string): Observable<object> {
-        let userID = localStorage.getItem('user-id')
-        if (!userID) userID = ''
+        let userID = localStorage.getItem('user-id');
+        if (!userID) userID = '';
 
         return this.http
             .delete<IArticle>(`http://localhost:4153/news/${articleID}`, {
                 headers: {
                     'userID': userID
                 }
+            });
+    };
+
+    editArticle(articleID: string, editedData: object): Observable<IArticle> {
+        let userID = localStorage.getItem('user-id');
+        if (!userID) userID = '';
+
+        return this.http
+            .patch<IArticle>(`http://localhost:4153/news/${articleID}`,
+                editedData, {
+                headers: { 'userID': userID }
             })
     }
 

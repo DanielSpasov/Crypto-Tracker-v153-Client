@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from '../core/core.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthModule } from '../auth/auth.module';
 
@@ -13,6 +13,7 @@ import { CreateArticleComponent } from './create-article/create-article.componen
 import { NewsPageComponent } from './news-page/news-page.component';
 import { NewsArticleComponent } from './news-article/news-article.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
+import { EditArticleComponent } from './edit-article/edit-article.component';
 
 
 
@@ -21,13 +22,15 @@ import { ArticleDetailsComponent } from './article-details/article-details.compo
     CreateArticleComponent,
     NewsPageComponent,
     NewsArticleComponent,
-    ArticleDetailsComponent
+    ArticleDetailsComponent,
+    EditArticleComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     CoreModule,
     AuthModule,
+    ReactiveFormsModule,
     NewsRoutingModule
   ],
   providers: [
