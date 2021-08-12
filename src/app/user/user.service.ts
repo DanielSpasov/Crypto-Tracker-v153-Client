@@ -19,9 +19,7 @@ export class UserService {
     ) { }
 
     getUser(userID: string) {
-        return this.http.get<IUser>(`http://localhost:4153/user/`, {
-            headers: { 'user-id': userID }
-        });
+        return this.http.get<IUser>(`http://localhost:4153/user/${userID}`);
     };
 
     signUp(userData: any) {
@@ -62,10 +60,13 @@ export class UserService {
 
     changeUsername(accountID: string, newUsername: string): Observable<any> {
         const userID = localStorage.getItem('user-id')
-        return this.http.post(`http://localhost:4153/user/changeUsername`, {
-            accountID: accountID,
-            userID: userID,
-            newUsername,
-        });
+        // return this.http.post(`http://localhost:4153/user/changeUsername`, {
+        //     accountID: accountID,
+        //     userID: userID,
+        //     newUsername,
+        // });
+        return this.http.patch(`http://localhost:4153/user/${userID}`, {
+            username: newUsername
+        })
     };
 }
