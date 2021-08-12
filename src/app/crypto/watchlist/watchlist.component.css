@@ -44,7 +44,7 @@ table {
     border-spacing: 0;
 }
 
-th { padding: 20px }
+th { padding: 12px }
 th button {
     border: none;
     font-size: 16px;
@@ -65,7 +65,7 @@ tr:hover:nth-child(1) {
 
 td {
     border-top: 1px solid lightgray;
-    padding: 12px;
+    padding: 8px;
 }
 td span { color: gray }
 td img {
