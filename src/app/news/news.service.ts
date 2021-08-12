@@ -26,6 +26,18 @@ export class NewsService {
     }
 
     getLatest(): Observable<IArticle[]> { return this.http.get<IArticle[]>(`http://localhost:4153/news/getLatest`) }
-    getArticle(id: string): Observable<IArticle> { return this.http.get<IArticle>(`http://localhost:4153/news/getArticle?id=${id}`) }
+    getArticle(articleID: string): Observable<IArticle> { return this.http.get<IArticle>(`http://localhost:4153/news/${articleID}`) }
+
+    deleteArticle(articleID: string): Observable<object> {
+        let userID = localStorage.getItem('user-id')
+        if (!userID) userID = ''
+
+        return this.http
+            .delete<IArticle>(`http://localhost:4153/news/${articleID}`, {
+                headers: {
+                    'userID': userID
+                }
+            })
+    }
 
 }

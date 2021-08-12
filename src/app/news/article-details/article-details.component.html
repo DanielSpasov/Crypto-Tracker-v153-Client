@@ -6,6 +6,13 @@
             <a routerLink="/news"><i class="fas fa-long-arrow-alt-left"></i></a>
             <a id="news-text" routerLink="/news">Latest News</a>
         </div>
+
+        <div *ngIf="article && userID === article.creator._id">
+            
+            <button [routerLink]="['/news', article._id, 'edit']"><i class="fas fa-pencil-alt"></i></button>
+            <button (click)="deleteArticle()"><i class="far fa-trash-alt"></i></button>
+
+        </div>
         
         <div>
             <a id="create-article-text" routerLink="/news/create">Create Article</a>
