@@ -10,6 +10,7 @@ header div {
 
 header div button {
     border: none;
+    background-color: rgb(236, 236, 236);
     color: black;
     margin: 8px;
 }
