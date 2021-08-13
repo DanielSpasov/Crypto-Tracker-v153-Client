@@ -57,7 +57,6 @@ export class EditArticleComponent implements OnInit {
 
         let editedData = {
             title: this.editForm.controls.title.value,
-            image: this.editForm.controls.image.value,
             content: this.editForm.controls.content.value
         };
 

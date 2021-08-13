@@ -20,7 +20,6 @@
         <form (ngSubmit)="editArticle()" [formGroup]="editForm">
 
             <input type="text" id="title" formControlName="title" placeholder="Article Title" required [minlength]="8">
-            <input type="text" id="image" formControlName="image" placeholder="Article Image" required>
             <textarea type="text" id="content" formControlName="content" placeholder="Article Content" required
                 [minlength]="30"></textarea>
 
