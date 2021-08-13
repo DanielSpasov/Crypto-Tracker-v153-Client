@@ -58,36 +58,6 @@ a:hover { color: rgb(41, 133, 255) }
 .fa-user,
 .fa-home { font-size: 30px }
 
-
-
-@media screen and (max-width: 1300px) {
-    nav {
-        width: 100%;
-        padding: 0%;
-    }
-}
-
-@media screen and (max-width: 850px) {
-    #news-text,
-    #crypto-text,
-    #watchlist-text,
-    #profile-right,
-    #sign-in,
-    #sign-up,
-    #signed-in-as,
-    #sign-out { display: none; }
-
-    #news-icon,
-    #crypto-icon,
-    #profile-left,
-    #watchlist-icon { display: inline }
-
-    ul:nth-child(1) {
-        width: 100%;
-        justify-content: space-evenly;
-    }
-}
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -117,3 +87,33 @@ a:hover { color: rgb(41, 133, 255) }
 }
 
 .dropdown:hover .dropdown-content { display: block }
+
+
+
+@media screen and (max-width: 1300px) {
+    nav {
+        width: 100%;
+        padding: 0%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    #news-text,
+    #crypto-text,
+    #watchlist-text,
+    #profile-right,
+    #sign-in,
+    #sign-up,
+    #signed-in-as,
+    #sign-out { display: none; }
+
+    #news-icon,
+    #crypto-icon,
+    #profile-left,
+    #watchlist-icon { display: inline }
+
+    ul:nth-child(1) {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+}
