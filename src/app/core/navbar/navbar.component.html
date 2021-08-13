@@ -21,9 +21,22 @@
         <li id="watchlist-icon">
             <a routerLink="/watchlist" routerLinkActive="active"><i class="fas fa-star"></i></a>
         </li>
-        <li id="profile-left" *ngIf="isAuth">
-            <a><i class="fas fa-user"></i></a>
-        </li>
+
+        <div class="dropdown">
+            <li id="profile-left">
+                <a><i class="fas fa-user"></i></a>
+            </li>
+            <div class="dropdown-content">
+                <ul>
+                    <li *ngIf="user && isAuth">Signed in as, {{user.username}}</li>
+                    <li *ngIf="user && isAuth"><a [routerLink]="['/user', user._id]">Profile</a></li>
+                    <li *ngIf="isAuth"><a routerLink="/user/sign-out">Sign Out</a></li>
+                    <li *ngIf="!isAuth"><a routerLink="/user/sign-up">Sign Up</a></li>
+                    <li *ngIf="!isAuth"><a routerLink="/user/sign-in">Sign In</a></li>
+                </ul>
+            </div>
+        </div>
+
     </ul>
 
     <ul>
@@ -31,6 +44,7 @@
         <li id="sign-up" *ngIf="!isAuth"><a routerLink="/user/sign-up">Sign Up</a></li>
         <li id="signed-in-as" *ngIf="user && isAuth"><span>Welcome, {{user.username}}</span></li>
         <li id="sign-out" *ngIf="isAuth"><a routerLink="/user/sign-out">Sign Out</a></li>
-        <li id="profile-right" *ngIf="user && isAuth"><a [routerLink]="['/user', user._id]"><i class="fas fa-user"></i></a></li>
+        <li id="profile-right" *ngIf="user && isAuth"><a [routerLink]="['/user', user._id]"><i
+                    class="fas fa-user"></i></a></li>
     </ul>
 </nav>

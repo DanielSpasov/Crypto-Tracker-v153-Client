@@ -87,3 +87,33 @@ a:hover { color: rgb(41, 133, 255) }
         justify-content: space-evenly;
     }
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 99;
+    width: 150px;
+    right: 0;
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0px;
+    margin: 0;
+}
+
+.dropdown-content ul li {
+    padding: 8px;
+    text-align: center;
+}
+
+.dropdown:hover .dropdown-content { display: block }
