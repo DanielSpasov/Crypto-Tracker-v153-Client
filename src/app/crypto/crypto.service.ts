@@ -5,7 +5,8 @@ import { ICrypto } from '../interfaces/crypto.model';
 import { IUser } from '../interfaces/user.model';
 import { Observable } from 'rxjs';
 
-const apiUrl = 'http://localhost:4153'
+import { environment } from '../../environments/environment';
+const apiUrl = environment.apiUrl
 
 
 
@@ -16,7 +17,7 @@ export class CryptoService {
 
     getOne(crypto: string): Observable<ICrypto> { return this.http.get<ICrypto>(`${apiUrl}/crypto/getOne?crypto=${crypto}`) }
 
-    getLatest(): Observable<ICrypto[]> { return this.http.get<ICrypto[]>(`${apiUrl}/crypto/getLatest`)}
+    getLatest(): Observable<ICrypto[]> { return this.http.get<ICrypto[]>(`${apiUrl}/crypto/getLatest`) }
     getWatchlist(userID: string | null) { return this.http.get<ICrypto[]>(`${apiUrl}/crypto/getWatchlist?userID=${userID}`) }
 
     searchLatest(cryptos: string) { return this.http.get<ICrypto[]>(`${apiUrl}/crypto/searchLatest?cryptos=${cryptos}`) }

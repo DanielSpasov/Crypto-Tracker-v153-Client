@@ -7,6 +7,9 @@ import { IUser } from '../interfaces/user.model';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 
+import { environment } from 'src/environments/environment';
+const apiUrl = environment.apiUrl
+
 
 
 @Injectable()
@@ -19,12 +22,12 @@ export class UserService {
     ) { }
 
     getUser(userID: string) {
-        return this.http.get<IUser>(`http://localhost:4153/user/${userID}`);
+        return this.http.get<IUser>(`${apiUrl}/user/${userID}`);
     };
 
     signUp(userData: any) {
         this.http
-            .post<any>('http://localhost:4153/user/sign-up', userData)
+            .post<any>(`${apiUrl}/user/sign-up`, userData)
             .subscribe(
                 () => {
                     this.signIn({
@@ -39,7 +42,7 @@ export class UserService {
 
     signIn(userData: object) {
         this.http
-            .post<any>('http://localhost:4153/user/sign-in', userData)
+            .post<any>(`${apiUrl}/user/sign-in`, userData)
             .subscribe(
                 data => {
                     localStorage.setItem('auth-token', data.token);
@@ -60,12 +63,7 @@ export class UserService {
 
     changeUsername(newUsername: string): Observable<any> {
         const userID = localStorage.getItem('user-id')
-        // return this.http.post(`http://localhost:4153/user/changeUsername`, {
-        //     accountID: accountID,
-        //     userID: userID,
-        //     newUsername,
-        // });
-        return this.http.patch(`http://localhost:4153/user/${userID}`, {
+        return this.http.patch(`${apiUrl}/user/${userID}`, {
             username: newUsername
         })
     };

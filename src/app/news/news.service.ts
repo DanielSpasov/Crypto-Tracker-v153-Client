@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 
 import { IArticle } from '../interfaces/article.model';
 
+import { environment } from 'src/environments/environment';
+const apiUrl = environment.apiUrl
+
 
 
 @Injectable()
@@ -21,8 +24,8 @@ export class NewsService {
         content: string,
         userID: string
     ): Observable<IArticle> {
-        this.http.post<IArticle>(`http://localhost:4153/news/uploadImage`, image).subscribe()
-        return this.http.post<IArticle>(`http://localhost:4153/news/createArticle`, {
+        this.http.post<IArticle>(`${apiUrl}/news/uploadImage`, image).subscribe()
+        return this.http.post<IArticle>(`${apiUrl}/news/createArticle`, {
             title,
             imageInfo,
             content,
@@ -30,15 +33,15 @@ export class NewsService {
         })
     }
 
-    getLatest(): Observable<IArticle[]> { return this.http.get<IArticle[]>(`http://localhost:4153/news/getLatest`) }
-    getArticle(articleID: string): Observable<IArticle> { return this.http.get<IArticle>(`http://localhost:4153/news/${articleID}`) }
+    getLatest(): Observable<IArticle[]> { return this.http.get<IArticle[]>(`${apiUrl}/news/getLatest`) }
+    getArticle(articleID: string): Observable<IArticle> { return this.http.get<IArticle>(`${apiUrl}/news/${articleID}`) }
 
     deleteArticle(articleID: string): Observable<object> {
         let userID = localStorage.getItem('user-id');
         if (!userID) userID = '';
 
         return this.http
-            .delete<IArticle>(`http://localhost:4153/news/${articleID}`, {
+            .delete<IArticle>(`${apiUrl}/news/${articleID}`, {
                 headers: {
                     'userID': userID
                 }
@@ -50,7 +53,7 @@ export class NewsService {
         if (!userID) userID = '';
 
         return this.http
-            .patch<IArticle>(`http://localhost:4153/news/${articleID}`,
+            .patch<IArticle>(`${apiUrl}/news/${articleID}`,
                 editedData, {
                 headers: { 'userID': userID }
             })
