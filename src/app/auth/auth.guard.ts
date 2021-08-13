@@ -10,8 +10,6 @@ import { AuthService } from './auth.service';
 })
 export class AuthGuard implements CanActivate {
 
-    isAuth!: boolean;
-
     constructor(
         private authService: AuthService,
         private router: Router
@@ -22,10 +20,10 @@ export class AuthGuard implements CanActivate {
         state: RouterStateSnapshot
     ): boolean {
         if (!this.authService.isAuth()) {
-            this.router.navigate(['/user/sign-in'])
+            this.router.navigate(['/user/sign-in']);
             return false;
         }
         return true;
-    }
+    };
 
 }
