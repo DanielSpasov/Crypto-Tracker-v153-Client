@@ -36,3 +36,4 @@ td img { height: 25px }
 }
 
 @media screen and (max-width: 550px) { #market_cap { display: none } }
+@media screen and (max-width: 500px) { #price_change_7d { display: none } }
