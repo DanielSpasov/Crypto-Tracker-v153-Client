@@ -6,17 +6,20 @@ import { SignOutComponent } from './sign-out/sign-out.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { AuthGuard } from '../auth/auth.guard';
+import { NotAuthGuard } from '../auth/not-auth.guard'
 
 
 
 const routes: Routes = [
     {
         path: 'user/sign-in',
-        component: SignInComponent
+        component: SignInComponent,
+        canActivate: [NotAuthGuard]
     },
     {
         path: 'user/sign-up',
-        component: SignUpComponent
+        component: SignUpComponent,
+        canActivate: [NotAuthGuard]
     },
     {
         path: 'user/sign-out',
