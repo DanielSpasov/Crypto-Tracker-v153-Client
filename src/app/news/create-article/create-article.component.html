@@ -26,12 +26,11 @@
         <ul *ngIf="imageInput.touched && imageInput.invalid" class="errors">
             <li *ngIf="imageInput.errors?.required">Article Image is Required</li>
         </ul>
-        <input type="text" name="image" id="image" placeholder="Article Image" #imageInput="ngModel" ngModel required>
-        <!-- <label class="custom-file-upload">
+        <label class="custom-file-upload">
             <input type="file" name="image" id="image" placeholder="Article Image" (change)="imageChange($event)" #imageInput="ngModel" ngModel required>
             Article Image
             -- <span *ngIf="imageInput.value">{{imageInput.value.split('\\')[2]}}</span>
-        </label> -->
+        </label>
 
         <ul *ngIf="contentInput.invalid && contentInput.touched" class="errors">
             <li *ngIf="contentInput.errors?.required">Content is Required</li>

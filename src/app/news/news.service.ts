@@ -13,13 +13,18 @@ export class NewsService {
 
     createArticle(
         title: string,
-        image: string,
+        image: FormData,
+        imageInfo: {
+            name: string,
+            format: string,
+        },
         content: string,
         userID: string
     ): Observable<IArticle> {
+        this.http.post<IArticle>(`http://localhost:4153/news/uploadImage`, image).subscribe()
         return this.http.post<IArticle>(`http://localhost:4153/news/createArticle`, {
             title,
-            image,
+            imageInfo,
             content,
             userID
         })

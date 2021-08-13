@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { NewsService } from '../news.service';
 import { ToastrService } from 'ngx-toastr';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -20,11 +21,14 @@ export class CreateArticleComponent {
         private router: Router
     ) { }
 
+    image!: File;
+    imageChange(e: any): void { this.image = e.target.files[0] };
     createArticleSubmit(form: NgForm): void {
 
-        // TODO: Image Uplaod
-
         if (form.invalid) return;
+
+        const formData = new FormData();
+        formData.append('file', this.image);
 
         const userID = localStorage.getItem('user-id');
         if (!userID) return;
@@ -32,7 +36,11 @@ export class CreateArticleComponent {
         this.newsService
             .createArticle(
                 form.controls.title.value,
-                form.controls.image.value,
+                formData,
+                {
+                    name: this.image.name,
+                    format: this.image.name.split('.')[1]
+                },
                 form.controls.content.value,
                 userID
             )
