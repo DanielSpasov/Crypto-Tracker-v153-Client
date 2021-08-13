@@ -4,9 +4,8 @@ import { Observable } from 'rxjs';
 
 import { IArticle } from '../interfaces/article.model';
 
-// import { environment } from 'src/environments/environment';
-// const apiUrl = environment.apiUrl;
-const apiUrl = 'https://crypto-tracker-v153-server.herokuapp.com';
+import { environment } from 'src/environments/environment';
+const apiUrl = environment.apiUrl;
 
 
 

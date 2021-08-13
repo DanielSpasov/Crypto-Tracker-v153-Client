@@ -5,9 +5,8 @@ import { ICrypto } from '../interfaces/crypto.model';
 import { IUser } from '../interfaces/user.model';
 import { Observable } from 'rxjs';
 
-// import { environment } from '../../environments/environment';
-// const apiUrl = environment.apiUrl;
-const apiUrl = 'https://crypto-tracker-v153-server.herokuapp.com';
+import { environment } from '../../environments/environment';
+const apiUrl = environment.apiUrl;
 
 
 
