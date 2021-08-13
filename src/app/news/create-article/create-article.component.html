@@ -27,7 +27,8 @@
             <li *ngIf="imageInput.errors?.required">Article Image is Required</li>
         </ul>
         <label class="custom-file-upload">
-            <input type="file" name="image" id="image" placeholder="Article Image" (change)="imageChange($event)" #imageInput="ngModel" ngModel required>
+            <input type="file" name="image" id="image" placeholder="Article Image" (change)="imageChange($event)"
+                #imageInput="ngModel" ngModel required>
             Article Image
             -- <span *ngIf="imageInput.value">{{imageInput.value.split('\\')[2]}}</span>
         </label>
@@ -37,7 +38,7 @@
             <li *ngIf="contentInput.errors?.minlength">Article Content must be at least 30 symbols long</li>
         </ul>
         <textarea type="text" name="content" id="content" placeholder="Article Content" #contentInput="ngModel" ngModel
-            required [minlength]="30"></textarea>
+            required [minlength]="30" [maxlength]="300"></textarea>
 
         <button>Create Article</button>
     </form>

@@ -25,7 +25,15 @@ export class CreateArticleComponent {
     imageChange(e: any): void { this.image = e.target.files[0] };
     createArticleSubmit(form: NgForm): void {
 
-        if (form.invalid) return;
+        if (form.invalid) {
+            if (form.controls.title.errors?.required) this.toastr.error('Title is required');
+            if (form.controls.title.errors?.minlength) this.toastr.error('Title must be at least 8 symbols long');
+            if (form.controls.image.errors?.required) this.toastr.error('Image is required');
+            if (form.controls.content.errors?.required) this.toastr.error('Content is required');
+            if (form.controls.content.errors?.minlength) this.toastr.error('Content must be at least 30 symbols long');
+            if (form.controls.content.errors?.maxlength) this.toastr.error('Content cannot be more than 300 symbols long');
+            return;
+        };
 
         const formData = new FormData();
         formData.append('file', this.image);
@@ -51,7 +59,7 @@ export class CreateArticleComponent {
                 },
                 err => this.toastr.error(err.error.message)
             );
-            
+
     };
 
 }
