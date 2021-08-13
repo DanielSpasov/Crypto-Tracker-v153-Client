@@ -9,8 +9,10 @@
                     alt="Logo">
                 <h2>{{crypto.name}}<span>{{crypto.symbol}}</span></h2>
                 <button *ngIf="!user" (click)="editWatchlistAsGuest()"><i class="far fa-star"></i></button>
-                <button *ngIf="user && !user.watchlist.includes(crypto.symbol)" (click)="editWatchlist(crypto.symbol)"><i class="far fa-star"></i></button>
-                <button *ngIf="user && user.watchlist.includes(crypto.symbol)" (click)="editWatchlist(crypto.symbol)"><i class="fas fa-star"></i></button>
+                <button *ngIf="user && !user.watchlist.includes(crypto.symbol)"
+                    (click)="editWatchlist(crypto.symbol)"><i class="far fa-star"></i></button>
+                <button *ngIf="user && user.watchlist.includes(crypto.symbol)" (click)="editWatchlist(crypto.symbol)"><i
+                        class="fas fa-star"></i></button>
             </div>
 
             <div *ngIf="crypto.tags.length">
@@ -77,9 +79,12 @@
 
     </div>
 
-    <app-top-five-cryptos [cryptos]="top_5_by_price" title="Top 5 Cryptocurrencies sorted by Price"></app-top-five-cryptos>
-    <app-top-five-cryptos [cryptos]="top_5_by_24h" title="Top 5 Cryptocurrencies sorted by Price Change in the last 24h"></app-top-five-cryptos>
-    <app-top-five-cryptos [cryptos]="top_5_by_7d" title="Top 5 Cryptocurrencies sorted by Price Change in the last 7d"></app-top-five-cryptos>
+    <app-top-five-cryptos [cryptos]="top_5_by_price" title="Top 5 Cryptocurrencies sorted by Price">
+    </app-top-five-cryptos>
+    <app-top-five-cryptos [cryptos]="top_5_by_24h"
+        title="Top 5 Cryptocurrencies sorted by Price Change in the last 24h"></app-top-five-cryptos>
+    <app-top-five-cryptos [cryptos]="top_5_by_7d" title="Top 5 Cryptocurrencies sorted by Price Change in the last 7d">
+    </app-top-five-cryptos>
 
 </main>
 
