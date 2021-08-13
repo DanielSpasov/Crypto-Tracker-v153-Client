@@ -7,8 +7,9 @@ import { IUser } from '../interfaces/user.model';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 
-import { environment } from 'src/environments/environment';
-const apiUrl = environment.apiUrl
+// import { environment } from 'src/environments/environment';
+// const apiUrl = environment.apiUrl;
+const apiUrl = 'https://crypto-tracker-v153-server.herokuapp.com';
 
 
 
