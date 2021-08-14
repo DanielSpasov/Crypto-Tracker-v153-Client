@@ -9,8 +9,8 @@
             <li *ngIf="emailInput.errors?.required">Email is Required</li>
             <li *ngIf="emailInput.errors?.isEmail">Email is Invalid</li>
         </ul>
-        <input type="email" name="email" id="email" placeholder="Email" autocomplete="email" appIsEmail #emailInput="ngModel"
-            ngModel required email>
+        <input type="email" name="email" id="email" placeholder="Email" autocomplete="email" appIsEmail
+            #emailInput="ngModel" ngModel required email>
 
         <ul *ngIf="passwordInput.invalid && passwordInput.touched" class="errors">
             <li *ngIf="passwordInput.errors?.required">Password is Required</li>
@@ -27,7 +27,11 @@
         <input type="password" name="rePassword" id="rePassword" placeholder="Repeat Password"
             autocomplete="new-password" #rePasswordInput="ngModel" ngModel appSameValue required [minlength]="6">
 
-        <input type="text" name="username" id="username" placeholder="Username" ngModel>
+        <ul *ngIf="usernameInput.invalid && usernameInput.touched" class="errors">
+            <li *ngIf="usernameInput.errors?.minlength">Username must be at least 6 symbols long</li>
+        </ul>
+        <input type="text" name="username" id="username" placeholder="Username" #usernameInput="ngModel" [minlength]="6"
+            ngModel>
 
         <button>Sign Up</button>
     </form>
