@@ -8,11 +8,12 @@ input {
     padding: 10px;
     font-size: 14px;
     margin: 8px;
-    border: none;
+    border: 2px solid transparent;
     border-radius: 10px;
     width: 50%;
     outline: none;
 }
+input:hover { border: 2px solid rgb(150, 195, 253) }
 input:focus { border: 2px solid rgb(41, 133, 255) }
 
 button {
