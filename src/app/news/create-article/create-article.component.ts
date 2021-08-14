@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { NewsService } from '../news.service';
 import { ToastrService } from 'ngx-toastr';
-import { HttpClient } from '@angular/common/http';
 
 
 
