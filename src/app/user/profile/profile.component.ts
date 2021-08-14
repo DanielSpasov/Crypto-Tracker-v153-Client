@@ -53,6 +53,8 @@ export class ProfileComponent implements OnInit {
         const userID = localStorage.getItem('user-id');
         if (this.user._id !== userID) return this.toastr.error('You cannot change other people\'s usernames');
 
+        if (form.controls.username.value === this.user.username) return this.toastr.error('Your new username cannot be your old username');
+
         this.userService
             .changeUsername(form.controls.username.value)
             .subscribe(

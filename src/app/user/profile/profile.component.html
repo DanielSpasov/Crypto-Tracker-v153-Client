@@ -12,15 +12,17 @@
             <button *ngIf="isChangingUsername">
                 <i class="far fa-check-circle"></i>
             </button>
-    
+            
             <button *ngIf="isOwner && !isChangingUsername" (click)="toggelChangeUsername()" type="button">
                 <i class="fas fa-user-edit"></i>
             </button>
-    
+            
             <button *ngIf="isOwner && isChangingUsername" (click)="toggelChangeUsername()" type="button">
                 <i class="fas fa-times-circle"></i>
             </button>
         </div>
+        
+        <h4>{{user.email}}</h4>
 
     </form>
 
