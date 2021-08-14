@@ -20,6 +20,12 @@
         <form (ngSubmit)="editArticle()" [formGroup]="editForm">
 
             <input type="text" id="title" formControlName="title" placeholder="Article Title" required [minlength]="8">
+            <label class="custom-file-upload">
+                <input type="file" formControlName="image" id="image" placeholder="Article Image" (change)="imageChange($event)"
+                    accept="image/png, image/jpeg">
+                Article Image
+                -- <span *ngIf="editForm.controls.image.value">{{editForm.controls.image.value.split('\\')[2]}}</span>
+            </label>
             <textarea type="text" id="content" formControlName="content" placeholder="Article Content" required
                 [minlength]="30"></textarea>
 

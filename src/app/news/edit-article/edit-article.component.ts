@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, ɵangular_packages_forms_forms_bl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { IArticle } from 'src/app/interfaces/article.model';
 
@@ -37,7 +37,6 @@ export class EditArticleComponent implements OnInit {
                 data => {
                     this.article = data;
                     this.editForm.controls.title.setValue(data.title);
-                    this.editForm.controls.image.setValue(data.image);
                     this.editForm.controls.content.setValue(data.content);
                 },
                 err => this.toastr.error(err.error.message)
@@ -50,8 +49,18 @@ export class EditArticleComponent implements OnInit {
         })
     };
 
+    image!: File;
+    imageChange(e: any): void { this.image = e.target.files[0] };
     editArticle(): void {
 
+        if (this.editForm.invalid) {
+            if (this.editForm.controls.title.errors?.required) this.toastr.error('Title is required');
+            if (this.editForm.controls.title.errors?.minlength) this.toastr.error('Title must be at least 6 symbols long');
+            if (this.editForm.controls.content.errors?.required) this.toastr.error('Content is required');
+            if (this.editForm.controls.content.errors?.minlength) this.toastr.error('Content must be at least 30 symbols long');
+            return;
+        }
+        
         const articleID = this.router.url.split('/news/')[1].split('/edit')[0];
         if(!articleID) return;
 
