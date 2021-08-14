@@ -31,8 +31,8 @@
         <p>{{article.content}}</p>
 
         <footer>
-            <span>Author: <a [routerLink]="['/user', article.creator._id]">{{article.creator.username}}</a></span>
-            <span>Posted: {{article.dateCreated.slice(0, 10)}}</span>
+            <p>Author: <span>{{article.creator.username}}</span></p>
+            <p>Posted: <span>{{article.dateCreated.slice(0, 10)}}</span></p>
         </footer>
 
     </section>

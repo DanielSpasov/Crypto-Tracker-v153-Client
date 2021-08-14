@@ -65,7 +65,8 @@ section footer {
 }
 
 section footer a,
-section footer span { font-size: 18px }
+section footer p { font-size: 18px }
+section footer span { color: gray }
 
 @media screen and (max-width: 1300px) { header { justify-content: space-between } }
 @media screen and (max-width: 850px) {
