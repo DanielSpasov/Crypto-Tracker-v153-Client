@@ -41,13 +41,15 @@ export class CreateArticleComponent {
         const userID = localStorage.getItem('user-id');
         if (!userID) return;
 
+        let imageFormatArr = this.image.name.split('.')
+
         this.newsService
             .createArticle(
                 form.controls.title.value,
                 formData,
                 {
                     name: this.image.name,
-                    format: this.image.name.split('.')[1]
+                    format: this.image.name.split('.')[imageFormatArr.length - 1]
                 },
                 form.controls.content.value,
                 userID

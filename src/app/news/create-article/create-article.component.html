@@ -21,14 +21,14 @@
             <li *ngIf="titleInput.errors?.minlength">Article Title must be at least 8 symbols long</li>
         </ul>
         <input type="text" name="title" id="title" placeholder="Article Title" #titleInput="ngModel" ngModel required
-            [minlength]="8">
+            [minlength]="8" [maxlength]="72"> 
 
-        <ul *ngIf="imageInput.touched && imageInput.invalid" class="errors">
+        <ul *ngIf="imageInput.dirty && imageInput.invalid" class="errors">
             <li *ngIf="imageInput.errors?.required">Article Image is Required</li>
         </ul>
         <label class="custom-file-upload">
             <input type="file" name="image" id="image" placeholder="Article Image" (change)="imageChange($event)"
-                #imageInput="ngModel" ngModel required>
+                #imageInput="ngModel" ngModel accept="image/png, image/jpeg" required>
             Article Image
             -- <span *ngIf="imageInput.value">{{imageInput.value.split('\\')[2]}}</span>
         </label>
@@ -38,7 +38,7 @@
             <li *ngIf="contentInput.errors?.minlength">Article Content must be at least 30 symbols long</li>
         </ul>
         <textarea type="text" name="content" id="content" placeholder="Article Content" #contentInput="ngModel" ngModel
-            required [minlength]="30" [maxlength]="300"></textarea>
+            required [minlength]="30" [maxlength]="600"></textarea>
 
         <button>Create Article</button>
     </form>
