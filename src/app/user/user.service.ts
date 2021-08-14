@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { IUser } from '../interfaces/user.model';
 
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 const apiUrl = environment.apiUrl;
@@ -59,12 +58,5 @@ export class UserService {
         localStorage.setItem('user-id', '');
         this.toastr.success('You have been Singed Out')
         this.router.navigate(['/']);
-    };
-
-    changeUsername(newUsername: string): Observable<any> {
-        const userID = localStorage.getItem('user-id')
-        return this.http.patch(`${apiUrl}/user/${userID}`, {
-            username: newUsername
-        })
     };
 }
