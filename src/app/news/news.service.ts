@@ -59,4 +59,8 @@ export class NewsService {
             })
     }
 
+    searchNews(search: string): Observable<IArticle[]> {
+        return this.http.get<IArticle[]>(`${apiUrl}/news/search?article=${search.toLowerCase()}`)
+    }
+
 }

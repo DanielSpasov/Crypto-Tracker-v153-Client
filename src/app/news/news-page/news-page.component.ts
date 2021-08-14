@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { ToastrService } from 'ngx-toastr';
 import { IArticle } from 'src/app/interfaces/article.model';
@@ -29,4 +30,12 @@ export class NewsPageComponent implements OnInit {
             );
     };
 
+    searchNews(form: NgForm): void {
+        this.newsService
+            .searchNews(form.controls.search.value)
+            .subscribe(
+                data => this.news = data,
+                err => this.toastr.error(err.error.message)
+            )
+    }
 }

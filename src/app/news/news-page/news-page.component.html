@@ -17,6 +17,10 @@
 
     <h1>Latest News</h1>
 
+    <form #searchNewsForm="ngForm" (submit)="searchNews(searchNewsForm)">
+        <input type="text" name="search" id="search" placeholder="Article..." ngModel>
+    </form>
+
     <app-loader *ngIf="!news"></app-loader>
     <section *ngIf="news" class="news-articles-container">
 
