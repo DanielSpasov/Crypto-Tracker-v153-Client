@@ -8,6 +8,6 @@
     <div id="usd">
         <img src="https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/USD.svg" alt="USD">
         <span>USD</span>
-        <input type="number" name="currency" dir="rtl" [value]="value * crypto.quote.USD.price" disabled>
+        <input type="number" name="currency" dir="rtl" [value]="(value * crypto.quote.USD.price).toFixed(2)" disabled>
     </div>
 </form>
