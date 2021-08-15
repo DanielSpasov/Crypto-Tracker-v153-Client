@@ -60,12 +60,17 @@ export class EditArticleComponent implements OnInit {
             if (this.editForm.controls.content.errors?.minlength) this.toastr.error('Content must be at least 30 symbols long');
             return;
         }
+
+        const formData = new FormData();
+        formData.append('file', this.image);
         
         const articleID = this.router.url.split('/news/')[1].split('/edit')[0];
         if(!articleID) return;
 
         let editedData = {
             title: this.editForm.controls.title.value,
+            image: formData,
+            oldName: this.article.image.split('/')[5],
             content: this.editForm.controls.content.value
         };
 
@@ -75,6 +80,9 @@ export class EditArticleComponent implements OnInit {
                 () => {
                     this.toastr.success('Article Edited Successfully')
                     this.router.navigate(['/news', this.article._id])
+                    this.router.navigateByUrl('/news', { skipLocationChange: true }).then(() => {
+                        this.router.navigate(['/news', this.article._id]);
+                    }); 
                 },
                 err => this.toastr.error(err.error.message)
             );

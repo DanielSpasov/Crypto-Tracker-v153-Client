@@ -48,15 +48,18 @@ export class NewsService {
             });
     };
 
-    editArticle(articleID: string, editedData: object): Observable<IArticle> {
+    editArticle(articleID: string, editedData: any): Observable<IArticle> {
         let userID = localStorage.getItem('user-id');
         if (!userID) userID = '';
 
-        return this.http
-            .patch<IArticle>(`${apiUrl}/news/${articleID}`,
-                editedData, {
-                headers: { 'userID': userID }
-            })
+        this.http.post<any>(`${apiUrl}/news/uploadImage`, editedData.image, {
+            headers: { 'oldname': `${editedData.oldName}` }
+        }).subscribe()
+
+        return this.http.patch<IArticle>(`${apiUrl}/news/${articleID}`,
+            editedData, {
+            headers: { 'userID': userID }
+        })
     }
 
     searchNews(search: string): Observable<IArticle[]> {
