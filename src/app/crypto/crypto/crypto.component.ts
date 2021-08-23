@@ -84,7 +84,7 @@ export class CryptoComponent implements OnInit {
             );
     };
 
-    editWatchlistAsGuest() { console.log('Sign in to add items to your watchlsit'); };
+    editWatchlistAsGuest() { this.toastr.error('Sign in to add items to your watchlsit'); };
 
     sortItems(criteria: string): void {
         this.cryptoService.sortItems(this.cryptos, this.sorting[criteria], criteria);
