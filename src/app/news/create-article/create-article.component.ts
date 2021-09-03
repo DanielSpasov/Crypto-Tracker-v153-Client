@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { NewsService } from '../news.service';
-import { ToastrService } from 'ngx-toastr';
+import { ActiveToast, ToastrService } from 'ngx-toastr';
 
 
 
@@ -22,7 +22,10 @@ export class CreateArticleComponent {
 
     image!: File;
     imageChange(e: any): void { this.image = e.target.files[0] };
-    createArticleSubmit(form: NgForm): void {
+    createArticleSubmit(form: NgForm): ActiveToast<any> | void {
+
+        if (this.image.type !== 'image/png') return this.toastr.error('Invalid Image Format');
+        // if (this.image.type !== 'image/jpeg') return this.toastr.error('Invalid Image Format');
 
         if (form.invalid) {
             if (form.controls.title.errors?.required) this.toastr.error('Title is required');
